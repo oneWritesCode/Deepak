@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'BonheurRoyal-regular';
+  src: url('./assets/fonts/Bonheur_Royale/BonheurRoyale-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'mogra-Regular';
+  src: url('./assets/fonts/Mogra/Mogra-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'sour_gummy';
+  src: url('./assets/fonts/Sour_Gummy/SourGummy-Italic-VariableFont_wdth\,wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* Only apply when this class is used */
+.Bonheur {
+  font-family: 'BonheurRoyal-regular', system-ui, monospace;
+}
+
+.mogra {
+  font-family: 'mogra-Regular';
+}
+
+.sourGummy {
+  font-family: "sour_gummy";
+}
+
+.color {
+  color: #9c9c9c;
+}

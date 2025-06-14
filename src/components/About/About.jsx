@@ -1,0 +1,48 @@
+import catFootprint from "../../assets/images/cat-footprint.png"
+import LovedThings from "./LovedThings"
+
+function About() {
+    return (
+
+        <div className='w-full top-0 z-40 flex items-center justify-center bg-am-50'>
+            <div className='w-full flex items-center justify-center z-40'>
+                <div className='w-[80vw] relative p-4 mt-10 lg:mt-0 capitalize'>
+
+                    {/* animated blue background box */}
+                    <div className='absolute w-full h-screen flex justify-end items-center flex-col overflow-hidden '>
+
+                        <div className='relative -left-110 bottom-60 flex items- gap-4'>
+                            <img src={catFootprint} className="lg:h-[5vh] lg:w-[5vh] opacity-15 rotate-5 self-center" />
+                            <img src={catFootprint} className="lg:h-[25vh] lg:w-[25vh] opacity-15 rotate-2" />
+                            <img src={catFootprint} className="lg:h-[8vh] lg:w-[8vh] opacity-15 -rotate-6 self-end" />
+                        </div>
+
+                    </div>
+
+                    <p className="Bonheur text-7xl relative top-0 text-center mb-20"> About</p>
+                    <div className="w-full h-[60%] flex justify-between flex-wrap">
+
+                        <ul className="italic text-gray-100 font-bold min-h-[30vh] mb-24 items-center flex flex-col">
+                            <p className="sourGummy text-2xl mb-10">Things i had explore or loved before</p>
+
+                            <div className="pl-6 text-gray-200 flex gap-2.5  w-[80%] flex-wrap justify-center">
+                                <LovedThings text='phsycology' />
+                                <LovedThings text='philosophy' />
+                                <LovedThings text='photography' />
+                                <LovedThings text='dance' />
+                                <LovedThings text='poetry' />
+                                <LovedThings text='writing' />
+                                <LovedThings text='boxing' />
+                                <LovedThings text='businesses & Marketing' />
+                                <LovedThings text='football' />
+                            </div>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default About
