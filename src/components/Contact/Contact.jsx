@@ -1,7 +1,7 @@
 import Input from './Input'
 function Contact() {
 
-    const ApiKey = import.meta.env.VITE_API_KEY_WEB3_FORMS
+    const ApiKey = import.meta.env.WEB3_FORMS_API_KEY
 
     return (
         <>
