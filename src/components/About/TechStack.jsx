@@ -21,7 +21,7 @@ function TechStack() {
     return (
         <div className='w-full top-0 z-40 flex items-center justify-center'>
             <div className='w-full flex items-center justify-center z-40'>
-                <div className='w-[80vw] p-4 mt-10 lg:-mt-15 flex flex-col items-center capitalize'>
+                <div className='lg:w-[80vw] lg;w-[90vw] lg:p-4 p-1 -mt-10 lg:-mt-15 flex flex-col items-center capitalize'>
 
                     <p className='Bonheur text-7xl text-center my-10'>My Tech stack</p>
                     <div className='flex items-center justify-center gap-7 flex-wrap w-[80%] p-4'>

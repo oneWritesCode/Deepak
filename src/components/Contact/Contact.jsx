@@ -8,10 +8,10 @@ function Contact() {
 
             <div className='w-full top-0 z-40 flex items-center justify-center bg-am-50'>
                 <div className='w-full flex items-center justify-center z-40'>
-                    <div className='w-[80vw] relative p-4 mt-10 lg:mt-0 flex items-center justify-center gap-4 flex-col capitalize mb-10'>
+                    <div className='lg:w-[80vw] w-[90vw] relative p-4 mt-0 lg:mt-0 flex items-center justify-center gap-4 flex-col capitalize mb-10'>
                         <p className="Bonheur text-7xl relative top-0 text-center mt-26 mb-18"> Get in touch</p>
 
-                        <form action="https://api.web3forms.com/submit" method="POST" className='lg:w-[600px] w-full backdrop-blur-xl p-4 flex justify-center items-center flex-col'>
+                        <form action="https://api.web3forms.com/submit" method="POST" className='lg:w-[600px] w-full backdrop-blur-xl lg:p-4  flex justify-center items-center flex-col'>
 
                             <input
                                 type="hidden"
