@@ -19,11 +19,11 @@ function Contact() {
                               value="e23227b3-e9b3-4f57-a2a8-82469f3f248f"
                             />
 
-                            <Input type="text" name="name" placeholder="eg: deepika" label="Enter your name" className="bg-gray-400/10" required />
-                            <Input type="email" name="email" placeholder="eg: deepika.dev@gmail.com" label="Enter your email" className="bg-gray-400/10" required />
-                            <Input type="text" name="name" placeholder="eg: we_deep_126" label="Enter your twitter id*" className="bg-gray-400/10" />
+                            <Input type="text" name="Name" placeholder="eg: deepika" label="Enter your name" className="bg-gray-400/10" required />
+                            <Input type="email" name="Email" placeholder="eg: deepika.dev@gmail.com" label="Enter your email" className="bg-gray-400/10" required />
+                            <Input type="text" name="Twitter-Id" placeholder="eg: we_deep_126" label="Enter your twitter id*" className="bg-gray-400/10" />
 
-                            <Input type="text" name="name" placeholder="eg: hey, i am deepika" label="Enter your message" className="bg-gray-400/10 required" />
+                            <Input type="text" name="Message" placeholder="eg: hey, i am deepika" label="Enter your message" className="bg-gray-400/10 required" />
 
                             <button
                                 className='px-3 py-1 mt-10 rounded rotate-2 shadow-xl shadow-blue-500/30 hover:rotate-0 bg-blue-600 text-xl font-medium '
