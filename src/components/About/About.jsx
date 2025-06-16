@@ -25,8 +25,8 @@ function About() {
                         <ul className="italic text-gray-100 font-bold min-h-[30vh] mb-24 items-center flex flex-col">
                             <p className="sourGummy text-2xl mb-10">Things i had explore or loved before</p>
 
-                            <div className="lg:pl-6 text-gray-200 flex gap-2.5  w-[80%] flex-wrap justify-center">
-                                <LovedThings text='phsycology' />
+                            <div className="lg:pl-6 text-gray-200 flex gap-2.5  w-[80%] flex-wrap justify-center capitalize">
+                                <LovedThings text='Psychology' />
                                 <LovedThings text='philosophy' />
                                 <LovedThings text='photography' />
                                 <LovedThings text='dance' />
