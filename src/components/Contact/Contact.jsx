@@ -1,8 +1,9 @@
 import Input from './Input'
 function Contact() {
 //no need for this api calling but let it be there for revision in future
-    const ApiKey = import.meta.env. VITE_API_KEY_WEB3_FORMS_API_KEY
+    const ApiKey = import.meta.env.VITE_API_KEY_WEB3_FORMS_API_KEY
 
+                             // value="e23227b3-e9b3-4f57-a2a8-82469f3f248f"
     return (
         <>
 
@@ -16,7 +17,8 @@ function Contact() {
                             <input
                                 type="hidden"
                                 name="access_key"
-                              value="e23227b3-e9b3-4f57-a2a8-82469f3f248f"
+                             value=ApiKey
+                                
                             />
 
                             <Input type="text" name="Name" placeholder="eg: deepika" label="Enter your name" className="bg-gray-400/10" required />
