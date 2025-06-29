@@ -20,7 +20,7 @@ function About() {
                     </div>
 
                     <p className="Bonheur text-7xl relative top-0 text-center mb-20"> About</p>
-                    <div className="w-full h-[60%] flex justify-between items-center flex-wrap">
+                    <div className="w-full h-[100%] flex justify-center items-center flex-wrap">
 
                         <ul className="italic text-gray-100 font-bold min-h-[30vh] mb-24 items-center flex flex-col">
                             <p className="sourGummy text-2xl mb-10">Things i had explore or loved before</p>
