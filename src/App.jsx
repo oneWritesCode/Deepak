@@ -1,4 +1,3 @@
-import React from 'react'
 import LandingPage from './components/Landing/LandingPage'
 import Navbar from './components/Landing/Navbar'
 import { Route, Routes, useLocation } from 'react-router-dom'
@@ -6,6 +5,7 @@ import About from './components/About/About'
 import TechStack from './components/About/TechStack'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
+import Projects from './components/projects/Projects'
 
 function App() {
   const location = useLocation()
@@ -34,6 +34,12 @@ function App() {
             <Contact key={location} />
           </>}
         />
+        <Route path='/projects'
+          element={<>
+            <Projects key={location} />
+          </>}
+        /> 
+
       </Routes>
       <Footer />
     </div>

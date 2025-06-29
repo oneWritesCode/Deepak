@@ -4,7 +4,7 @@ import LovedThings from "./LovedThings"
 function About() {
     return (
 
-        <div className='w-full top-0 z-40 flex items-center justify-center bg-am-50'>
+        <div className='w-full top-0 flex items-center justify-center bg-am-50 z-0'>
             <div className='w-full flex items-center justify-center z-40'>
                 <div className='w-[80vw] relative p-4 mt-0 lg:mt-10 capitalize'>
 
@@ -19,8 +19,8 @@ function About() {
 
                     </div>
 
-                    <p className="Bonheur text-7xl relative top-0 text-center mb-20"> About</p>
-                    <div className="w-full h-[60%] flex justify-between flex-wrap">
+                    <p className="Bonheur text-7xl relative top-6 sm:top-0 text-center mb-20 "> About</p>
+                    <div className="w-full h-[60%] flex justify-center items-center flex-wrap">
 
                         <ul className="italic text-gray-100 font-bold min-h-[30vh] mb-24 items-center flex flex-col">
                             <p className="sourGummy text-2xl mb-10">Things i had explore or loved before</p>
