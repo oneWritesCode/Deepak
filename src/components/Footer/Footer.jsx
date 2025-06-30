@@ -35,7 +35,7 @@ function Footer() {
                         </div>
 
                         <div className='flex items-center justify-center lg:gap-6 gap-2 text-gray-200 flex-wrap'>
-                            <p>Made with ❤️ by Deepika</p>
+                            <p>Made with ❤️ by Deepak</p>
                             <p>© 2025 All rights reserved</p>
                         </div>
 

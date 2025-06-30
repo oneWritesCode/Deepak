@@ -37,10 +37,10 @@ function Contact() {
                         {/* Optional honeypot field */}
                         <input type="text" name="honeypot" style={{ display: "none" }} />
 
-                        <Input type="text" name="Name" placeholder="eg: deepika" label="Enter your name" className="bg-gray-400/10" required />
-                        <Input type="email" name="Email" placeholder="eg: deepika.dev@gmail.com" label="Enter your email" className="bg-gray-400/10" required />
+                        <Input type="text" name="Name" placeholder="eg: deepak" label="Enter your name" className="bg-gray-400/10" required />
+                        <Input type="email" name="Email" placeholder="eg: deepak.dev@gmail.com" label="Enter your email" className="bg-gray-400/10" required />
                         <Input type="text" name="Twitter-Id" placeholder="eg: we_deep_126" label="Enter your twitter id*" className="bg-gray-400/10" />
-                        <Input type="text" name="Message" placeholder="eg: hey, i am deepika" label="Enter your message" className="bg-gray-400/10" required />
+                        <Input type="text" name="Message" placeholder="eg: hey, i am deepak" label="Enter your message" className="bg-gray-400/10" required />
 
                         {/* Add reCAPTCHA if needed later */}
 
