@@ -40,7 +40,7 @@ function TechStack() {
                         <TechComponent image={reactjs} />
                         <TechComponent image={AWS} />
                         <TechComponent text="GSAP" classes="mogra" />
-                        <TechComponent text="motion" classes=""/>
+                        <TechComponent text="motion" classes=""/>   
 
                     </div>
                 </div>
