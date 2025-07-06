@@ -4,26 +4,27 @@ function BlogComponent(props) {
   return (
     <div className="w-full sm:max-w-xs md:max-w-sm lg:max-w-md p-2 sm:p-3 rounded-sm text-white flex flex-col items-center">
       {/* Blog Video/Media */}
-      {props.video && (
+      {(props.video || props.image) && (
         <div className="relative w-full mb-4">
-          {/* Video - Commented out as requested */}
-          <video
-            src={props.video}
-            autoPlay
-            loop
-            muted
-            className="w-full h-auto max-h-56 sm:max-h-64 rounded-md object-cover"
-          />
+          {/* Video */}
+          {props.video && (
+            <video
+              src={props.video}
+              autoPlay
+              loop
+              muted
+              className="w-full h-auto max-h-56 sm:max-h-64 rounded-md object-cover"
+            />
+          )}
           
-          {/* Placeholder for video */}
-          {/* <div className="w-full h-56 sm:h-64 rounded-md bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center border border-gray-700">
-            <div className="text-center">
-              <svg className="w-12 h-12 mx-auto mb-2 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-              <p className="text-sm text-gray-400">Video Preview</p>
-            </div>
-          </div> */}
+          {/* Image */}
+          {props.image && (
+            <img
+              src={props.image}
+              alt={props.title || "Blog thumbnail"}
+              className="w-full h-auto max-h-56 sm:max-h-64 rounded-md object-cover"
+            />
+          )}
           
           {/* Read time badge */}
           {props.readTime && (
@@ -47,7 +48,7 @@ function BlogComponent(props) {
 
       {/* Blog Description */}
       {props.description && (
-        <p className="text-sm text-gray-300 text-center mb-3 leading-relaxed">
+        <p className="text-sm text-gray-300 text-center mb-3 leading-relaxed max-w-md overflow-hidden line-clamp-2">
           {props.description}
         </p>
       )}
@@ -60,7 +61,7 @@ function BlogComponent(props) {
               key={idx}
               className="bg-gray-700 text-xs px-2 py-1 rounded-full text-gray-300"
             >
-              #{tag}
+              {tag}
             </span>
           ))}
         </div>
@@ -73,19 +74,6 @@ function BlogComponent(props) {
         </p>
       )}
 
-      {/* Author Info */}
-      {/* {props.author && (
-        <div className="flex items-center justify-center mb-3">
-          {props.authorImage && (
-            <img
-              src={props.authorImage}
-              alt={props.author}
-              className="w-6 h-6 rounded-full mr-2"
-            />
-          )}
-          <span className="text-sm text-gray-300">By {props.author}</span>
-        </div>
-      )} */}
 
       {/* Links */}
       <div className="flex gap-3 mt-2">
