@@ -203,14 +203,14 @@ function LandingPage() {
 
                 <div className='absolute flex flex-col items-center justify-center'>
                     <span className='backdrop-blur lg:backdrop-blur-none'>
-                        <div className='relative w-full border-4 sm:border-10 z-0 border-blue-600 top-10 sm:top-22'></div>
+                        <div className='relative w-full border-4 sm:border-10 z-0 border-blue-700 top-10 sm:top-22'></div>
                         <p className=' relative Bonheur text-6xl sm:text-9xl font-medium z-10'>hey, i am deepak</p>
                     </span>
 
                     <div className='lg:w-[600px] text-center pt-4 sm:pt-10 lg:p-0 px-10 text-yellow-9 00 text-sm sm:text-xl font-medium'>
                         <p className='mb-4'>hey there, wanna hear about me !!</p>
                         <p>
-                            so, i am <span className='underline'>self taught developer</span>. just curious about things and try to learn everything that people are afraid of.
+                            so, i am <span className='text-blue-600'>self taught developer</span>. just curious about things and try to learn everything that people are afraid of.
                         </p>
                         <p className='mogra mt-6 text-xl'>i am CAT</p>
                     </div>

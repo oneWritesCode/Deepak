@@ -2,32 +2,31 @@ import { NavLink } from 'react-router-dom'
 
 function Navbar() {
     return (
-
         <div className='w-full min-h-[10vh] flex items-center justify-center'>
             <div className='w-full h-[100px] top-0 flex items-center justify-center z-40'>
-                <div className='w-[80vw] p-4 flex justify-around items-center flex-wrap gap-10 mb-10 mt-10 lg:mt-0'>
+                <div className='w-[95vw] sm:w-[90vw] md:w-[85vw] lg:w-[80vw] p-2 sm:p-4 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-5 lg:gap-10 mb-6 sm:mb-8 lg:mb-10 mt-6 sm:mt-8 lg:mt-10'>
 
-                    <div className='sm:text-2xl text-xl font-bold Bonheur lg:mt-0 mt-4'> {`< Codinnng />`}</div>
+                    <div className='text-lg sm:text-xl md:text-2xl font-bold Bonheur order-1 sm:order-none'> {`< Codinnng />`}</div>
 
-                    <div className='flex justify-around items-center gap-2 sm:gap-4'>
+                    <div className='flex justify-center sm:justify-around items-center gap-1 sm:gap-2 md:gap-3 lg:gap-4 order-2 sm:order-none'>
                         <NavLink
                             to="/"
-                            className={({ isActive }) => `${isActive ? 'bg-blue-500' : ""} rounded-lg font-bold px-2 sm:px-4 hover:bg-blue-500 cursor-pointer`}
+                            className={({ isActive }) => `${isActive ? 'bg-blue-500 text-white' : 'hover:text-blue-600'} rounded-xl font-semibold px-2 sm:px-3 md:px-4 py-1 hover:bg-blue-500 hover:text-white transition-all duration-200 text-sm sm:text-base`}
                         >
                             Home
                         </NavLink>
 
                         <NavLink
-                            to="/About"
-                            className={({ isActive }) => `${isActive ? 'bg-blue-500' : ""} rounded-lg font-bold px-2 sm:px-4 hover:bg-blue-500 cursor-pointer`}
+                            to="/Projects"
+                            className={({ isActive }) => `${isActive ? 'bg-blue-500 text-white' : 'hover:text-blue-600'} rounded-xl font-semibold px-2 sm:px-3 md:px-4 py-1 hover:bg-blue-500 hover:text-white transition-all duration-200 text-sm sm:text-base`}
                         >
-                            About
+                            Projects
                         </NavLink>
                         <NavLink
-                            to="/contact"
-                            className={({ isActive }) => `${isActive ? 'bg-blue-500' : ""} rounded-lg font-bold px-2 sm:px-4 hover:bg-blue-500 cursor-pointer`}
+                            to="/blogs"
+                            className={({ isActive }) => `${isActive ? 'bg-blue-500 text-white' : 'hover:text-blue-600'} rounded-xl font-semibold px-2 sm:px-3 md:px-4 py-1 hover:bg-blue-500 hover:text-white transition-all duration-200 text-sm sm:text-base`}
                         >
-                            Contact
+                            Blogs
                         </NavLink>
                     </div>
                 </div>
