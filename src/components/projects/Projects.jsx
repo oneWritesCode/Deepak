@@ -54,7 +54,7 @@ function Projects() {
                     video={thoughtPolice}
                     title="THOUGHT POLICE"
                     description="A website for reddit users. It helps you find people with Double Dealing Character on Reddit people who post random and contradictory stuff just for reach, so you can find them and block them."
-                    category="FROM BOLTE.NEW HACKATHON"
+                    category="FROM BOLT.NEW HACKATHON"
                     tags={[
                       "React 18",
                       "TypeScript",
