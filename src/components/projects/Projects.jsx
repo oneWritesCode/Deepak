@@ -1,7 +1,6 @@
 import Project from "./ProjectComponent";
-import FirstDesign from "../../assets/images/First-Design.png";
-import SecondDesign from "../../assets/images/Second-Design.png";
 import GrandTheftAuto from "../../assets/video/Grand-Theft-Auto.mp4";
+import Ecommerce from "../../assets/video/E-Commerce.mp4";
 import DMarts from "../../assets/video/D-Marts.mp4";
 import TypeZ from "../../assets/video/TypeZ.mp4";
 import thoughtPolice from "../../assets/video/Thought-Police.mp4";
@@ -24,14 +23,16 @@ function Projects() {
                   Code & Caffiene
                 </p>
                 <div className="pl-0 sm:pl-6 text-gray-200 flex gap-2 w-full flex-wrap justify-center">
-                  <Project
-                    video={DMarts}
-                    title="D-Marts - B2B Business Platform"
-                    description="A website for B2B business which helps startups to make their strong digital performance so they can standout in market. build in 2024."
-                    category="FREELANCE PROJECT"
-                    tags={["React", "GSAP", "tailwindCSS"]}
-                  />
-                  <Project
+                <Project
+                  video={Ecommerce}
+                  title="E-Commerce website"
+                  description="A full-stack e-commerce platform with MERN stack featuring product listings, cart, checkout,edit and admin dashboard. using all CRUD operations Built in July 2025."
+                  category="Personal Project"
+                  tags={["MongoDB", "Express.js", "React.js", "Node.js"]}
+                  github="https://github.com/oneWritesCode/ecommerce"
+                  // live="https://ecommerce-demo.vercel.app/"
+                />
+                   <Project
                     video={TypeZ}
                     title="TypeZ - Typing Game"
                     description="A typing game website for peoples who want to improve their typing speed and accuracy. build in june 2025"
@@ -54,7 +55,7 @@ function Projects() {
                     video={thoughtPolice}
                     title="THOUGHT POLICE"
                     description="A website for reddit users. It helps you find people with Double Dealing Character on Reddit people who post random and contradictory stuff just for reach, so you can find them and block them."
-                    category="FROM BOLT.NEW HACKATHON"
+                    category="FROM BOLTE.NEW HACKATHON"
                     tags={[
                       "React 18",
                       "TypeScript",
@@ -105,7 +106,7 @@ function Projects() {
             </div>
 
             {/* related to ui/ux  */}
-            <div className="w-full flex justify-center items-center flex-wrap mb-8 sm:mb-0">
+            <div className="w-full flex justify-center items-center flex-wrap sm:mb-0">
               <ul className="italic text-gray-100 font-bold min-h-[20vh] sm:min-h-[30vh] mb-12 sm:mb-24 items-center flex flex-col w-full">
                 <p className="sourGummy text-lg sm:text-2xl mb-6 sm:mb-10">
                   UI/UIx
@@ -119,21 +120,23 @@ function Projects() {
                     category="UI/UX Design"
                     tags={["React", "GSAP"]}
                   />
+                </div>
+              </ul>
+            </div>
 
-                  <Project 
-                    image={FirstDesign} 
-                    title="First Design Concept"
-                    description="Initial UI/UX design concept showcasing modern design principles and user experience patterns."
-                    category="UI/UX Design"
-                    tags={["Figma", "UI/UX"]} 
-                  />
+            <div className="w-full flex justify-center items-center flex-wrap mb-8 sm:mb-0">
+              <ul className="italic text-gray-100 font-bold min-h-[20vh] sm:min-h-[30vh] mb-12 sm:mb-24 items-center flex flex-col w-full">
+                <p className="sourGummy text-lg sm:text-2xl mb-6 sm:mb-10">
+                  Freelance project
+                </p>
 
+                <div className="pl-0 sm:pl-6 text-gray-200 flex gap-2 w-full flex-wrap justify-center">
                   <Project
-                    image={SecondDesign}
-                    title="Second Design Concept"
-                    description="Refined UI/UX design concept with improved user interface and enhanced visual hierarchy."
-                    category="UI/UX Design"
-                    tags={["Figma", "UI/UX"]}
+                    video={DMarts}
+                    title="D-Marts - B2B Business Platform"
+                    description="A website for B2B business which helps startups to make their strong digital performance so they can standout in market. build in 2024."
+                    category="FREELANCE PROJECT"
+                    tags={["React", "GSAP", "tailwindCSS"]}
                   />
                 </div>
               </ul>
