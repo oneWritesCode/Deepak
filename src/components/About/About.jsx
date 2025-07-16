@@ -23,16 +23,16 @@ function About() {
                     <div className="w-full h-[100%] flex justify-center items-center flex-wrap">
 
                         <ul className="italic text-gray-100 font-bold min-h-[30vh] mb-24 items-center flex flex-col">
-                            <p className="sourGummy text-2xl mb-10">Things i had explore or loved before</p>
+                            <p className="sourGummy text-center text-2xl mb-10">Things i had explore or loved before</p>
 
-                            <div className="lg:pl-6 text-gray-200 flex gap-2.5  w-[80%] flex-wrap justify-center capitalize">
+                            <div className="lg:pl-6 text-gray-200 flex gap-2.5  w-[80%] flex-wrap items-center justify-center capitalize">
                                 <LovedThings text='Psychology' />
                                 <LovedThings text='philosophy' />
+                                <LovedThings text='coding' />
                                 <LovedThings text='photography' />
-                                <LovedThings text='dance' />
                                 <LovedThings text='poetry' />
                                 <LovedThings text='writing' />
-                                <LovedThings text='boxing' />
+                                <LovedThings text='Martial-arts' />
                                 <LovedThings text='businesses & Marketing' />
                                 <LovedThings text='football' />
                             </div>

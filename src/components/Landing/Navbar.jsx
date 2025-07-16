@@ -8,23 +8,23 @@ function Navbar() {
 
                     <div className='text-lg sm:text-xl md:text-2xl font-bold Bonheur order-1 sm:order-none'> {`< Codinnng />`}</div>
 
-                    <div className='flex justify-center sm:justify-around items-center gap-1 sm:gap-2 md:gap-3 lg:gap-4 order-2 sm:order-none'>
+                    <div className='flex justify-center sm:justify-around items-center gap-1 sm:gap-3 md:gap-4 lg:gap-5 order-2'>
                         <NavLink
                             to="/"
-                            className={({ isActive }) => `${isActive ? 'bg-blue-500 text-white' : 'hover:text-blue-600'} rounded-xl font-semibold px-2 sm:px-3 md:px-4 py-1 hover:bg-blue-500 hover:text-white transition-all duration-200 text-sm sm:text-base`}
+                            className={({ isActive }) => `${isActive ? 'bg-blue-500 text-white' : 'hover:text-blue-600'} rounded-xl font-semibold px-2 sm:px-3 md:px-4 py-1 hover:bg-blue-500 hover:text-white transition-all duration-200 text-md sm:text-base`}
                         >
                             Home
                         </NavLink>
 
                         <NavLink
                             to="/Projects"
-                            className={({ isActive }) => `${isActive ? 'bg-blue-500 text-white' : 'hover:text-blue-600'} rounded-xl font-semibold px-2 sm:px-3 md:px-4 py-1 hover:bg-blue-500 hover:text-white transition-all duration-200 text-sm sm:text-base`}
+                            className={({ isActive }) => `${isActive ? 'bg-blue-500 text-white' : 'hover:text-blue-600'} rounded-xl font-semibold px-2 sm:px-3 md:px-4 py-1 hover:bg-blue-500 hover:text-white transition-all duration-200 text-md sm:text-base`}
                         >
                             Projects
                         </NavLink>
                         <NavLink
                             to="/blogs"
-                            className={({ isActive }) => `${isActive ? 'bg-blue-500 text-white' : 'hover:text-blue-600'} rounded-xl font-semibold px-2 sm:px-3 md:px-4 py-1 hover:bg-blue-500 hover:text-white transition-all duration-200 text-sm sm:text-base`}
+                            className={({ isActive }) => `${isActive ? 'bg-blue-500 text-white' : 'hover:text-blue-600'} rounded-xl font-semibold px-2 sm:px-3 md:px-4 py-1 hover:bg-blue-500 hover:text-white transition-all duration-200 text-md sm:text-base`}
                         >
                             Blogs
                         </NavLink>
