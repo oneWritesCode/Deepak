@@ -5,6 +5,7 @@ import DMarts from "../../assets/video/D-Marts.mp4";
 import TypeZ from "../../assets/video/TypeZ.mp4";
 import thoughtPolice from "../../assets/video/Thought-Police.mp4";
 import Godgpt from "../../assets/video/Godgpt.mp4";
+import teditor from "../../assets/images/T-editor.png";
 
 function Projects() {
   return (
@@ -23,16 +24,25 @@ function Projects() {
                   Code & Caffiene
                 </p>
                 <div className="pl-0 sm:pl-6 text-gray-200 flex gap-2 w-full flex-wrap justify-center">
-                <Project
-                  video={Ecommerce}
-                  title="E-Commerce website"
-                  description="A full-stack e-commerce platform with MERN stack featuring product listings, cart, checkout,edit and admin dashboard. using all CRUD operations Built in July 2025."
-                  category="Personal Project"
-                  tags={["MongoDB", "Express.js", "React.js", "Node.js"]}
-                  github="https://github.com/oneWritesCode/ecommerce"
+                  <Project
+                    image={teditor}
+                    title="T-Editor"
+                    description="A rich text editor built with React and Tiptap. It allows you to write, edit, and format text, paste images directly, and manage content easily. Designed for smooth and intuitive writing experiences."
+                    category="Personal Project"
+                    tags={["react", "tiptap", "tailwindcss"]}
+                    github="https://github.com/oneWritesCode/T-Editor"
+                    live="https://teditor-livid.vercel.app/"
+                  />
+                  <Project
+                    video={Ecommerce}
+                    title="E-Commerce website"
+                    description="A full-stack e-commerce platform with MERN stack featuring product listings, cart, checkout,edit and admin dashboard. using all CRUD operations Built in July 2025."
+                    category="Personal Project"
+                    tags={["MongoDB", "Express.js", "React.js", "Node.js"]}
+                    github="https://github.com/oneWritesCode/ecommerce"
                   // live="https://ecommerce-demo.vercel.app/"
-                />
-                   <Project
+                  />
+                  <Project
                     video={TypeZ}
                     title="TypeZ - Typing Game"
                     description="A typing game website for peoples who want to improve their typing speed and accuracy. build in june 2025"
