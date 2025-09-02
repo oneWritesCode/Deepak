@@ -1,6 +1,7 @@
 import React from "react";
 import BlogComponent from "./BlogComponent";
 import PythonBlog from "../../assets/images/Python-blog.png";
+import OSBlog from "../../assets/images/OS-blog.png";
 
 function Blogs() {
   return (
@@ -25,6 +26,16 @@ function Blogs() {
                     tags={["Python", "CPython"]}
                     publishDate="july 6, 2025"
                     liveLink="https://medium.com/@lalmohansingh83/how-pythons-engine-gets-down-a-guide-to-python-s-inner-workings-699ea581ad96"
+                  /> 
+                  <BlogComponent
+                    image={OSBlog}
+                    title="All You Need to Know About Operating Systems"
+                    description="Hey there! If you've ever wondered what makes your computer or phone tick, you're in the right place. This article is your quick, no-BS guide to understanding operating systems (OS). Let's dive in and figure out why these things are so important and what they're all about."
+                    readTime={3}
+                    category="OS"
+                    tags={["operating systems"]}
+                    publishDate="september 2, 2025"
+                    liveLink="https://medium.com/@triordeep/all-you-need-to-know-about-operating-systems-3394cd4eb444"
                   />
                 </div>
               </ul>
