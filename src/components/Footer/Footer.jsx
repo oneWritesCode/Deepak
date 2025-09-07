@@ -67,7 +67,7 @@ function Footer() {
               </a>
 
               <a
-                href="https://instagram.com/deepak._.126"
+                href="https://instagram.com/triordeep"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-lg font-bold p-3 cursor-pointer transition-all duration-300 hover:scale-105"

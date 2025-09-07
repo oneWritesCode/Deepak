@@ -1,10 +1,9 @@
 import Lines from '../../assets/svg/Lines'
 import Navbar from './Navbar'
-import plane from "../../assets/images/plane.png"
-import rays from "../../assets/images/rays.png"
 import { motion } from 'framer-motion'
 import CatOne from '../../assets/svg/CatOne'
 import { NavLink } from 'react-router-dom'
+import NavlinkMotion from './NavlinkMotion'
 
 function LandingPage() {
     return (
@@ -22,7 +21,7 @@ function LandingPage() {
             </div>
 
             {/* background cats ______________________________________________________________*/}
-
+{/* 
             <div className='absolute top-0 w-full h-screen flex justify-end flex-col overflow-hidden'>
                 <span className='relative bottom-0 left-100 flex justify-center '>
                     <span className='opacity-35'>
@@ -191,10 +190,10 @@ function LandingPage() {
                         <CatOne />
                     </span>
                 </span>
-            </div>
+            </div> */}
 
             {/* background lines ________________________________________________________________*/}
-            <div className='w-full h-screen overflow-hidden fixed top-0 right-0 z-0'> <Lines /></div>
+            <div className='w-full overflow-hidden fixed top-0 right-0 z-0'> <Lines /></div>
 
 
 
@@ -212,23 +211,13 @@ function LandingPage() {
                         <p>
                             so, i am <span className='text-blue-600'>self taught developer</span>. just curious about things and try to learn everything that people are afraid of.
                         </p>
-                        <p className='mogra mt-6 text-xl'>i am CAT</p>
+                        <p className='mogra mt-6 text-xl'>here is my proof of work</p>
                     </div>
-                    <NavLink to='/projects' className="cursor-pointer">
-                        <motion.button
-                            animate={{
-                                rotate: [14, 0, -2, 1, 10, 4, 9, -3, 2 - 2, 0, 0, 0, 0, 0, 0, 0, 0, , 0, 0, , 0, 0]
-                            }}
-                            transition={{
-                                duration: 5,
-                                repeat: Infinity
-                            }}
-                            className='cursor-pointer px-4 py-2 mt-10 rounded rotate-4 shadow-xl shadow-blue-500/30 hover:rotate-0 bg-blue-600 text-xl font-bold'
-                        >
-
-                            Projects <span className='mogra ml-2 text-white'>{`<3`}</span>
-                        </motion.button>
-                    </NavLink>
+                    <div className='flex gap-10'>
+                        
+                    <NavlinkMotion link="projects" name="projects" />
+                    <NavlinkMotion link="blogs" name="blogs" />
+                    </div>
                 </div>
             </div>
         </>

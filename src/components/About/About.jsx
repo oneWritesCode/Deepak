@@ -11,16 +11,16 @@ function About() {
                     {/* animated blue background box */}
                     <div className='absolute w-full h-screen flex justify-end items-center flex-col overflow-hidden '>
 
-                        <div className='relative lg-left-110 left-20 bottom-60 flex items- gap-4'>
+                        {/* <div className='relative lg-left-110 left-20 bottom-60 flex items- gap-4'>
                             <img src={catFootprint} className="h-[5vh] w-[5vh] opacity-15 rotate-5 self-center" />
                             <img src={catFootprint} className="h-[25vh] w-[25vh] opacity-15 rotate-2" />
                             <img src={catFootprint} className="h-[8vh] w-[8vh] opacity-15 -rotate-6 self-end" />
-                        </div>
+                        </div> */}
 
                     </div>
 
-                    <p className="Bonheur text-7xl relative top-0 text-center mb-20"> About</p>
-                    <div className="w-full h-[100%] flex justify-center items-center flex-wrap">
+                    {/* <p className="Bonheur text-7xl relative top-0 text-center mb-20"> About</p> */}
+                    {/* <div className="w-full h-[100%] flex justify-center items-center flex-wrap">
 
                         <ul className="italic text-gray-100 font-bold min-h-[30vh] mb-24 items-center flex flex-col">
                             <p className="sourGummy text-center text-2xl mb-10">Things i had explore or loved before</p>
@@ -37,7 +37,7 @@ function About() {
                                 <LovedThings text='football' />
                             </div>
                         </ul>
-                    </div>
+                    </div> */}
 
                 </div>
             </div>
