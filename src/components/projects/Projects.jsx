@@ -5,6 +5,7 @@ import DMarts from "../../assets/video/D-Marts.mp4";
 import TypeZ from "../../assets/video/TypeZ.mp4";
 import thoughtPolice from "../../assets/video/Thought-Police.mp4";
 import Godgpt from "../../assets/video/Godgpt.mp4";
+import ChatApp from "../../assets/video/Chat-app.mp4";
 import teditor from "../../assets/images/T-editor.png";
 
 function Projects() {
@@ -25,6 +26,22 @@ function Projects() {
                 </p>
                 <div className="pl-0 sm:pl-6 text-gray-200 flex gap-2 w-full flex-wrap justify-center">
                   <Project
+                    video={ChatApp}
+                    title="real time Chat-App"
+                    description="building a real-time chat application in MERN stack and socket.io. Secure Login & Signup, Files, pictures & Video Transfer with all CRUD operations."
+                    category="Personal Project"
+                    tags={[
+                      "Socket.io",
+                      "mongoDB",
+                      "Express.js",
+                      "react",
+                      "node.js",
+                      "tailwindcss",
+                    ]}
+                    github="https://github.com/oneWritesCode/chat-app"
+                    live="https://chat-app-five-jet-76.vercel.app"
+                  />
+                  <Project
                     image={teditor}
                     title="T-Editor"
                     description="A rich text editor built with React and Tiptap. It allows you to write, edit, and format text, paste images directly, and manage content easily. Designed for smooth and intuitive writing experiences."
@@ -40,7 +57,7 @@ function Projects() {
                     category="Personal Project"
                     tags={["MongoDB", "Express.js", "React.js", "Node.js"]}
                     github="https://github.com/oneWritesCode/ecommerce"
-                  // live="https://ecommerce-demo.vercel.app/"
+                    // live="https://ecommerce-demo.vercel.app/"
                   />
                   <Project
                     video={TypeZ}
