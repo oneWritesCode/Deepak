@@ -35,11 +35,11 @@ function LandingPage() {
                     </span>
 
                     <div className='lg:w-[600px] text-center pt-4 sm:pt-10 lg:p-0 px-10 text-yellow-9 00 text-sm sm:text-xl font-medium'>
-                        <p className='mb-4'>hey there, wanna hear about me !!</p>
+                        <p className='mb-4'>hey, wanna hear about me?</p>
                         <p>
-                            so, i am <span className='text-blue-600'>self taught developer</span> . just curious about things and trying to learn everything that peoples are afraid of.
+                            so, i am <span className='text-blue-500'>self taught developer</span> . just curious about things and trying to learn everything that peoples are afraid of.
                         </p>
-                        <p className='mogra mt-6 text-xl'>here is my proof of work</p>
+                        <p className='mogra mt-6 text-xl'>here is the proof</p>
                     </div>
                     <div className='flex gap-10'>
                         

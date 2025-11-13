@@ -11,6 +11,8 @@ import reactjs from "../../assets/images/react.png"
 import tailwindcss from "../../assets/images/tailwindcss.png"
 import typescript from "../../assets/images/typescript.png"
 import vite from "../../assets/images/vite.png"
+import python from "../../assets/images/python.png"
+import postgressql from "../../assets/images/postgressql.png"
 import AWS from "../../assets/images/amazon-aws.png"
 import TechComponent from "./TechComponent"
 
@@ -25,22 +27,23 @@ function TechStack() {
 
                     <p className='Bonheur text-7xl text-center my-10'>My Tech stack</p>
                     <div className='flex items-center justify-center gap-7 flex-wrap w-[80%] p-4'>
-                        <TechComponent image={html} />
+                        {/* <TechComponent image={html} />
                         <TechComponent image={css} />
-                        <TechComponent image={javascript} />
-                        <TechComponent image={appwrite} />
-                        <TechComponent image={expressjs} />
-                        <TechComponent image={figma} />
-                        <TechComponent image={mongodb} />
-                        <TechComponent image={nextjs} />
-                        <TechComponent image={typescript} />
-                        <TechComponent image={tailwindcss} />
-                        <TechComponent image={nodejs} />
-                        <TechComponent image={vite} />
+                        <TechComponent image={javascript} /> */}
+
                         <TechComponent image={reactjs} />
+                        <TechComponent image={tailwindcss} />
+                        <TechComponent image={typescript} />
+                        <TechComponent image={nextjs} />
+                        <TechComponent image={expressjs} />
                         <TechComponent image={AWS} />
+                        <TechComponent image={mongodb} />
+                        <TechComponent image={nodejs} />
+                        <TechComponent image={postgressql} />
+                        <TechComponent image={python} />
                         <TechComponent text="GSAP" classes="mogra" />
-                        <TechComponent text="motion" classes=""/>   
+                        <TechComponent text="motion"/>   
+                        <TechComponent image={figma} />
 
                     </div>
                 </div>
