@@ -1,7 +1,6 @@
 import LandingPage from "./components/Landing/LandingPage";
 import Navbar from "./components/Landing/Navbar";
 import { Route, Routes, useLocation } from "react-router-dom";
-import About from "./components/About/About";
 import TechStack from "./components/About/TechStack";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
@@ -20,7 +19,6 @@ function App() {
           element={
             <>
               <LandingPage key={location} />
-              <About />
               <TechStack />
               <Contact />
             </>

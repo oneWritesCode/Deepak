@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 
 function Navbar() {
     return (
-        <div className='w-full min-h-[10vh] flex items-center justify-center'>
+        <div className='w-full min-h-[12vh] mb-10 flex items-center justify-center'>
             <div className='w-full h-[100px] top-0 flex items-center justify-center z-40'>
                 <div className='w-[95vw] sm:w-[90vw] md:w-[85vw] lg:w-[80vw] p-2 sm:p-4 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-5 lg:gap-10 mb-6 sm:mb-8 lg:mb-10 mt-6 sm:mt-8 lg:mt-10'>
 
