@@ -6,6 +6,7 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import Projects from "./components/projects/Projects";
 import Blogs from "./components/Blogs/Blogs";
+import { Analytics } from "@vercel/analytics/next"
 
 function App() {
   const location = useLocation();
@@ -13,6 +14,7 @@ function App() {
   return (
     <div className="bg-black text-white">
       <Navbar />
+      <Analytics />
       <Routes>
         <Route
           path="/"
