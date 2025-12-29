@@ -1,6 +1,12 @@
-import html from "../../assets/images/html.png"
+import React from "react";
 
-function TechComponent(props) {
+interface TechComponentProps {
+  image?: string;
+  text?: string;
+  classes?: string;
+}
+
+function TechComponent(props: TechComponentProps): React.ReactElement {
     return (
         <>
             {props.image &&

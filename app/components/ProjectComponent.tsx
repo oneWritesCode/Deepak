@@ -1,6 +1,18 @@
 import React from "react";
 
-function Project(props) {
+interface ProjectProps {
+  video?: string;
+  image?: string;
+  title?: string;
+  description?: string;
+  category?: string;
+  tags?: string[];
+  github?: string;
+  live?: string;
+  liveLink?: string;
+}
+
+function Project(props: ProjectProps): React.ReactElement {
   return (
     <div className="w-full sm:max-w-xs md:max-w-sm lg:max-w-md p-2 sm:p-3 rounded-sm text-white flex flex-col items-center">
       {/* Project Video/Media */}

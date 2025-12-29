@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@font-face {
+  font-family: 'BonheurRoyal-regular';
+  src: url('@/public/assets/fonts/Bonheur_Royale/BonheurRoyale-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'mogra-Regular';
+  src: url('@/public/assets/fonts/Mogra/Mogra-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'sour_gummy';
+  src: url('@/public/assets/fonts/Sour_Gummy/SourGummy-Italic-VariableFont_wdth\,wght.ttf') format('truetype');
+  /* font-weight: normal; */
+  font-style: normal;
+}
+
+
+/* Only apply when this class is used */
+.Bonheur {
+  font-family: 'BonheurRoyal-regular', system-ui, monospace;
+}
+
+.mogra {
+  font-family: 'mogra-Regular';
+}
+
+.sourGummy {
+  font-family: "sour_gummy";
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}

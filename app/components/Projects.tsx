@@ -1,16 +1,18 @@
+import React from "react";
 import Project from "./ProjectComponent";
-import GrandTheftAuto from "../../assets/video/Grand-Theft-Auto.mp4";
-import Ecommerce from "../../assets/video/E-Commerce.mp4";
-import DMarts from "../../assets/video/D-Marts.mp4";
-import TypeZ from "../../assets/video/TypeZ.mp4";
-import thoughtPolice from "../../assets/video/Thought-Police.mp4";
-import Godgpt from "../../assets/video/Godgpt.mp4";
-import ChatApp from "../../assets/video/Chat-app.mp4";
-import teditor from "../../assets/images/T-editor.png";
 
-function Projects() {
+const GrandTheftAuto: string = "/assets/video/Grand-Theft-Auto.mp4";
+const Ecommerce: string = "/assets/video/E-Commerce.mp4";
+const DMarts: string = "/assets/video/D-Marts.mp4";
+const TypeZ: string = "/assets/video/TypeZ.mp4";
+const thoughtPolice: string = "/assets/video/Thought-Police.mp4";
+const Godgpt: string = "/assets/video/Godgpt.mp4";
+const ChatApp: string = "/assets/video/Chat-app.mp4";
+const teditor: string = "/assets/images/T-editor.png";
+
+function Projects(): React.ReactElement {
   return (
-    <div className="w-full top-0 flex items-center justify-center bg-am-50 z-0">
+    <div className="w-full top-0 flex items-center justify-center bg-am-50 z-0 bg-black">
       <div className="w-full flex items-center justify-center z-40">
         <div className="w-full max-w-5xl relative p-2 sm:p-4 mt-0 lg:mt-10 capitalize">
           <div className="min-h-screen">

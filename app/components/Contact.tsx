@@ -1,15 +1,17 @@
-import Input from './Input'
-import { useEffect, useRef, useState } from 'react'
+"use client"
 
-function Contact() {
-    const formRef = useRef(null);
-    const [cooldown, setCooldown] = useState(false);
+import React, { useRef, useState, FormEvent } from 'react'
+import Input from './Input'
+
+function Contact(): React.ReactElement {
+    const formRef = useRef<HTMLFormElement>(null);
+    const [cooldown, setCooldown] = useState<boolean>(false);
 
     // Web3Forms public key (NOT secret)
-    const PUBLIC_FORM_KEY = "e23227b3-e9b3-4f57-a2a8-82469f3f248f"; // okay to expose this
+    const PUBLIC_FORM_KEY: string = "e23227b3-e9b3-4f57-a2a8-82469f3f248f"; // okay to expose this
 
     // Cooldown after submission
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
         if (cooldown) {
             e.preventDefault();
             alert("You're submitting too fast. Wait a few seconds.");
@@ -20,7 +22,7 @@ function Contact() {
     };
 
     return (
-        <div className='w-full top-0 z-40 flex items-center justify-center bg-am-50'>
+        <div className='w-full top-0 z-40 flex items-center justify-center bg-black'>
             <div className='w-full flex items-center justify-center z-40'>
                 <div className='lg:w-[80vw] w-[95vw] relative p-4 sm:p-6 mt-0 lg:mt-0 flex items-center justify-center gap-4 flex-col capitalize mb-10'>
                     <p className="Bonheur text-4xl sm:text-6xl lg:text-7xl relative top-0 text-center mt-16 sm:mt-20 lg:mt-26 mb-12 sm:mb-16 lg:mb-18">Get in touch</p>
@@ -28,7 +30,7 @@ function Contact() {
                     <form
                         action="https://api.web3forms.com/submit"
                         method="POST"
-                        className='lg:w-[600px] w-full max-w-[500px] backdrop-blur-xl lg:p-6 p-4 flex justify-center items-center flex-col'
+                        className='lg:w-150 w-full max-w-125 backdrop-blur-xl lg:p-6 p-4 flex justify-center items-center flex-col'
                         ref={formRef}
                         onSubmit={handleSubmit}
                     >

@@ -1,6 +1,18 @@
 import React from "react";
 
-function BlogComponent(props) {
+interface BlogComponentProps {
+  video?: string;
+  image?: string;
+  title?: string;
+  description?: string;
+  readTime?: number;
+  category?: string;
+  tags?: string[];
+  publishDate?: string;
+  liveLink?: string;
+}
+
+function BlogComponent(props: BlogComponentProps): React.ReactElement {
   return (
     <div className="w-full sm:max-w-xs md:max-w-sm lg:max-w-md p-2 sm:p-3 rounded-sm text-white flex flex-col items-center">
       {/* Blog Video/Media */}

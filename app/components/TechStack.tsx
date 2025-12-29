@@ -1,31 +1,29 @@
-import expressjs from "../../assets/images/express-js.png"
-import figma from "../../assets/images/figma.png"
-import mongodb from "../../assets/images/mongodb.png"
-import nextjs from "../../assets/images/nextjs.png"
-import nodejs from "../../assets/images/nodejs.png"
-import reactjs from "../../assets/images/react.png"
-import tailwindcss from "../../assets/images/tailwindcss.png"
-import typescript from "../../assets/images/typescript.png"
-import python from "../../assets/images/python.png"
-import postgressql from "../../assets/images/postgressql.png"
-import AWS from "../../assets/images/amazon-aws.png"
+import React from "react";
+
+const expressjs: string = "/assets/images/express-js.png";
+const figma: string = "/assets/images/figma.png";
+const mongodb: string = "/assets/images/mongodb.png";
+const nextjs: string = "/assets/images/nextjs.png";
+const nodejs: string = "/assets/images/nodejs.png";
+const reactjs: string = "/assets/images/react.png";
+const tailwindcss: string = "/assets/images/tailwindcss.png";
+const typescript: string = "/assets/images/typescript.png";
+const python: string = "/assets/images/python.png";
+const postgressql: string = "/assets/images/postgressql.png";
+const AWS: string = "/assets/images/amazon-aws.png";
 import TechComponent from "./TechComponent"
 
 
 
 
-function TechStack() {
+function TechStack(): React.ReactElement {
     return (
-        <div className='w-full top-0 z-40 flex items-center justify-center'>
+        <div className='w-full top-0 z-40 flex items-center justify-center bg-black'>
             <div className='w-full flex items-center justify-center z-40'>
                 <div className='lg:w-[80vw] lg;w-[90vw] lg:p-4 p-1 -mt-10 lg:-mt-15 flex flex-col items-center capitalize'>
 
                     <p className='Bonheur text-7xl text-center my-10'>My Tech stack</p>
                     <div className='flex items-center justify-center gap-7 flex-wrap w-[80%] p-4'>
-                        {/* <TechComponent image={html} />
-                        <TechComponent image={css} />
-                        <TechComponent image={javascript} /> */}
-
                         <TechComponent image={reactjs} />
                         <TechComponent image={tailwindcss} />
                         <TechComponent image={typescript} />
