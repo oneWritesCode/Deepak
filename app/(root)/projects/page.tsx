@@ -10,7 +10,7 @@ function page() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Projects key={location} />;
       <Footer />
     </>

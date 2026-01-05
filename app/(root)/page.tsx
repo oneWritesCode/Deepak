@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <LandingPage key={location} />
       <TechStack />
       <Experience />

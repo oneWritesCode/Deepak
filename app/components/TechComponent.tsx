@@ -12,7 +12,7 @@ function TechComponent(props: TechComponentProps): React.ReactElement {
             {props.image &&
                 <div className="lg:p-2 p-1 border-gray-500 lg:h-[70px] h-[50px] backdrop-blur-xmd rounded-2xl shadow-xl shadow-white/10 bg-black/90 flex items-center justify-center">
                     <img src={props.image}
-                        className={`${props.classes} lg:min-w-[50px] min-w-[20px]`} />
+                        className={`${props.classes} lg:min-w-[50px] max-w-full max-h-full min-w-[20px]`} />
                 </div>
             }
             {props.text &&

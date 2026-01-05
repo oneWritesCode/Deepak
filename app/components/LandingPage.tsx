@@ -1,56 +1,66 @@
 import React from "react";
-import Lines from './Lines'
+import Lines from "./Lines";
 // import Navbar from './Navbar'
 // import { motion } from 'framer-motion'
 // import CatOne from '../../assets/svg/CatOne'
 // import { NavLink } from 'react-router-dom'
-import NavlinkMotion from './NavlinkMotion'
+import NavlinkMotion from "./NavlinkMotion";
 
 function LandingPage(): React.ReactElement {
-    return (
-        <>
-            {/* designs there _____________________________________________________________________________________________________________________________*/}
+  return (
+    <>
+      {/* designs there _____________________________________________________________________________________________________________________________*/}
 
+      {/* background aeroplane_________________________________________________________*/}
+      <div className="absolute top-0 w-full h-screen flex md:items-end md:justify-start items-start justify-center overflow-hidden bg-black">
+        <div className="relative md:left-50 md:bottom-70">
+          <div className="w-100 z-0 h-100 rounded-full border-4 bg-gradient-to-br from-blue-700/90 via-blue-700/70 to-transparent opacity-30 blur-3xl"></div>
+        </div>
+      </div>
 
-            {/* background aeroplane_________________________________________________________*/}
-            <div className='absolute top-0 w-full h-screen flex justify-end flex-col overflow-hidden bg-black'>
+      {/* background lines ________________________________________________________________*/}
+      <div className="w-full overflow-hidden fixed top-0 right-0 z-0">
+        {" "}
+        <Lines />
+      </div>
 
-                <div className='relative left-50 bottom-70'>
-                    <div className="w-[30vw] z-0 h-[30vw] rounded-full bg-gradient-to-br from-blue-500/70 via-blue-500/70 to-transparent opacity-30 blur-3xl"></div>
-                </div>
+      <div className="w-full h-[75vh] md:min-h-screen flex items-center justify-center bg-black overflow-hidden pt-20">
+        <div className="absolute flex flex-col items-center justify-center">
+          <div className="w-50 border-4 border-blue-500 rounded-full">
+            <img
+              src="/assets/images/me.png"
+              alt="me"
+              className="rounded-full border-4 border-transparent"
+            />
+          </div>
+          
+          <span className="backdr lg:backdrop-blur-none">
+            <div className="relative w-full border-4 sm:border-10 z-0 border-blue-700 top-10 sm:top-22"></div>
+            <p className=" relative Bonheur text-6xl sm:text-9xl font-medium z-10">
+              hey, i am deepak
+            </p>
+          </span>
 
-            </div>
+          <div className="lg:w-[600px] text-center pt-4 lg:p-0 px-10 text-yellow-9 00 text-sm sm:text-xl font-medium">
+            <p className="mb-2 md:mb-4">hey, wanna hear about me?</p>
+            <p className="text-xs md:text-sm">
+              so, i am{" "}
+              <span className="text-blue-500">self taught developer</span>.
+              just curious about things and trying to do everything, i should not.
+              building and creating things to solve my personal problems
+              but sometimes it helps other peoples too.
+            </p>
+            <p className="mogra mt-6 text-xl">here is the proof</p>
+          </div>
 
-            {/* background lines ________________________________________________________________*/}
-            <div className='w-full overflow-hidden fixed top-0 right-0 z-0'> <Lines /></div>
-
-
-
-
-            <div className='w-full h-[75vh] md:h-[90vh] flex items-center justify-center bg-black overflow-hidden'>
-
-                <div className='absolute flex flex-col items-center justify-center'>
-                    <span className='backdrop-blur lg:backdrop-blur-none'>
-                        <div className='relative w-full border-4 sm:border-10 z-0 border-blue-700 top-10 sm:top-22'></div>
-                        <p className=' relative Bonheur text-6xl sm:text-9xl font-medium z-10'>hey, i am deepak</p>
-                    </span>
-
-                    <div className='lg:w-[600px] text-center pt-4 sm:pt-10 lg:p-0 px-10 text-yellow-9 00 text-sm sm:text-xl font-medium'>
-                        <p className='mb-4'>hey, wanna hear about me?</p>
-                        <p>
-                            so, i am <span className='text-blue-500'>self taught developer</span> . just curious about things and trying to learn everything that peoples are afraid of.
-                        </p>
-                        <p className='mogra mt-6 text-xl'>here is the proof</p>
-                    </div>
-                    <div className='flex gap-10'>
-                        
-                    <NavlinkMotion link="projects" name="projects" />
-                    <NavlinkMotion link="blogs" name="blogs" />
-                    </div>
-                </div>
-            </div>
-        </>
-    )
+          <div className="flex gap-10">
+            <NavlinkMotion link="projects" name="projects" />
+            <NavlinkMotion link="blogs" name="blogs" />
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default LandingPage
+export default LandingPage;
