@@ -7,6 +7,7 @@ import Contact from "@/app/components/Contact";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import Experience from "../components/Experience";
+import ProjectSection from "../components/ProjectSection";
 
 export default function Home() {
   const location = usePathname();
@@ -17,6 +18,7 @@ export default function Home() {
       <LandingPage key={location} />
       <TechStack />
       <Experience />
+      <ProjectSection/>
       <Contact />
       <Footer />
     </>

@@ -26,9 +26,9 @@ function LandingPage(): React.ReactElement {
 
       <div className="w-full h-[75vh] md:min-h-screen flex items-center justify-center bg-black overflow-hidden pt-20">
         <div className="absolute flex flex-col items-center justify-center">
-          <div className="w-50 border-4 border-blue-500 rounded-full">
+          <div className="w-50 border-2 border-blue-700 rounded-full">
             <img
-              src="/assets/images/me.png"
+              src="/assets/images/me2.png"
               alt="me"
               className="rounded-full border-4 border-transparent"
             />
@@ -53,7 +53,7 @@ function LandingPage(): React.ReactElement {
             <p className="mogra mt-6 text-xl">here is the proof</p>
           </div>
 
-          <div className="flex gap-10">
+          <div className="flex gap-10 mt-10">
             <NavlinkMotion link="projects" name="projects" />
             <NavlinkMotion link="blogs" name="blogs" />
           </div>

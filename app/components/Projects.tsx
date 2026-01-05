@@ -14,9 +14,9 @@ function Projects(): React.ReactElement {
   return (
     <div className="w-full top-0 flex items-center justify-center bg-am-50 z-0 bg-black">
       <div className="w-full flex items-center justify-center z-40">
-        <div className="w-full max-w-5xl relative p-2 sm:p-4 mt-0 lg:mt-10 capitalize">
+        <div className="w-full max-w-5xl relative p-2 sm:p-4 mt-10 capitalize">
           <div className="min-h-screen">
-            <p className="Bonheur text-4xl sm:text-6xl md:text-7xl relative sm:top-0 text-center mb-10 sm:mb-20 ">
+            <p className="Bonheur text-6xl md:text-7xl relative sm:top-0 text-center mb-10 sm:mb-20 ">
               My projects
             </p>
 
@@ -152,7 +152,7 @@ function Projects(): React.ReactElement {
                 </div>
               </ul>
             </div>
-
+            {/* 
             <div className="w-full flex justify-center items-center flex-wrap mb-8 sm:mb-0">
               <ul className="italic text-gray-100 font-bold min-h-[20vh] sm:min-h-[30vh] mb-12 sm:mb-24 items-center flex flex-col w-full">
                 <p className="sourGummy text-lg sm:text-2xl mb-6 sm:mb-10">
@@ -169,7 +169,7 @@ function Projects(): React.ReactElement {
                   />
                 </div>
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
