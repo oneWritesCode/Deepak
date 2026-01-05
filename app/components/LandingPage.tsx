@@ -37,7 +37,7 @@ function LandingPage(): React.ReactElement {
           <span className="backdr lg:backdrop-blur-none">
             <div className="relative w-full border-4 sm:border-10 z-0 border-blue-700 top-10 sm:top-22"></div>
             <p className=" relative Bonheur text-6xl sm:text-9xl font-medium z-10">
-              hey, i am deepak
+              Hey, I Am Deepak
             </p>
           </span>
 
