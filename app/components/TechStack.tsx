@@ -12,6 +12,7 @@ const python: string = "/assets/images/python.png";
 const postgressql: string = "/assets/images/postgressql.png";
 const AWS: string = "/assets/images/amazon-aws.png";
 const prisma: string = "/assets/images/prisma.png";
+const docker: string = "/assets/images/docker.png";
 import TechComponent from "./TechComponent" 
 
 
@@ -39,6 +40,7 @@ function TechStack(): React.ReactElement {
                         <TechComponent text="motion"/>   
                         <TechComponent image={figma} />
                         <TechComponent image={prisma} />
+                        <TechComponent image={docker} />
 
                     </div>
                 </div>
