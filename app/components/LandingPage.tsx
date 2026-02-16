@@ -22,7 +22,7 @@ function LandingPage(): React.ReactElement {
 
       <div className="w-full h-[75vh] md:min-h-screen flex items-center justify-center bg-black overflow-hidden pt-20">
         <div className="absolute flex flex-col items-center justify-center">
-          <div className="w-40 md:w-50 border-2 border-blue-700 rounded-full">
+          <div className="w-40 md:w-50 border-2 border-blue-700 rounded-full mb-4 md:mb-0">
             <img
               src="/assets/images/me3.jpeg"
               alt="me"

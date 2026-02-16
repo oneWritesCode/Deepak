@@ -20,7 +20,7 @@ import TechComponent from "./TechComponent"
 
 function TechStack(): React.ReactElement {
     return (
-        <div className='w-full top-0 z-40 flex items-center justify-center bg-black mt-30 md:t-10'>
+        <div className='w-full top-0 z-40 flex items-center justify-center bg-black mt-25 md:t-10'>
             <div className='w-full flex items-center justify-center z-40'>
                 <div className='lg:w-[80vw] lg;w-[90vw] lg:p-4 p-1 -mt-10 lg:-mt-15 flex flex-col items-center capitalize'>
 

@@ -30,7 +30,7 @@ function Contact(): React.ReactElement {
                     <form
                         action="https://api.web3forms.com/submit"
                         method="POST"
-                        className='lg:w-150 w-full max-w-125 backdrop-blur-xl lg:p-6 p-2 md:p-4 flex justify-center items-center flex-col border border-gray-800 rounded-2xl'
+                        className='lg:w-150 w-full max-w-125 backdrop-blur-xl lg:p-6 p-4 flex justify-center items-center flex-col shadow-sm border border-gray-800 rounded-2xl'
                         ref={formRef}
                         onSubmit={handleSubmit}
                     >

@@ -70,7 +70,7 @@ function Project(props: ProjectProps): React.ReactElement {
           {props.tags.map((tag, idx) => (
             <span
               key={idx}
-              className="bg-gray-700 text-[14px] md:text-xs px-2 oy-px md:py-1 rounded-full text-gray-300"
+              className="bg-gray-700 text-[12px] md:text-xs px-2 py-px md:py-1 rounded-full text-gray-300"
             >
               {tag}
             </span>

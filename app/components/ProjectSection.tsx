@@ -18,7 +18,6 @@ function ProjectSection() {
                 image={Skilltracker}
                 title="A note taking app"
                 description="Developed a habit-aware journaling platform with secure Google login, persistent cloud storage."
-                // category="Personal Project"
                 tags={["Next.js", "prisma ORM", "typescript", "tiptap", "PWA"]}
                 live="https://skilltracker-ni7h.vercel.app/"
               />
