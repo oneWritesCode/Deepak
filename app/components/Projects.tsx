@@ -3,7 +3,7 @@ import Project from "./ProjectComponent";
 
 const GrandTheftAuto: string = "/assets/video/Grand-Theft-Auto.mp4";
 const Ecommerce: string = "/assets/video/E-Commerce.mp4";
-const DMarts: string = "/assets/video/D-Marts.mp4";
+const Skilltracker: string = "/assets/video/skilltracker.mp4";
 const TypeZ: string = "/assets/video/TypeZ.mp4";
 const thoughtPolice: string = "/assets/video/Thought-Police.mp4";
 const Godgpt: string = "/assets/video/Godgpt.mp4";
@@ -27,6 +27,20 @@ function Projects(): React.ReactElement {
                   Code & Caffiene
                 </p>
                 <div className="pl-0 sm:pl-6 text-gray-200 flex gap-2 w-full flex-wrap justify-center">
+                  <Project
+                    video={Skilltracker}
+                    title="A note taking app"
+                    description="Developed a habit-aware journaling platform with secure Google login, persistent cloud storage."
+                    category="Personal Project"
+                    tags={[
+                      "Next.js",
+                      "prisma ORM",
+                      "typescript",
+                      "tiptap",
+                      "PWA"
+                    ]}
+                    live="https://skilltracker-ni7h.vercel.app/"
+                  />
                   <Project
                     video={ChatApp}
                     title="real time Chat-App"

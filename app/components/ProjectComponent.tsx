@@ -59,7 +59,7 @@ function Project(props: ProjectProps): React.ReactElement {
 
       {/* Project Description */}
       {props.description && (
-        <p className="text-sm text-gray-300 text-center mb-3 leading-relaxed">
+        <p className="text-xs md:text-sm text-gray-300 text-center mb-3 leading-relaxed">
           {props.description}
         </p>
       )}
@@ -70,7 +70,7 @@ function Project(props: ProjectProps): React.ReactElement {
           {props.tags.map((tag, idx) => (
             <span
               key={idx}
-              className="bg-gray-700 text-xs px-2 py-1 rounded-full text-gray-300"
+              className="bg-gray-700 text-[14px] md:text-xs px-2 oy-px md:py-1 rounded-full text-gray-300"
             >
               {tag}
             </span>

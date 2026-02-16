@@ -13,7 +13,7 @@ export default function Home() {
   const location = usePathname();
 
   return (
-    <>
+    <div className="bg-black">
       {/* <Navbar /> */}
       <LandingPage key={location} />
       <TechStack />
@@ -21,6 +21,6 @@ export default function Home() {
       <ProjectSection/>
       <Contact />
       <Footer />
-    </>
+    </div>
   );
 }

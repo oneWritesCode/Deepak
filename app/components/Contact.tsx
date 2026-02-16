@@ -25,12 +25,12 @@ function Contact(): React.ReactElement {
         <div className='w-full top-0 z-40 flex items-center justify-center bg-black'>
             <div className='w-full flex items-center justify-center z-40'>
                 <div className='lg:w-[80vw] w-[95vw] relative p-4 sm:p-6 mt-0 lg:mt-0 flex items-center justify-center gap-4 flex-col capitalize mb-10'>
-                    <p className="Bonheur text-4xl sm:text-6xl lg:text-7xl relative top-0 text-center mt-16 sm:mt-20 lg:mt-26 mb-12 sm:mb-16 lg:mb-18">Get in touch</p>
+                    <p className="Bonheur text-4xl sm:text-6xl lg:text-7xl relative top-0 text-center mt-16 sm:mt-20 lg:mt-26 mb-8 sm:mb-16 lg:mb-18">Get in touch</p>
 
                     <form
                         action="https://api.web3forms.com/submit"
                         method="POST"
-                        className='lg:w-150 w-full max-w-125 backdrop-blur-xl lg:p-6 p-4 flex justify-center items-center flex-col border border-gray-800 rounded-2xl'
+                        className='lg:w-150 w-full max-w-125 backdrop-blur-xl lg:p-6 p-2 md:p-4 flex justify-center items-center flex-col border border-gray-800 rounded-2xl'
                         ref={formRef}
                         onSubmit={handleSubmit}
                     >
@@ -47,10 +47,10 @@ function Contact(): React.ReactElement {
                         {/* Add reCAPTCHA if needed later */}
 
                         <button
-                            className='px-4 sm:px-6 py-1 sm:py-2 mt-8 sm:mt-10 rounded-xl rotate-2 shadow-xl shadow-blue-500/30 hover:rotate-0 bg-blue-600 text-lg sm:text-xl font-medium transition-all duration-300 hover:scale-105'
+                            className='px-4 sm:px-6 py-1 sm:py-2 mt-4 mb-2 sm:mt-10 rounded-xl rotate-2 shadow-xl shadow-blue-500/30 hover:rotate-0 bg-blue-600 text-sm sm:text-xl font-medium transition-all duration-300 hover:scale-105'
                             disabled={cooldown}
                         >
-                            {cooldown ? "Please wait..." : <>send <span className='mogra ml-1'>{`:)`}</span></>}
+                            {cooldown ? "Please wait..." : <>Send <span className='mogra ml-1'>{`:)`}</span></>}
                         </button>
                     </form>
                 </div>

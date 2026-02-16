@@ -1,11 +1,10 @@
-
 function Footer() {
   return (
     <div className="w-full top-0 z-40 flex items-center justify-center bg-black">
       <div className="w-full flex items-center justify-center z-40">
         <div className="w-[80vw] relative mt-10 lg:mt-0 flex items-center justify-center gap-4 flex-col capitalize">
-          <div className="backdrop-blur-sm w-full min-h-25 py-10 flex flex-col gap-10">
-            <div className="flex items-center justify-center lg:gap-6 gap-4 flex-wrap">
+          <div className="backdrop-blur-sm w-full min-h-25 py-10 flex flex-col gap-5 md:gap-10">
+            <div className="flex items-center justify-center lg:gap-6 gap-1 md:gap-4 flex-wrap">
               <a
                 href="https://github.com/oneWritesCode"
                 target="_blank"
@@ -14,7 +13,7 @@ function Footer() {
                 title="GitHub"
               >
                 <svg
-                  className="w-6 h-6"
+                  className="w-5 md:w-6 h-5 md:h-6"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -35,7 +34,7 @@ function Footer() {
                 title="LinkedIn"
               >
                 <svg
-                  className="w-6 h-6"
+                  className="w-5 md:w-6 h-5 md:h-6"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -55,7 +54,7 @@ function Footer() {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 1200 1227"
                   width="24"
-                  height="24"
+                  height="24" className="w-5 md:w-6 h-5 md:h-6"
                   fill="currentColor"
                 >
                   <path
@@ -74,7 +73,7 @@ function Footer() {
                 title="Instagram"
               >
                 <svg
-                  className="w-6 h-6"
+               className="w-5 md:w-6 h-5 md:h-6"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -101,7 +100,7 @@ function Footer() {
                   fill="none"
                   aria-labelledby="wordmark-medium-desc"
                   viewBox="0 0 719 160"
-                  className="bk bl bm"
+                  className=""
                 >
                   <desc id="wordmark-medium-desc">Medium Logo</desc>
                   <path

@@ -1,9 +1,5 @@
 import React from "react";
 import Lines from "./Lines";
-// import Navbar from './Navbar'
-// import { motion } from 'framer-motion'
-// import CatOne from '../../assets/svg/CatOne'
-// import { NavLink } from 'react-router-dom'
 import NavlinkMotion from "./NavlinkMotion";
 
 function LandingPage(): React.ReactElement {
@@ -12,7 +8,7 @@ function LandingPage(): React.ReactElement {
       {/* designs there _____________________________________________________________________________________________________________________________*/}
 
       {/* background aeroplane_________________________________________________________*/}
-      <div className="absolute top-0 w-full h-screen flex md:items-end md:justify-start items-start justify-center overflow-hidden bg-black">
+      <div className="absolute w-full min-h-screen flex md:items-end md:justify-start items-start justify-center overflow-hidden bg-wh">
         <div className="relative md:left-50 md:bottom-70">
           <div className="w-100 z-0 h-100 rounded-full border-4 bg-gradient-to-br from-blue-700/90 via-blue-700/70 to-transparent opacity-30 blur-3xl"></div>
         </div>
@@ -26,17 +22,17 @@ function LandingPage(): React.ReactElement {
 
       <div className="w-full h-[75vh] md:min-h-screen flex items-center justify-center bg-black overflow-hidden pt-20">
         <div className="absolute flex flex-col items-center justify-center">
-          <div className="w-50 border-2 border-blue-700 rounded-full">
+          <div className="w-40 md:w-50 border-2 border-blue-700 rounded-full">
             <img
-              src="/assets/images/me2.png"
+              src="/assets/images/me3.jpeg"
               alt="me"
               className="rounded-full border-4 border-transparent"
             />
           </div>
           
           <span className="backdr lg:backdrop-blur-none">
-            <div className="relative w-full border-4 sm:border-10 z-0 border-blue-700 top-10 sm:top-22"></div>
-            <p className=" relative Bonheur text-6xl sm:text-9xl font-medium z-10">
+            <div className="relative w-full border-2 sm:border-10 z-0 border-blue-700 top-8 sm:top-22"></div>
+            <p className=" relative Bonheur text-5xl sm:text-9xl font-medium z-10">
               Hey, I Am Deepak
             </p>
           </span>

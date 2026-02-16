@@ -11,9 +11,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(function Input(
 ) {
     const id: string = useId();
     return (
-        <div className='w-full my-3 sm:my-4'>
+        <div className='w-full my-1 md:my-3 sm:my-4'>
             {label && <label
-                className='inline-block mb-2 pl-2 text-sm sm:text-base font-medium'
+                className='inline-block mb-2 pl-2 text-xs sm:text-base font-medium'
                 htmlFor={id}>
                 {label}
             </label>
