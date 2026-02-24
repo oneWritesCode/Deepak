@@ -17,6 +17,7 @@ function LandingPage(): React.ReactElement {
       {/* background lines ________________________________________________________________*/}
       <div className="w-full overflow-hidden fixed top-0 right-0 z-0 md:scale-100 scale-250 ">
         <Lines />
+        <Lines />
       </div>
 
       <div className="w-full h-[75vh] md:min-h-screen flex items-center justify-center bg-black overflow-hidden pt-20">

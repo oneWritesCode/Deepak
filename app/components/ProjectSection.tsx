@@ -9,9 +9,7 @@ function ProjectSection() {
         <div className="lg:w-] lg:p-4 p-1 -mt-10 lg:-mt-15 flex flex-col items-center capitalize">
           <p className="Bonheur text-5xl text-center my-10">my latest Project</p>
 
-          <div className="relative flex items-center justify-center  gap-7 flex-wrap w-[100%] bg-black">
-            <div className="absolute top-0 left-0 bg-gradient-to-r from-black via-black/80 to-black/0 w-[10%] h-full z-1000" />
-            <div className="absolute top-0 right-0 bg-gradient-to-l from-black via-black/80 to-black/0 w-[10%] h-full z-1000" />
+          <div className="relative flex items-center justify-center gap-7 flex-wrap w-[100%]">
 
             <div className="w-full max-w-[100vw] overflow-x-auto overflow-y-hidden px-10 [&::-webkit-scrollbar]:w-0 flex text-gray-200 gap-2">
               <Project
