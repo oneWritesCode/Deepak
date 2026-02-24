@@ -15,14 +15,13 @@ function LandingPage(): React.ReactElement {
       </div>
 
       {/* background lines ________________________________________________________________*/}
-      <div className="w-full overflow-hidden fixed top-0 right-0 z-0">
-        {" "}
+      <div className="w-full overflow-hidden fixed top-0 right-0 z-0 md:scale-100 scale-250 ">
         <Lines />
       </div>
 
       <div className="w-full h-[75vh] md:min-h-screen flex items-center justify-center bg-black overflow-hidden pt-20">
         <div className="absolute flex flex-col items-center justify-center">
-          <div className="w-40 md:w-50 border-2 border-blue-700 rounded-full mb-4 md:mb-0">
+          <div className="w-40 md:w-50 border-2 border-blue-700 rounded-full mt-10 mb-4 md:mt-0 md:mb-0">
             <img
               src="/assets/images/me3.jpeg"
               alt="me"

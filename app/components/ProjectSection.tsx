@@ -4,7 +4,7 @@ const Skilltracker: string = "/assets/images/skilltracker.png";
 
 function ProjectSection() {
   return (
-    <div className="w-full top-0 z-40 sm:hidden flex items-center justify-center bg-black pt-10 overflow-hidden">
+    <div className="w-full top-0 z-40 sm:hidden flex items-center justify-center pt-10 overflow-hidden">
       <div className="w-full flex items-center justify-center z-40">
         <div className="lg:w-] lg:p-4 p-1 -mt-10 lg:-mt-15 flex flex-col items-center capitalize">
           <p className="Bonheur text-5xl text-center my-10">my latest Project</p>
