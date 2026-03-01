@@ -3,7 +3,7 @@ function Footer() {
     <div className="w-full top-0 z-40 flex items-center justify-center bg-black">
       <div className="w-full flex items-center justify-center z-40">
         <div className="w-[80vw] relative mt-10 lg:mt-0 flex items-center justify-center gap-4 flex-col capitalize">
-          <div className="backdrop-blur-sm w-full min-h-25 py-10 flex flex-col gap-5 md:gap-10">
+          <div className="backdrop-blur-sm w-full min-h-25 py-4 mb-6 flex flex-col gap-5 md:gap-10">
             <div className="flex items-center justify-center lg:gap-6 gap-1 md:gap-4 flex-wrap">
               <a
                 href="https://twitter.com/triordeep"
