@@ -20,18 +20,10 @@ export default function Experience() {
               startUpLogoImage="/assets/images/thezeroone.png"
               workingAt="The zeroone labs"
               workingSince="dec 2025"
+              workedSince="mar 2026"
               roleWas="full stack developer"
               descriptionOfTheRole="Led development of multiple client websites, building UI components, animations, and backend APIs while managing a small team."
               jobType="internship"
-              wasRemote="remote"
-            />
-             <ExperienceComponent
-              startUpLogoImage="/assets/images/deverallabs.png"
-              workingAt="Deveral labs"
-              workingSince="aug 2025"
-              roleWas="software developer"
-              descriptionOfTheRole="Actively contributed to open-source projects, collaborating with developers to build, improve, and maintain applications."
-              jobType="contributer"
               wasRemote="remote"
             />
           </div>
@@ -77,7 +69,7 @@ function ExperienceComponent({
 
       <div>
         <p className="text-xs md:text-sm text-gray-100 pl-px sourGummy font-medium">{workingSince} -
-             {workedSince=== "current"? <span className="text-green-300"> {workedSince}</span>:" "}
+             {workedSince ? <span className=""> {workedSince}</span>: "current"}
         </p>
 
         <p className="text-xs md:text-sm pl-px pt-1 text-gray-400 sourGummy line-clamp-3">{descriptionOfTheRole}</p>
