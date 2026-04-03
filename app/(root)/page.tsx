@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import LandingPage from "@/app/components/LandingPage";
+import LandingPage from "@/app/pages/LandingPage";
 import TechStack from "@/app/components/TechStack";
 import Contact from "@/app/components/Contact";
 import Navbar from "@/app/components/Navbar";

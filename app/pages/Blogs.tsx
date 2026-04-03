@@ -1,5 +1,5 @@
 import React from "react";
-import BlogComponent from "./BlogComponent";
+import BlogComponent from "../components/BlogComponent";
 
 const PythonBlog: string = "/assets/images/Python-blog.png";
 const OSBlog: string = "/assets/images/OS-blog.png";

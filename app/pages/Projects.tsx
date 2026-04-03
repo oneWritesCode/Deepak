@@ -1,5 +1,5 @@
 import React from "react";
-import Project from "./ProjectComponent";
+import Project from "../components/ProjectComponent";
 
 const GrandTheftAuto: string = "/assets/video/Grand-Theft-Auto.mp4";
 const Ecommerce: string = "/assets/video/E-Commerce.mp4";

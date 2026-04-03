@@ -1,6 +1,6 @@
 import React from "react";
-import Lines from "./Lines";
-import NavlinkMotion from "./NavlinkMotion";
+import Lines from "../components/Lines";
+import NavlinkMotion from "../components/NavlinkMotion";
 
 function LandingPage(): React.ReactElement {
   return (

@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import Projects from "@/app/components/Projects";
+import Projects from "@/app/pages/Projects";
 import Navbar from "@/app/components/Navbar";
 import NavlinkMotion from "@/app/components/NavlinkMotion";
 import Footer from "@/app/components/Footer";
