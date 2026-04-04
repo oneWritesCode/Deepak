@@ -20,6 +20,7 @@ export default function Experience() {
               startUpLogoImage="/assets/images/thezeroone.png"
               workingAt="The zeroone labs"
               workingSince="dec 2025"
+              workedSince="april 2026"
               roleWas="full stack developer"
               descriptionOfTheRole="Led development of multiple client websites, building UI components, animations, and backend APIs while managing a small team."
               wasRemote="remote"
@@ -71,7 +72,7 @@ function ExperienceComponent({
         <p className="text-xs md:text-sm text-gray-100 pl-px sourGummy font-medium">
           {workingSince} -
           {workedSince ? (
-            <span className=""> {workedSince}</span>
+            <span className="text-green-400"> {workedSince}</span>
           ) : (
             <span className="text-green-400"> current</span>
           )}

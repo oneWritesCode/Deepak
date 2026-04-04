@@ -1,7 +1,9 @@
 import React from "react";
 import Project from "../components/ProjectComponent";
-
+// restaurants-web--landing-page.png
 const mashooriya: string = "/assets/video/mashooriya.mp4";
+const restaurantsWebLandingPage: string =
+  "/assets/images/restaurants-web-landing-page.png";
 
 export default function Freelance(): React.ReactElement {
   return (
@@ -18,6 +20,12 @@ export default function Freelance(): React.ReactElement {
                 video={mashooriya}
                 title="mashooriya - a music brand"
                 description="website of a music brand to represent them online and show case their music and founders to their fans and followers."
+                category="freelance work"
+              />
+              <Project
+                image={restaurantsWebLandingPage}
+                title="food restaurant website"
+                description="website for a restaurant to showcase their menu and location."
                 category="freelance work"
               />
             </div>
