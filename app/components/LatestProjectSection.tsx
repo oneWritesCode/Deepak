@@ -2,7 +2,7 @@ import NavlinkMotion from "./NavlinkMotion";
 import Project from "./ProjectComponent";
 const Skilltracker: string = "/assets/images/skilltracker.png";
 
-function ProjectSection() {
+export default function LatestProjectSection() {
   return (
     <div className="w-full top-0 z-40 sm:hidden flex items-center justify-center pt-10 overflow-hidden">
       <div className="w-full flex items-center justify-center z-40">
@@ -15,7 +15,7 @@ function ProjectSection() {
               <Project
                 image={Skilltracker}
                 title="A note taking app"
-                description="Developed a habit-aware journaling platform with secure Google login, persistent cloud storage."
+                description="Developed a habit-aware journaling platform with secure Google login, multiple theme feature and persistent cloud storage."
                 tags={["Next.js", "prisma ORM", "typescript", "tiptap", "PWA"]}
                 live="https://skilltracker-ni7h.vercel.app/"
               />
@@ -29,5 +29,3 @@ function ProjectSection() {
     </div>
   );
 }
-
-export default ProjectSection;
