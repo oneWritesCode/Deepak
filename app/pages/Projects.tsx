@@ -1,6 +1,7 @@
 import React from "react";
 import Project from "../components/ProjectComponent";
 
+const zemenLandingPage: string = "/assets/images/zemenLandingPage.png";
 const GrandTheftAuto: string = "/assets/video/Grand-Theft-Auto.mp4";
 const Ecommerce: string = "/assets/video/E-Commerce.mp4";
 const Skilltracker: string = "/assets/video/skilltracker.mp4";
@@ -37,7 +38,7 @@ function Projects(): React.ReactElement {
                       "prisma ORM",
                       "typescript",
                       "tiptap",
-                      "PWA"
+                      "PWA",
                     ]}
                     live="https://skilltracker-ni7h.vercel.app/"
                   />
@@ -94,6 +95,24 @@ function Projects(): React.ReactElement {
                   hackathon and stuffs
                 </p>
                 <div className="pl-0 sm:pl-6 text-gray-200 flex gap-2 w-full flex-wrap justify-center">
+                  <Project
+                    image={zemenLandingPage}
+                    title="Zemen - A Regime detector"
+                    description="Built a regime detection platform using Next.js, Prisma, and TypeScript to analyze global economics, sectors, and stocks, delivering actionable insights for investors and traders."
+                    category="FROM ZERVEHACK HACKATHON"
+                    tags={[
+                      "Next.js",
+                      "prisma ORM",
+                      "typescript",
+                      "FRED API",
+                      "Tailwind CSS",
+                      "Google Gemini AI",
+                      "Framer Motion",
+                      "Lucide React",
+                    ]}
+                    live="https://zemen-liard.vercel.app/"
+                    github="https://github.com/onewritescode/zemen"
+                  />
                   <Project
                     video={thoughtPolice}
                     title="THOUGHT POLICE"
