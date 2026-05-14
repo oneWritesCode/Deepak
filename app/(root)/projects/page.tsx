@@ -14,10 +14,10 @@ function page() {
     <>
       {/* <Navbar /> */}
       <div className="px-10 w-full fixed bottom-10 flex items-center justify-center gap-7 z-1000 text-xs md:text-md">
-        <span className="shadow-xl shadow-blue-500/30 rounded-2xl flex gap-7">
+        <span className="shadow-xl shadow-zinc-500/30 rounded-2xl flex gap-7">
           <NavlinkMotion name="home" />
         </span>
-        <span className="shadow-xl shadow-blue-500/30 rounded-2xl flex gap-7 text-xs md:text-md">
+        <span className="shadow-xl shadow-zinc-500/30 rounded-2xl flex gap-7 text-xs md:text-md">
           <NavlinkMotion name="blogs" link="blogs" />
         </span>
       </div>

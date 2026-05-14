@@ -10,7 +10,7 @@ function LandingPage(): React.ReactElement {
       {/* background aeroplane_________________________________________________________*/}
       <div className="absolute w-full min-h-screen flex md:items-end md:justify-start items-start justify-center overflow-hidden bg-wh">
         <div className="relative md:left-50 md:bottom-70">
-          <div className="w-100 z-0 h-100 rounded-full border-4 bg-gradient-to-br from-blue-700/90 via-blue-700/70 to-transparent opacity-30 blur-3xl"></div>
+          <div className="w-100 z-0 h-100 rounded-full border-4 bg-gradient-to-br from-zinc-700/90 via-zinc-700/70 to-transparent opacity-30 blur-3xl"></div>
         </div>
       </div>
 
@@ -22,7 +22,7 @@ function LandingPage(): React.ReactElement {
 
       <div className="w-full h-[75vh] md:min-h-screen flex items-center justify-center bg-black overflow-hidden pt-20">
         <div className="absolute flex flex-col items-center justify-center">
-          <div className="w-40 md:w-50 border-2 border-blue-700 rounded-full mt-10 mb-4 md:mt-0 md:mb-0">
+          <div className="w-40 md:w-50 border-2 border-zinc-700 rounded-full mt-10 mb-4 md:mt-0 md:mb-0">
             <img
               src="/assets/images/me3.jpeg"
               alt="me"
@@ -31,7 +31,7 @@ function LandingPage(): React.ReactElement {
           </div>
           
           <span className="backdr lg:backdrop-blur-none">
-            <div className="relative w-full border-2 sm:border-10 z-0 border-blue-700 top-8 sm:top-22"></div>
+            <div className="relative w-full border-2 sm:border-10 z-0 border-zinc-700 top-8 sm:top-22"></div>
             <p className=" relative Bonheur text-5xl sm:text-9xl font-medium z-10">
               Hey, I Am Deepak
             </p>
@@ -41,7 +41,7 @@ function LandingPage(): React.ReactElement {
             <p className="mb-2 md:mb-4">hey, wanna hear about me?</p>
             <p className="text-xs md:text-sm">
               so, i am{" "}
-              <span className="text-blue-500">self taught developer</span>.
+              <span className="text-zinc-400 font-bold capitalize">self taught developer</span>.
               just curious about things and trying to do everything, i should not.
               building and creating things to solve my personal problems
               but sometimes it helps other peoples too.

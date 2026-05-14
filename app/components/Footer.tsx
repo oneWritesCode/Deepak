@@ -77,7 +77,7 @@ function Footer() {
               </a>
 
               <a
-                href="https://medium.com/@lalmohansingh83"
+                href="https://medium.com/@triordeep"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-bold p-3 rounded-full w-10 overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105"

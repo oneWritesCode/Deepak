@@ -11,10 +11,10 @@ function page() {
   return (
     <>
       <div className="px-10 w-full fixed bottom-10 flex items-center justify-center gap-7 z-1000 ">
-        <span className="shadow-xl shadow-blue-500/30 rounded-2xl text-xs md:text-md">
+        <span className="shadow-xl shadow-zinc-500/30 rounded-2xl text-xs md:text-md">
           <NavlinkMotion name="home" />
         </span>
-          <span className="shadow-xl shadow-blue-500/30 rounded-2xl flex gap-7 text-xs md:text-md">
+          <span className="shadow-xl shadow-zinc-500/30 rounded-2xl flex gap-7 text-xs md:text-md">
           <NavlinkMotion name="projects" link="projects" />
         </span>
       </div>

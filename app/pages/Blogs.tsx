@@ -37,7 +37,7 @@ function Blogs(): React.ReactElement {
                     category="Python"
                     tags={["Python", "CPython"]}
                     publishDate="july 6, 2025"
-                    liveLink="https://medium.com/@lalmohansingh83/how-pythons-engine-gets-down-a-guide-to-python-s-inner-workings-699ea581ad96"
+                    liveLink="https://medium.com/@triordeep/how-pythons-engine-gets-down-a-guide-to-python-s-inner-workings-699ea581ad96"
                   />
                   <BlogComponent
                     image={OSBlog}
@@ -60,7 +60,7 @@ function Blogs(): React.ReactElement {
               </p>
               <div className="flex justify-center gap-4">
                 <a
-                  href="https://medium.com/@lalmohansingh83"
+                  href="https://medium.com/@triordeep"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border-white border-1 text-white px-3 py-2 rounded-md transition-colors duration-200"

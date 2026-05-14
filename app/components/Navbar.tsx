@@ -17,20 +17,20 @@ function Navbar(): React.ReactElement {
                     <div className='flex justify-center sm:justify-around items-center gap-1 sm:gap-3 md:gap-4 lg:gap-5 order-2'>
                         <Link
                             href="/"
-                            className={`${pathname === '/' ? 'bg-blue-500 text-white' : 'hover:text-blue-600'} rounded-xl font-semibold px-2 sm:px-3 md:px-4 py-1 hover:bg-blue-500 hover:text-white transition-all duration-200 text-md sm:text-base`}
+                            className={`${pathname === '/' ? 'bg-zinc-500 text-white' : 'hover:text-zinc-600'} rounded-xl font-semibold px-2 sm:px-3 md:px-4 py-1 hover:bg-zinc-500 hover:text-white transition-all duration-200 text-md sm:text-base`}
                         >
                             Home
                         </Link>
 
                         <Link
                             href="/projects"
-                            className={`${pathname === '/projects' || pathname.startsWith('/projects') ? 'bg-blue-500 text-white' : 'hover:text-blue-600'} rounded-xl font-semibold px-2 sm:px-3 md:px-4 py-1 hover:bg-blue-500 hover:text-white transition-all duration-200 text-md sm:text-base`}
+                            className={`${pathname === '/projects' || pathname.startsWith('/projects') ? 'bg-zinc-500 text-white' : 'hover:text-zinc-600'} rounded-xl font-semibold px-2 sm:px-3 md:px-4 py-1 hover:bg-zinc-500 hover:text-white transition-all duration-200 text-md sm:text-base`}
                         >
                             Projects
                         </Link>
                         <Link
                             href="/blogs"
-                            className={`${pathname === '/blogs' || pathname.startsWith('/blogs') ? 'bg-blue-500 text-white' : 'hover:text-blue-600'} rounded-xl font-semibold px-2 sm:px-3 md:px-4 py-1 hover:bg-blue-500 hover:text-white transition-all duration-200 text-md sm:text-base`}
+                            className={`${pathname === '/blogs' || pathname.startsWith('/blogs') ? 'bg-zinc-500 text-white' : 'hover:text-zinc-600'} rounded-xl font-semibold px-2 sm:px-3 md:px-4 py-1 hover:bg-zinc-500 hover:text-white transition-all duration-200 text-md sm:text-base`}
                         >
                             Blogs
                         </Link>

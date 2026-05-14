@@ -46,7 +46,7 @@ function BlogComponent(props: BlogComponentProps): React.ReactElement {
           )}
           {/* Category badge */}
           {props.category && (
-            <div className="absolute top-2 left-2 bg-blue-600 text-white text-xs px-2 py-1 rounded-full">
+            <div className="absolute top-2 left-2 bg-zinc-600 text-white text-xs px-2 py-1 rounded-full">
               {props.category}
             </div>
           )}

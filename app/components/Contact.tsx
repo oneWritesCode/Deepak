@@ -47,7 +47,7 @@ function Contact(): React.ReactElement {
                         {/* Add reCAPTCHA if needed later */}
 
                         <button
-                            className='px-4 sm:px-6 py-1 sm:py-2 mt-4 mb-2 sm:mt-10 rounded-xl rotate-2 shadow-xl shadow-blue-500/30 hover:rotate-0 bg-blue-600 text-sm sm:text-xl font-medium transition-all duration-300 hover:scale-105'
+                            className='px-4 sm:px-6 py-1 sm:py-2 mt-4 mb-2 sm:mt-10 rounded-xl rotate-2 shadow-xl shadow-neutral-500/30 hover:rotate-0 bg-neutral-900 text-sm sm:text-xl font-medium transition-all duration-300 hover:scale-105 cursor-pointer'
                             disabled={cooldown}
                         >
                             {cooldown ? "Please wait..." : <>Send <span className='mogra ml-1'>{`:)`}</span></>}
