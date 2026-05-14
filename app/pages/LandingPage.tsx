@@ -10,12 +10,12 @@ function LandingPage(): React.ReactElement {
       {/* background aeroplane_________________________________________________________*/}
       <div className="absolute w-full min-h-screen flex md:items-end md:justify-start items-start justify-center overflow-hidden bg-wh">
         <div className="relative md:left-50 md:bottom-70">
-          <div className="w-100 z-0 h-100 rounded-full border-4 bg-gradient-to-br from-zinc-700/90 via-zinc-700/70 to-transparent opacity-30 blur-3xl"></div>
+          <div className="w-100 z-0 h-100 rounded-full border-4 bg-gradient-to-br from-black via-black to-transparent opacity-30 blur-3xl"></div>
         </div>
       </div>
 
       {/* background lines ________________________________________________________________*/}
-      <div className="w-full overflow-hidden fixed top-0 right-0 z-0 md:scale-100 scale-250 ">
+      <div className="w-full overflow-hidden fixed top-0 right-0 z-0 md:scale-100 scale-250 opacity-70">
         <Lines />
         <Lines />
       </div>
@@ -24,7 +24,7 @@ function LandingPage(): React.ReactElement {
         <div className="absolute flex flex-col items-center justify-center">
           <div className="w-40 md:w-50 border-2 border-zinc-700 rounded-full mt-10 mb-4 md:mt-0 md:mb-0">
             <img
-              src="/assets/images/me3.jpeg"
+              src="/assets/images/image.png"
               alt="me"
               className="rounded-full border-4 border-transparent"
             />
