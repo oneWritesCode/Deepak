@@ -15,7 +15,7 @@ function LandingPage(): React.ReactElement {
       </div>
 
       <div className="absolute w-full min-h-screen flex md:items-end md:justify-start items-start justify-center overflow-hidden bg-wh">
-        <div className="absolute md:-20 md:right-50 left-15 bottom-5 md:bottom-20">
+        <div className="absolute md:left-200 left-15 bottom-5 md:-bottom-5">
           <img
             src="/assets/images/SwordScar.png"
             alt="me"
