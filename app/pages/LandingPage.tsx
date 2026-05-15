@@ -14,6 +14,16 @@ function LandingPage(): React.ReactElement {
         </div>
       </div>
 
+      <div className="absolute w-full min-h-screen flex md:items-end md:justify-start items-start justify-center overflow-hidden bg-wh">
+        <div className="absolute md:-20 md:right-50 left-15 bottom-5 md:bottom-20">
+          <img
+            src="/assets/images/SwordScar.png"
+            alt="me"
+            className="rounded-full border-4 border-transparent opacity-20"
+          />
+        </div>
+      </div>
+
       {/* background lines ________________________________________________________________*/}
       <div className="w-full overflow-hidden fixed top-0 right-0 z-0 md:scale-100 scale-250 opacity-70">
         <Lines />
@@ -29,7 +39,7 @@ function LandingPage(): React.ReactElement {
               className="rounded-full border-4 border-transparent"
             />
           </div>
-          
+
           <span className="backdr lg:backdrop-blur-none">
             <div className="relative w-full border-2 sm:border-10 z-0 border-zinc-700 top-8 sm:top-22"></div>
             <p className=" relative Bonheur text-5xl sm:text-9xl font-medium z-10">
@@ -41,9 +51,11 @@ function LandingPage(): React.ReactElement {
             <p className="mb-2 md:mb-4">hey, wanna hear about me?</p>
             <p className="text-xs md:text-sm">
               so, i am{" "}
-              <span className="text-zinc-400 font-bold capitalize">self taught developer</span>.
-              just curious about things and trying to do everything, i should not.
-              building and creating things to solve my personal problems
+              <span className="text-zinc-400 font-bold capitalize">
+                self taught developer
+              </span>
+              . just curious about things and trying to do everything, i should
+              not. building and creating things to solve my personal problems
               but sometimes it helps other peoples too.
             </p>
             <p className="mogra mt-6 text-xl">here is the proof</p>
