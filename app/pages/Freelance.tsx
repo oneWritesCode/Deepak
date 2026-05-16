@@ -4,6 +4,8 @@ const radSoonFreelanceProject: string =
   "/assets/images/rad-soon-freelance-project.png";
 const mashooriya: string = "/assets/video/mashooriya.mp4";
 const xpressprints: string = "/assets/video/xpressprints.mp4";
+const firstDesign: string = "/assets/images/First-Design.png";
+const secondDesign: string = "/assets/images/Second-Design.png";
 const restaurantsWebLandingPage: string =
   "/assets/images/restaurants-web-landing-page.png";
 
@@ -35,6 +37,18 @@ export default function Freelance(): React.ReactElement {
                 title="coming soon page"
                 description="website for a agency to show that their website is under construction and not to make it conplicated for customers to find them online."
                 category="freelance work"
+              />
+              <Project
+                image={firstDesign}
+                title="first design"
+                description="landing page of a music agency to showcase their brand and work on the internet."
+                category="freelance demo"
+              />
+              <Project
+                image={secondDesign}
+                title="second design"
+                description="landing page of a perfume shop to showcase their brand and quality of work on the internet."
+                category="freelance demo"
               />
               <Project
                 image={restaurantsWebLandingPage}

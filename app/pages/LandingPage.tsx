@@ -40,14 +40,14 @@ function LandingPage(): React.ReactElement {
             />
           </div>
 
-          <span className="backdr lg:backdrop-blur-none">
-            <div className="relative w-full border-2 sm:border-10 z-0 border-zinc-700 top-8 sm:top-22"></div>
-            <p className=" relative Bonheur text-5xl sm:text-9xl font-medium z-10">
+          <span className=" lg:backdrop-blur-none">
+            {/* <div className="relative w-full border-2 sm:border-10 z-0 border-zinc-700 top-8 sm:top-22"></div> */}
+            <p className="relative Bonheur text-5xl sm:text-6xl md:text-9xl font-medium z-10 text-center bg-clip-text text-transparent bg-gradient-to-r from-zinc-700 to-zinc-500">
               Hey, I Am Deepak
             </p>
           </span>
 
-          <div className="lg:w-[600px] text-center pt-4 lg:p-0 px-10 text-yellow-9 00 text-sm sm:text-xl font-medium">
+          <div className="sm:w-150 text-center pt-4 lg:p-0 px-10 text-yellow-9 00 text-sm sm:text-xl font-medium">
             <p className="mb-2 md:mb-4">hey, wanna hear about me?</p>
             <p className="text-xs md:text-sm">
               so, i am{" "}
