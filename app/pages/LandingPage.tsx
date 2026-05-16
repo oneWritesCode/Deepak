@@ -34,7 +34,7 @@ function LandingPage(): React.ReactElement {
         <div className="absolute flex flex-col items-center justify-center">
           <div className="w-40 md:w-50 border-2 border-zinc-700 rounded-full mt-10 mb-4 md:mt-0 md:mb-0">
             <img
-              src="/assets/images/image.png"
+              src="/assets/images/Animated-image.png"
               alt="me"
               className="rounded-full border-4 border-transparent"
             />
