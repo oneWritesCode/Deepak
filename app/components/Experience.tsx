@@ -14,7 +14,7 @@ export default function Experience() {
     <div className="w-full top-0 z-40 flex items-center justify-center bg-black pt-10">
       <div className="w-full flex items-center justify-center z-40">
         <div className="lg:w-[80vw] lg;w-[90vw] lg:p-4 p-1 -mt-10 lg:-mt-15 flex flex-col items-center capitalize">
-          <p className="Bonheur text-7xl text-center my-10">experience</p>
+          <p className="Bonheur text-7xl text-center mt-8 mb-4 md:mt-10 md:mb-8">experience</p>
           <div className="flex items-center justify-center gap-7 flex-wrap w-[90%] md:w-[80%] p-4">
             <ExperienceComponent
               startUpLogoImage="/assets/images/thezeroone.png"

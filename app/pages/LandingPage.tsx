@@ -66,7 +66,7 @@ function LandingPage(): React.ReactElement {
             {/* <p className="mt-6 text-xl">here is the proof</p> */}
           </div>
 
-          <div className="flex gap-10 mt-6">
+          <div className="flex gap-10 mt-6 z-50">
             <NavlinkMotion link="projects" name="projects" />
             <NavlinkMotion link="blogs" name="blogs" />
           </div>

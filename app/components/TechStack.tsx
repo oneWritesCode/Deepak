@@ -170,9 +170,9 @@ function TechStack(): React.ReactElement {
       <div className="w-full flex items-center justify-center z-40">
         <div className="lg:w-[80vw] lg:p-4 p-1 -mt-10 lg:-mt-15 flex flex-col items-center capitalize">
 
-          <p className="Bonheur text-5xl text-center my-10">My Tech Stack</p>
+          <p className="Bonheur text-5xl text-center mt-4 mb-4 md:mt-10 md:mb-10">My Tech Stack</p>
 
-          <div className="flex items-center justify-center gap-3 md:gap-7 flex-wrap w-[80%] px-4">
+          <div className="flex items-center justify-center gap-2 md:gap-7 flex-wrap w-[80%] px-4 sourGummy">
             <TechComponent image={reactjs}     label="React"        animationDelay={delay(0)}  cycleDuration={CYCLE} />
             <TechComponent image={tailwindcss} label="Tailwind CSS" animationDelay={delay(1)}  cycleDuration={CYCLE} />
             <TechComponent image={typescript}  label="TypeScript"   animationDelay={delay(2)}  cycleDuration={CYCLE} />
