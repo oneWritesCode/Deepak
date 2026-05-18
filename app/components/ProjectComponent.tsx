@@ -23,7 +23,7 @@ function Project(props: ProjectProps): React.ReactElement {
             autoPlay
             loop
             muted
-            className="w-full min-w-60 md:min-w-100 h-auto max-h-56 sm:max-h-64 rounded-md object-cover"
+            className="w-full min-w-50 md:min-w-100 h-auto max-h-56 sm:max-h-64 rounded-md object-cover"
           />
           
           {/* Category badge */}
@@ -41,7 +41,7 @@ function Project(props: ProjectProps): React.ReactElement {
           <img
             src={props.image}
             alt={props.title || "Project"}
-            className="w-full min-w-60 md:min-w-100 h-auto max-h-56 sm:max-h-64 rounded-lg object-cover border-2 border-white/20"
+            className="w-full min-w-50 md:min-w-100 h-auto max-h-56 sm:max-h-64 rounded-lg object-cover border-2 border-white/20"
           />
           {/* Category badge */}
           {props.category && (

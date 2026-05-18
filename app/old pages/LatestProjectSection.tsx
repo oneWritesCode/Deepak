@@ -1,16 +1,16 @@
-import BlogComponent from "./BlogComponent";
-import Project from "./ProjectComponent";
+import BlogComponent from "@/app/components/BlogComponent";
+import Project from "@/app/components/ProjectComponent";
 const zemenLandingPage: string = "/assets/images/zemenLandingPage.png";
 const webScrapper: string = "/assets/images/webScrapper.png";
 
 export default function LatestProjectSection() {
   return (
-    <div className="w-full px-5 md:px-15 sourGummy pt-8">
-      <div className="capitalize">
-        <p className="Bonheur mt-4 mb-4 md:mt-10 md:mb-6 text-4xl md:text-5xl">my latest work</p>
+    <div className="w-full mt-10 flex justify-center z-40 borer-2 sourGummy">
+      <div className="lg:p-4 p-1 -mt-10 lg:-mt-15 flex flex-col capitalize">
+        <p className="Bonheur text-5xl text-center my-10">my latest work</p>
 
-        <div className="relative gap-7 flex-wrap">
-          <div className="w-full flex flex-wrap text-gray-200 gap-2">
+        <div className="relative flex justify-center gap-7 flex-wrap">
+          <div className="w-full flex justify-center flex-wrap text-gray-200 gap-2">
             <Project
               image={zemenLandingPage}
               title="Zemen - A Regime detector"

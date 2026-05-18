@@ -11,11 +11,11 @@ type ExperinceType = {
 
 export default function Experience() {
   return (
-    <div className="w-full px-5 md:px-15 pt-8">
-      <div className="w-full">
-        <div className="flex flex-col items- capitalize">
-          <p className="Bonheur mt-4 mb-4 md:mt-10 md:mb-6 text-4xl md:text-5xl">experience</p>
-          <div className="flex gap-7 flex-wrap w-[90%] md:w-[80%]">
+    <div className="w-full top-0 z-40 flex items-center justify-center bg-black pt-10">
+      <div className="w-full flex items-center justify-center z-40">
+        <div className="lg:w-[80vw] lg;w-[90vw] lg:p-4 p-1 -mt-10 lg:-mt-15 flex flex-col items-center capitalize">
+          <p className="Bonheur text-7xl text-center mt-8 mb-4 md:mt-10 md:mb-8">experience</p>
+          <div className="flex items-center justify-center gap-7 flex-wrap w-[90%] md:w-[80%] p-4">
             <ExperienceComponent
               startUpLogoImage="/assets/images/thezeroone.png"
               workingAt="The zeroone labs"
@@ -45,7 +45,7 @@ function ExperienceComponent({
 
   return (
     <div className="bg-Dark rounded-2xl max-w-100 bg-black text-white p-2 md:p-4 border border-gray-800">
-      <div className="pl-1 mb-2 sourGummy uppercase gap-1 md:gap-2">
+      <div className="pl-1 mb-2 sourGummy uppercase flex items-center justify-start gap-1 md:gap-2">
         <span className="text-xs md:text-2xl font-bold">{roleWas}</span>
         {jobType && <span> • </span> }
         <span className="text-xs text-green-300"> {jobType}</span>
