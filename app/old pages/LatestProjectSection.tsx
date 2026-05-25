@@ -1,6 +1,6 @@
 import BlogComponent from "@/app/components/BlogComponent";
 import Project from "@/app/components/ProjectComponent";
-const zemenLandingPage: string = "/assets/images/zemenLandingPage.png";
+const medimate: string = "/assets/images/medimate.png";
 const webScrapper: string = "/assets/images/webScrapper.png";
 
 export default function LatestProjectSection() {
@@ -12,22 +12,23 @@ export default function LatestProjectSection() {
         <div className="relative flex justify-center gap-7 flex-wrap">
           <div className="w-full flex justify-center flex-wrap text-gray-200 gap-2">
             <Project
-              image={zemenLandingPage}
-              title="Zemen - A Regime detector"
-              description="Built a regime detection platform using Next.js, Prisma, and TypeScript to analyze global economics, sectors, and stocks, delivering actionable insights for investors and traders."
-              category="FROM ZERVEHACK"
+              image={medimate}
+              title="medimate - Your Healthcare Assistant"
+              description="built a symptom checker web application using Next.js, TypeScript, Tailwind CSS, and Recharts. The application allows users to input their symptoms and receive potential diagnoses based on a comprehensive medical database. I utilized the GROQ API and GROQ SDK to fetch and manage medical data efficiently. Additionally, I implemented Framer Motion for smooth animations and Lucide React for intuitive icons, enhancing the overall user experience. built in may 2026"
+              category="FROM BTH"
               tags={[
                 "Next.js",
-                "prisma ORM",
                 "typescript",
-                "FRED API",
                 "Tailwind CSS",
-                "Google Gemini AI",
+                "recharts",
+                "recharts",
+                "GROQ API",
+                "GROQ SDK",
                 "Framer Motion",
                 "Lucide React",
               ]}
-              live="https://zemen-liard.vercel.app/"
-              github="https://github.com/onewritescode/zemen"
+              live="https://medimate-ruby.vercel.app/"
+              github="https://github.com/onewritescode/medimate"
             />
             <BlogComponent
               image={webScrapper}

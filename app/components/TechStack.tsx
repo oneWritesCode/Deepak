@@ -174,7 +174,7 @@ function TechStack(): React.ReactElement {
     i * (SPIN_DURATION * 2 + PAUSE_DURATION + IDLE_BETWEEN);
 
   return (
-    <div className="w-full px-5 md:px-15 pt-8">
+    <div className="w-full pt-8">
       <div className="w-full">
         <div className="capitalize">
           <p className="Bonheur text-4xl md:text-5xl tet-center mt-4 mb-4 md:mt-10 md:mb-6">

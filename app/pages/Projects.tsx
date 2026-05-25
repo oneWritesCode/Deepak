@@ -1,6 +1,7 @@
 import React from "react";
 import Project from "../components/ProjectComponent";
 
+const medimate: string = "/assets/images/medimate.png";
 const zemenLandingPage: string = "/assets/images/zemenLandingPage.png";
 const GrandTheftAuto: string = "/assets/video/Grand-Theft-Auto.mp4";
 const Ecommerce: string = "/assets/video/E-Commerce.mp4";
@@ -21,7 +22,103 @@ function Projects(): React.ReactElement {
               My projects
             </p>
 
-            {/* related to freelance */}
+            <div className="w-full flex justify-center items-center flex-wrap">
+              <ul className="italic text-gray-100 font-bold min-h-[20vh] sm:min-h-[30vh] mb-12 sm:mb-24 items-center flex flex-col w-full">
+                <p className="sourGummy text-lg sm:text-2xl mb-6 sm:mb-10">
+                  hackathon and stuffs
+                </p>
+                <div className="pl-0 sm:pl-6 text-gray-200 flex gap-2 w-full flex-wrap justify-center">
+                  <Project
+                    image={medimate}
+                    title="medimate - Your Healthcare Assistant"
+                    description="built a symptom checker web application using Next.js, TypeScript, Tailwind CSS, and Recharts. The application allows users to input their symptoms and receive potential diagnoses based on a comprehensive medical database. I utilized the GROQ API and GROQ SDK to fetch and manage medical data efficiently. Additionally, I implemented Framer Motion for smooth animations and Lucide React for intuitive icons, enhancing the overall user experience.built in may 2026."
+                    category="FROM BTH"
+                    tags={[
+                      "Next.js",
+                      "typescript",
+                      "Tailwind CSS",
+                      "recharts",
+                      "recharts",
+                      "GROQ API",
+                      "GROQ SDK",
+                      "Framer Motion",
+                      "Lucide React",
+                    ]}
+                    live="https://medimate-ruby.vercel.app/"
+                    github="https://github.com/onewritescode/medimate"
+                  />
+                  <Project
+                    image={zemenLandingPage}
+                    title="Zemen - A Regime detector"
+                    description="Built a regime detection platform using Next.js, Prisma, and TypeScript to analyze global economics, sectors, and stocks, delivering actionable insights for investors and traders. built in april 2026."
+                    category="FROM ZERVEHACK HACKATHON"
+                    tags={[
+                      "Next.js",
+                      "prisma ORM",
+                      "typescript",
+                      "FRED API",
+                      "Tailwind CSS",
+                      "Google Gemini AI",
+                      "Framer Motion",
+                      "Lucide React",
+                    ]}
+                    live="https://zemen-liard.vercel.app/"
+                    github="https://github.com/onewritescode/zemen"
+                  />
+                  <Project
+                    video={thoughtPolice}
+                    title="THOUGHT POLICE"
+                    description="A website for reddit users. It helps you find people with Double Dealing Character on Reddit people who post random and contradictory stuff just for reach, so you can find them and block them. built in july 2025."
+                    category="FROM BOLTE.NEW HACKATHON"
+                    tags={[
+                      "React 18",
+                      "TypeScript",
+                      "Framer Motion",
+                      "Lucide React",
+                      "Recharts",
+                      "Auth0",
+                      "Google Gemini AI",
+                      "OpenRouter API",
+                      "Reddit API",
+                      "Pushshift API",
+                      "Axios",
+                      "ESLint",
+                      "PostCSS",
+                      "Date-fns",
+                    ]}
+                    github="https://github.com/oneWritesCode/Thought_police"
+                  />
+                  <Project
+                    video={Godgpt}
+                    title="GODGPT"
+                    description="A next-generation AI chat platform with multi-LLM support (18+ models), real-time streaming, offline capabilities, and enterprise-grade features. Features include multi-model queue processing, vision capabilities, OAuth authentication, and cross-device synchronization. built in june 2025"
+                    category="FROM t3 chat CLONEATHON"
+                    tags={[
+                      "Next.js 15",
+                      "TypeScript",
+                      "PostgreSQL",
+                      "Prisma",
+                      "Better Auth",
+                      "AI SDK",
+                      "OpenRouter",
+                      "Google AI SDK",
+                      "OpenAI SDK",
+                      "Tailwind CSS",
+                      "Radix UI",
+                      "Lucide React",
+                      "Zustand",
+                      "React Hook Form",
+                      "Zod",
+                      "Dexie.js",
+                      "Cloudinary",
+                      "bcryptjs",
+                    ]}
+                    github="https://github.com/oneWritesCode/Godgpt-2"
+                  />
+                </div>
+              </ul>
+            </div>
+
             <div className="w-full flex justify-center items-center flex-wrap">
               <ul className="italic text-gray-100 font-bold min-h-[20vh] sm:min-h-[30vh] mb-12 sm:mb-24 items-center flex flex-col w-full">
                 <p className="sourGummy text-lg sm:text-2xl mb-6 sm:mb-10">
@@ -45,7 +142,7 @@ function Projects(): React.ReactElement {
                   <Project
                     video={ChatApp}
                     title="real time Chat-App"
-                    description="building a real-time chat application in MERN stack and socket.io. Secure Login & Signup, Files, pictures & Video Transfer with all CRUD operations."
+                    description="building a real-time chat application in MERN stack and socket.io. Secure Login & Signup, Files, pictures & Video Transfer with all CRUD operations. built in september 2025."
                     category="Personal Project"
                     tags={[
                       "Socket.io",
@@ -79,89 +176,11 @@ function Projects(): React.ReactElement {
                   <Project
                     video={TypeZ}
                     title="TypeZ - Typing Game"
-                    description="A typing game website for peoples who want to improve their typing speed and accuracy. build in june 2025"
+                    description="A typing game website for peoples who want to improve their typing speed and accuracy. build in may 2025"
                     category="Personal Project"
                     tags={["React", "framer motion"]}
                     github="https://github.com/oneWritesCode/TypeZ"
                     live="https://type-z-liart.vercel.app/"
-                  />
-                </div>
-              </ul>
-            </div>
-
-            <div className="w-full flex justify-center items-center flex-wrap">
-              <ul className="italic text-gray-100 font-bold min-h-[20vh] sm:min-h-[30vh] mb-12 sm:mb-24 items-center flex flex-col w-full">
-                <p className="sourGummy text-lg sm:text-2xl mb-6 sm:mb-10">
-                  hackathon and stuffs
-                </p>
-                <div className="pl-0 sm:pl-6 text-gray-200 flex gap-2 w-full flex-wrap justify-center">
-                  <Project
-                    image={zemenLandingPage}
-                    title="Zemen - A Regime detector"
-                    description="Built a regime detection platform using Next.js, Prisma, and TypeScript to analyze global economics, sectors, and stocks, delivering actionable insights for investors and traders."
-                    category="FROM ZERVEHACK HACKATHON"
-                    tags={[
-                      "Next.js",
-                      "prisma ORM",
-                      "typescript",
-                      "FRED API",
-                      "Tailwind CSS",
-                      "Google Gemini AI",
-                      "Framer Motion",
-                      "Lucide React",
-                    ]}
-                    live="https://zemen-liard.vercel.app/"
-                    github="https://github.com/onewritescode/zemen"
-                  />
-                  <Project
-                    video={thoughtPolice}
-                    title="THOUGHT POLICE"
-                    description="A website for reddit users. It helps you find people with Double Dealing Character on Reddit people who post random and contradictory stuff just for reach, so you can find them and block them."
-                    category="FROM BOLTE.NEW HACKATHON"
-                    tags={[
-                      "React 18",
-                      "TypeScript",
-                      "Framer Motion",
-                      "Lucide React",
-                      "Recharts",
-                      "Auth0",
-                      "Google Gemini AI",
-                      "OpenRouter API",
-                      "Reddit API",
-                      "Pushshift API",
-                      "Axios",
-                      "ESLint",
-                      "PostCSS",
-                      "Date-fns",
-                    ]}
-                    github="https://github.com/oneWritesCode/Thought_police"
-                  />
-                  <Project
-                    video={Godgpt}
-                    title="GODGPT"
-                    description="A next-generation AI chat platform with multi-LLM support (18+ models), real-time streaming, offline capabilities, and enterprise-grade features. Features include multi-model queue processing, vision capabilities, OAuth authentication, and cross-device synchronization."
-                    category="FROM t3 chat CLONEATHON"
-                    tags={[
-                      "Next.js 15",
-                      "TypeScript",
-                      "PostgreSQL",
-                      "Prisma",
-                      "Better Auth",
-                      "AI SDK",
-                      "OpenRouter",
-                      "Google AI SDK",
-                      "OpenAI SDK",
-                      "Tailwind CSS",
-                      "Radix UI",
-                      "Lucide React",
-                      "Zustand",
-                      "React Hook Form",
-                      "Zod",
-                      "Dexie.js",
-                      "Cloudinary",
-                      "bcryptjs",
-                    ]}
-                    github="https://github.com/oneWritesCode/Godgpt-2"
                   />
                 </div>
               </ul>

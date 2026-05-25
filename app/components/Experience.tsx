@@ -11,7 +11,7 @@ type ExperinceType = {
 
 export default function Experience() {
   return (
-    <div className="w-full px-5 md:px-15 pt-8">
+    <div className="w-full pt-8">
       <div className="w-full">
         <div className="flex flex-col items- capitalize">
           <p className="Bonheur mt-4 mb-4 md:mt-10 md:mb-6 text-4xl md:text-5xl">experience</p>

@@ -1,6 +1,11 @@
 import React, { useState, useRef } from "react";
 import NavLink from "../components/NavLink";
+import TechStack from "@/app/components/TechStack";
+import Footer from "@/app/components/Footer";
+import Experience from "../components/Experience";
+import LatestProjectSection from "../components/LatestProjectSection";
 import Lines from "../components/Lines";
+
 interface NavItem {
   label: string;
   href: string;
@@ -34,28 +39,9 @@ function LandingPage(): React.ReactElement {
     });
   };
 
-  const handleMouseLeave = () => {
-    setBgStyle((prev) => ({ ...prev, opacity: 0 }));
-  };
   return (
     <>
-      {/* <div className="absolute w-full min-h-screen z-0">
-        <div className="absolute md:left-200 left-15 bottom-5 md:-bottom-5">
-          <img
-            src="/assets/images/SwordScar.png"
-            alt="me"
-            className="rounded-full border-4 border-transparent opacity-20"
-          />
-        </div>
-      </div> */}
-
-     
-      {/* <div className="w-full overflow-hidden fixed top-0 right-0 z-0 md:scale-100 scale-250 opacity-70">
-        <Lines />
-        <Lines />
-      </div>  */}
-
-      <div className="w-full px-5 pt-5 md:px-15 md:pt-15 z-50">
+      <div className="absolute w-full px-5 pt-5 md:px-15 md:pt-15 z-50">
         <div className="flex md:gap-8 flex-wrap">
           <img
             src="/assets/images/Animated-Image.png"
@@ -83,15 +69,14 @@ function LandingPage(): React.ReactElement {
             <div
               ref={containerRef}
               className="relative flex gap-10 mt-2 md:mt-6 sourGummy"
-              onMouseLeave={handleMouseLeave}
             >
               {/* sliding bg pill */}
               <div
-                className="absolute bottom-0 h-full bg-zinc-600 rounded-md pointer-events-none"
+                className="absolute bottom-0 h-full border-b pointer-events-none"
                 style={{
                   ...bgStyle,
                   transition:
-                    "left 0.25s cubic-bezier(0.4,0,0.2,1), width 0.25s cubic-bezier(0.4,0,0.2,1), opacity 0.15s ease",
+                    "left 0.25s cubic-bezier(0.4,0,0.2,1), width 0.25s cubic-bezier(0.4,0,0.2,1), opacity 0.5s ease",
                 }}
               />
 
@@ -112,6 +97,19 @@ function LandingPage(): React.ReactElement {
             </div>
 
             <div className="flex mt-4 md:mt-6">
+              {/* <div className="absolute w-full min-h-screen z-0">
+        <div className="absolute md:left-200 left-15 bottom-5 md:-bottom-5">
+          <img
+            src="/assets/images/SwordScar.png"
+            alt="me"
+            className="rounded-full border-4 border-transparent opacity-20"
+          />
+        </div>
+      </div> */}
+              {/* <div className="w-full overflow-hidden fixed top-0 right-0 z-0 md:scale-100 scale-250 opacity-70">
+        <Lines />
+        <Lines />
+      </div>  */}{" "}
               <a
                 href="https://twitter.com/triordeep"
                 target="_blank"
@@ -134,7 +132,6 @@ function LandingPage(): React.ReactElement {
                   />
                 </svg>
               </a>
-
               <a
                 href="https://www.linkedin.com/in/deepak-singh-27a17a321/"
                 target="_blank"
@@ -151,7 +148,6 @@ function LandingPage(): React.ReactElement {
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                 </svg>
               </a>
-
               <a
                 href="https://github.com/oneWritesCode"
                 target="_blank"
@@ -172,7 +168,6 @@ function LandingPage(): React.ReactElement {
                   />
                 </svg>
               </a>
-
               <a
                 href="https://leetcode.com/u/deepak126/"
                 target="_blank"
@@ -182,7 +177,6 @@ function LandingPage(): React.ReactElement {
               >
                 <img src="/assets/images/leetcode.png" className="" />
               </a>
-
               <a
                 href="https://medium.com/@triordeep"
                 target="_blank"
@@ -209,6 +203,25 @@ function LandingPage(): React.ReactElement {
             </div>
           </div>
         </div>
+        <TechStack />
+        <Experience />
+        <LatestProjectSection />
+        <Footer />
+      </div>
+
+      <div className="absolute top-0 w-full min-h-screen z-0">
+        <div className="absolute md:left-200 left-15 bottom-5 md:-bottom-5">
+          <img
+            src="/assets/images/SwordScar.png"
+            alt="me"
+            className="rounded-full border-4 border-transparent opacity-20"
+          />
+        </div>
+      </div>
+
+      <div className="w-full overflow-hidden fixed top-0 right-0 z-0 md:scale-100 scale-250 opacity-70">
+        <Lines />
+        <Lines />
       </div>
     </>
   );
