@@ -2,7 +2,6 @@
 
 import { usePathname } from "next/navigation";
 import Blogs from "@/app/pages/Blogs";
-import Navbar from "@/app/components/Navbar";
 import NavlinkMotion from "@/app/components/NavlinkMotion";
 import Footer from "@/app/components/Footer";
 import Link from "next/link";
@@ -12,7 +11,6 @@ function page() {
 
   return (
     <>
-      {/* <Navbar /> */}
       <div className="px-10 w-full fixed bottom-10 flex items-center justify-center gap-7 z-1000 ">
         <span className="shadow-xl shadow-zinc-500/30 rounded-2xl text-xs md:text-md">
           <NavlinkMotion name="home" />

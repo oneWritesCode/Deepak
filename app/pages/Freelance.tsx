@@ -23,38 +23,44 @@ export default function Freelance(): React.ReactElement {
               <Project
                 video={mashooriya}
                 title="mashooriya - a music brand"
-                description="website of a music brand to represent them online and show case their music and founders to their fans and followers."
-                category="freelance work"
+                tags={["next.js", "tailwind css", "gsap", "spotify API"]}
+                // description="website of a music brand to represent them online and show case their music and founders to their fans and followers."
               />
               <Project
                 video={xpressprints}
-                title="A ecommerce website"
-                description="worked on the maintenance for the website for a ecommerce shop to showcase their products and brand with a proper backend and frontend."
-                category="freelance work"
+                title="kigoprints - a ecommerce website"
+                tags={[
+                  "react.js",
+                  "mongodb",
+                  "node.js",
+                  "express.js",
+                  "tailwind css",
+                ]}
+                // description="worked on the maintenance for the website for a ecommerce shop to showcase their products and brand with a proper backend and frontend."
               />
               <Project
                 image={radSoonFreelanceProject}
                 title="coming soon page"
-                description="website for a agency to show that their website is under construction and not to make it conplicated for customers to find them online."
-                category="freelance work"
+                tags={["html", "tailwind css"]}
+                // description="website for a agency to show that their website is under construction and not to make it conplicated for customers to find them online."
               />
               <Project
                 image={firstDesign}
-                title="first design"
-                description="landing page of a music agency to showcase their brand and work on the internet."
-                category="freelance demo"
+                title="music brand's landing page"
+                tags={["react.js", "tailwind css"]}
+                // description="landing page of a music agency to showcase their brand and work on the internet."
               />
               <Project
                 image={secondDesign}
-                title="second design"
-                description="landing page of a perfume shop to showcase their brand and quality of work on the internet."
-                category="freelance demo"
+                title="perfume shop's landing page"
+                tags={["react.js", "tailwind css"]}
+                // description="landing page of a perfume shop to showcase their brand and quality of work on the internet."
               />
               <Project
                 image={restaurantsWebLandingPage}
-                title="food restaurant website"
-                description="website for a restaurant to showcase their work, food quality, menu and location and to improve the digital prescence of the restaurant and to make it easier for customers to find them online."
-                category="freelance demo"
+                title="restaurant's website"
+                tags={["html", "tailwind css"]}
+                // description="website for a restaurant to showcase their work, food quality, menu and location and to improve the digital prescence of the restaurant and to make it easier for customers to find them online."
               />
             </div>
           </div>
