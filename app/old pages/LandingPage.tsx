@@ -1,20 +1,28 @@
 import React from "react";
-import Lines from "../components/Lines";
 import NavlinkMotion from "../components/NavlinkMotion";
 
 function LandingPage(): React.ReactElement {
   return (
     <>
-      {/* designs there _____________________________________________________________________________________________________________________________*/}
-
-      {/* background aeroplane_________________________________________________________*/}
-      <div className="absolute w-full min flex overflow-hidden">
-        <div className="relative md:left-50 md:bottom-70">
-          <div className="w-100 z-0 h-100 rounded-full border-4 bg-gradient-to-br from-black via-black to-transparent opacity-0 md:opacity-30 blur-3xl"></div>
-        </div>
-      </div>
-
-      <div className="absolute w-full min-h-screen flex md:items-end md:justify-start items-start justify-center overflow-hidden z-50">
+      <div className="fixed w-full min-h-screen  overflow-hidden z-0">
+        <div className="min-h-screen w-full bg-black absolute opacity-18 overflow-hidden">
+          <div
+            className="absolute inset-0 z-0"
+            style={{
+              backgroundImage: `
+       linear-gradient(to right, #fff 1px, transparent 0px),
+       linear-gradient(to bottom, #fff 1px, transparent 0px),
+       radial-gradient(circle 600px at 0% 200px, #000, transparent),
+       radial-gradient(circle 600px at 100% 200px, #000, transparent)
+     `,
+              backgroundSize: "15px 20px, 20px 15px, 100% 100%, 100% 100%",
+            }}
+          />
+        </div>{" "}
+      </div>{" "}
+      
+      {/* sword scar */}
+      <div className="absolute w-full min-h-screen flex md:items-end md:justify-start items-start justify-center overflow-hidden">
         <div className="absolute md:left-200 left-15 bottom-5 md:-bottom-5">
           <img
             src="/assets/images/SwordScar.png"
@@ -24,20 +32,10 @@ function LandingPage(): React.ReactElement {
         </div>
       </div>
 
-      {/* background lines ________________________________________________________________*/}
-      <div className="w-full overflow-hidden fixed top-0 right-0 z-0 md:scale-100 scale-250 opacity-70">
-        <Lines />
-        <Lines />
-      </div>
-      {/* <img
-        src="/assets/images/sharpsmoke.png"
-        alt="me"
-        className="w-full h-screen object-fit opacity-5 md:opacity-10 z-0 fixed top-0 right-0"
-      /> */}
-
+      {/* content */}
       <div className="w-full h-screen flex items-center justify-center bg-black">
         <div className="flex flex-col items-center justify-center">
-          <div className="w-40 h-40 md:w-50 md:h-50 flex item-center justify-center border-2 border-zinc-700 rounded-full mb-4">
+          <div className="w-40 h-40 md:w-50 md:h-50 flex item-center justify-center border-2 border-zinc-700 rounded-full mb-4 z-100">
             <img
               src="/assets/images/Animated-Image.png"
               alt="me"
@@ -52,8 +50,8 @@ function LandingPage(): React.ReactElement {
             </p>
           </span>
 
-          <div className="sm:w-150 text-center pt-4 lg:p-0 px-10 text-sm sm:text-xl font-medium sourGummy">
-            <p className="mb-2 md:mb-4">hey, wanna hear about me?</p>
+          <div className="sm:w-150 text-center pt-4 lg:p-0 px-10 text-sm sm:text-xl font-medium sourGummy z-100">
+            <p className="mb-2 md:mb-4">wanna hear about me?</p>
             <p className="text-[12px] md:text-sm">
               so, i am {""}
               <span className="text-zinc-400 font-bold capitalize">
@@ -72,6 +70,10 @@ function LandingPage(): React.ReactElement {
           </div>
         </div>
       </div>
+      {/* <div className="w-full overflow-hidden fixed top-0 right-0 z-0 scale-250 opacity-60">
+        <Lines />
+        <Lines />
+      </div>{" "} */}
     </>
   );
 }

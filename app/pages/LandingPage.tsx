@@ -97,19 +97,6 @@ function LandingPage(): React.ReactElement {
             </div>
 
             <div className="flex mt-4 md:mt-6">
-              {/* <div className="absolute w-full min-h-screen z-0">
-        <div className="absolute md:left-200 left-15 bottom-5 md:-bottom-5">
-          <img
-            src="/assets/images/SwordScar.png"
-            alt="me"
-            className="rounded-full border-4 border-transparent opacity-20"
-          />
-        </div>
-      </div> */}
-              {/* <div className="w-full overflow-hidden fixed top-0 right-0 z-0 md:scale-100 scale-250 opacity-70">
-        <Lines />
-        <Lines />
-      </div>  */}{" "}
               <a
                 href="https://twitter.com/triordeep"
                 target="_blank"
@@ -219,7 +206,7 @@ function LandingPage(): React.ReactElement {
         </div>
       </div>
 
-      <div className="w-full overflow-hidden fixed top-0 right-0 z-0 md:scale-100 scale-250 opacity-70">
+      <div className="w-full overflow-hidden fixed top-0 right-0 z-0 md:scale-100 scale-250 opacity-60">
         <Lines />
         <Lines />
       </div>
