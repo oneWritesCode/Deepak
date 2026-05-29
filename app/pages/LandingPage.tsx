@@ -18,9 +18,9 @@ const NAV_ITEMS: NavItem[] = [
 
 function LandingPage(): React.ReactElement {
   const [bgStyle, setBgStyle] = useState<React.CSSProperties>({
-    width: "80px",
+    width: "90px",
     left: "0px",
-    opacity: 0,
+    opacity: 1,
   });
 
   const containerRef = useRef<HTMLDivElement>(null);
