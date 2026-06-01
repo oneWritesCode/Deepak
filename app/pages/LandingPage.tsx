@@ -50,9 +50,9 @@ function LandingPage(): React.ReactElement {
           />
 
           <div>
-            <p className="relative Bonheur mt-2 md:mt-0 md:mb-4 text-5xl sm:text-5xl md:text-7xl font-medium z-10 ext-center bg-clip-text text-transparent bg-gradient-to-r from-zinc-500 to-zinc-500">
-              19 experimentor
-            </p>
+            <h1 className="relative Bonheur mt-2 md:mt-0 md:mb-4 text-5xl sm:text-5xl md:text-7xl font-medium z-10 ext-center bg-clip-text text-transparent bg-gradient-to-r from-zinc-500 to-zinc-500 capitalize">
+              hey, i am deepak
+            </h1>
 
             <div className="w-60 lg:w-100 sm:w-80 pt-2 md:pt-4 text-sm sm:text-xl font-medium sourGummy">
               <p className="text-[12px] md:text-sm">

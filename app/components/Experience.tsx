@@ -46,7 +46,7 @@ function ExperienceComponent({
   return (
     <div className="bg-Dark rounded-2xl max-w-100 bg-black text-white p-2 md:p-4 border border-gray-800">
       <div className="pl-1 mb-2 sourGummy uppercase gap-1 md:gap-2">
-        <span className="text-xs md:text-2xl font-bold">{roleWas}</span>
+        <h3 className="text-xs md:text-2xl font-bold">{roleWas}</h3>
         {jobType && <span> • </span> }
         <span className="text-xs text-green-300"> {jobType}</span>
       </div>
@@ -58,9 +58,9 @@ function ExperienceComponent({
             alt="the zero one llp logo"
             className="h-full rounded-full border border-gray-400"
           />
-          <p className="text-xs md:text-xl sourGummy uppercase text-gray-300 font-semibold">
+          <h2 className="text-xs md:text-xl sourGummy uppercase text-gray-300 font-semibold">
             {workingAt}
-          </p>
+          </h2>
         </div>
 
         <p className="text-xs text-gray-200 bg-white/10 border border-gray-800 px-2 py-px rounded-3xl">
