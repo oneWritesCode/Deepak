@@ -21,7 +21,6 @@ export default function LatestProjectSection() {
                 "typescript",
                 "Tailwind CSS",
                 "recharts",
-                "recharts",
                 "GROQ API",
                 "GROQ SDK",
                 "Framer Motion",
