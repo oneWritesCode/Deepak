@@ -181,7 +181,7 @@ function TechStack(): React.ReactElement {
             My Tech Stack
           </p>
           <BlacknWhiteFilter>
-            <div className="flex  gap-2 md:gap-6 flex-wrap sourGummy">
+            <div className="flex  gap-2 md:gap-x-6 md:gap-y-0 flex-wrap sourGummy">
               <TechComponent
                 image={reactjs}
                 label="React"
