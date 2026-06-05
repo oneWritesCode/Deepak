@@ -20,7 +20,6 @@ function LandingPage(): React.ReactElement {
           />
         </div>{" "}
       </div>{" "}
-      
       {/* sword scar */}
       <div className="absolute w-full min-h-screen flex md:items-end md:justify-start items-start justify-center overflow-hidden">
         <div className="absolute md:left-200 left-15 bottom-5 md:-bottom-5">
@@ -31,7 +30,6 @@ function LandingPage(): React.ReactElement {
           />
         </div>
       </div>
-
       {/* content */}
       <div className="w-full h-screen flex items-center justify-center bg-black">
         <div className="flex flex-col items-center justify-center">
@@ -51,17 +49,19 @@ function LandingPage(): React.ReactElement {
           </span>
 
           <div className="sm:w-150 text-center pt-4 lg:p-0 px-10 text-sm sm:text-xl font-medium sourGummy z-100">
-            <p className="mb-2 md:mb-4">wanna hear about me?</p>
             <p className="text-[12px] md:text-sm">
-              so, i am {""}
-              <span className="text-zinc-400 font-bold capitalize">
-                self taught developer
-              </span>
-              . just curious about things and trying to do everything, i should
-              not. building and creating things to solve my personal problems
-              but sometimes it helps other peoples too.
+              also known as {""}
+              <h1 className="text-zinc-400 font-bold capitalize inline">
+                ( triordeep )
+              </h1>{" "}
+              by some . just curious about things and doing whatever my brain's
+              saying. building and breaking things to satisfy my soul. Exploring
+              tech for fun and trying to showcase some cool stuffs i created.
+              <h1 className="opacity-0 inline text-[1px]">
+                {" "}
+                deepak kumar singh
+              </h1>
             </p>
-            {/* <p className="mt-6 text-xl">here is the proof</p> */}
           </div>
 
           <div className="flex gap-10 mt-6 z-50">
@@ -70,10 +70,6 @@ function LandingPage(): React.ReactElement {
           </div>
         </div>
       </div>
-      {/* <div className="w-full overflow-hidden fixed top-0 right-0 z-0 scale-250 opacity-60">
-        <Lines />
-        <Lines />
-      </div>{" "} */}
     </>
   );
 }

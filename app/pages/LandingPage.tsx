@@ -57,13 +57,18 @@ function LandingPage(): React.ReactElement {
 
               <div className="w-60 lg:w-100 sm:w-80 pt-2 md:pt-4 text-sm sm:text-xl font-medium sourGummy">
                 <p className="text-[12px] md:text-sm">
-                  i am {""}
-                  <span className="text-zinc-400 font-bold capitalize">
-                    self taught developer
-                  </span>
-                  . just curious about things and trying to do everything, i
-                  should not. building and creating things to solve my personal
-                  problems but sometimes it helps other peoples too.
+                  also known as {""}
+                  <h1 className="text-zinc-400 font-bold capitalize inline">
+                    ( triordeep )
+                  </h1>{" "}
+                  by some . just curious about things and doing whatever my
+                  brain's saying. building and breaking things to satisfy my
+                  soul. Exploring tech for fun and trying to showcase some cool
+                  stuffs i created.
+                  <h1 className="opacity-0 inline text-[1px]">
+                    {" "}
+                    deepak kumar singh
+                  </h1>
                 </p>
               </div>
 
