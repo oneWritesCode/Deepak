@@ -42,7 +42,7 @@ function LandingPage(): React.ReactElement {
   return (
     <>
       <div className="flex justify-center">
-        <div className="absolute max-w-5xl px-5 pt-5 md:px-15 md:pt-20 z-50 bg-white/1">
+        <div className="absolute max-w-5xl px-5 pt-5 md:px-15 md:pt-20 z-50">
           <div className="flex md:gap-8 flex-wrap">
             <img
               src="/assets/images/Animated-Image.png"
