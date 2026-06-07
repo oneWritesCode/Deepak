@@ -5,6 +5,7 @@ import Footer from "@/app/components/Footer";
 import Experience from "../components/Experience";
 import LatestProjectSection from "../components/LatestProjectSection";
 import Lines from "../components/Lines";
+import GitHubContributions from "../components/githubContributions";
 
 interface NavItem {
   label: string;
@@ -196,21 +197,22 @@ function LandingPage(): React.ReactElement {
               </div>
             </div>
           </div>
+          <GitHubContributions />
           <TechStack />
           <Experience />
           <LatestProjectSection />
           <Footer />
         </div>
 
-        <div className="absolute top-0 w-full min-h-screen z-0">
-          <div className="absolute md:left-200 left-15 bottom-5 md:-bottom-5">
+        {/* <div className="absolute top-0 w-full min-h-screen z-0">
+          <div className="absolute md:left-200 left-15 bottom-5 md:bottom-15">
             <img
               src="/assets/images/SwordScar.png"
               alt="me"
               className="rounded-full border-4 border-transparent opacity-20"
             />
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="w-full overflow-hidden fixed top-0 right-0 z-0 md:scale-100 scale-250 opacity-50">
         <Lines />

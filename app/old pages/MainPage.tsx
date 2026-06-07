@@ -6,6 +6,7 @@ import TechStack from "@/app/old pages/TechStack";
 import Footer from "@/app/old pages/Footer";
 import Experience from "@/app/old pages/Experience";
 import LatestProjectSection from "@/app/old pages/LatestProjectSection";
+import GitHubContributions from "../components/githubContributions";
 
 export default function Home() {
   const location = usePathname();
@@ -13,10 +14,12 @@ export default function Home() {
   return (
     <div className="bg-black">
       <LandingPage key={location} />
+      {/* <GitHubContributions /> */}
       <TechStack />
       <Experience />
       <LatestProjectSection />
       <Footer />
     </div>
-  );``
+  );
+  ``;
 }

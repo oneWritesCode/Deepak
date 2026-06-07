@@ -7,7 +7,7 @@ export default function LatestProjectSection() {
   return (
     <div className="w-full sourGummy pt-8">
       <div className="capitalize">
-        <p className="Bonheur mt-4 mb-4 md:mt-10 md:mb-6 text-4xl md:text-5xl">my latest work</p>
+        <p className="Bonheur mb-4 md:mb-6 text-4xl md:text-6xl">latest work</p>
 
         <div className="relative gap-7 flex-wrap">
           <div className="w-full flex flex-wrap text-gray-200 gap-2">

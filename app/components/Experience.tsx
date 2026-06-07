@@ -14,7 +14,7 @@ export default function Experience() {
     <div className="w-full pt-8">
       <div className="w-full">
         <div className="flex flex-col items- capitalize">
-          <p className="Bonheur mt-4 mb-4 md:mt-10 md:mb-6 text-4xl md:text-5xl">experience</p>
+          <p className="Bonheur mb-4 md:mb-6 text-4xl md:text-6xl">experience</p>
           <div className="flex gap-7 flex-wrap w-[90%] md:w-[80%]">
             <ExperienceComponent
               startUpLogoImage="/assets/images/thezeroone.png"

@@ -176,9 +176,9 @@ function TechStack(): React.ReactElement {
   return (
     <div className="w-full pt-8">
       <div className="w-full">
-        <div className="capitalize">
-          <p className="Bonheur text-4xl md:text-5xl tet-center mt-4 mb-4 md:mt-10 md:mb-6">
-            My Tech Stack
+        <div className="">
+          <p className="Bonheur text-4xl md:text-6xl tet-center">
+            Tech Stack
           </p>
           <BlacknWhiteFilter>
             <div className="flex  gap-2 md:gap-x-6 md:gap-y-0 flex-wrap sourGummy">
