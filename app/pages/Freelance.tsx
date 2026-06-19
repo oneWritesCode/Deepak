@@ -6,6 +6,7 @@ const mashooriya: string = "/assets/video/mashooriya.mp4";
 const xpressprints: string = "/assets/video/xpressprints.mp4";
 const firstDesign: string = "/assets/images/First-Design.png";
 const secondDesign: string = "/assets/images/Second-Design.png";
+const saktimax: string = "/assets/images/saktimax.png";
 const restaurantsWebLandingPage: string =
   "/assets/images/restaurants-web-landing-page.png";
 
@@ -20,6 +21,15 @@ export default function Freelance(): React.ReactElement {
             </p>
 
             <div className="w-full flex justify-center items-center flex-wrap">
+              <Project
+                image={saktimax}
+                title="saktimax battery"
+                tags={[
+                  "next.js",
+                  "tailwind css",
+                ]}
+                // description="worked on the maintenance for the website for a ecommerce shop to showcase their products and brand with a proper backend and frontend."
+              />
               <Project
                 video={mashooriya}
                 title="mashooriya - a music brand"
