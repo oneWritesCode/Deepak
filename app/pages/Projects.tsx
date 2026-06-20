@@ -29,7 +29,7 @@ function Projects(): React.ReactElement {
                 </p>
                 <div className="pl-0 sm:pl-6 text-gray-200 flex gap-2 w-full flex-wrap justify-center">
                   <Project
-                    image={medimate}
+                    ytLink="https://youtube.com/embed/KZbB5Of4yR0"
                     title="medimate - Your Healthcare Assistant"
                     description="built a symptom checker web application using Next.js, TypeScript, Tailwind CSS, and Recharts. The application allows users to input their symptoms and receive potential diagnoses based on a comprehensive medical database. I utilized the GROQ API and GROQ SDK to fetch and manage medical data efficiently. Additionally, I implemented Framer Motion for smooth animations and Lucide React for intuitive icons, enhancing the overall user experience.built in may 2026."
                     category="FROM BTH"
@@ -47,7 +47,7 @@ function Projects(): React.ReactElement {
                     github="https://github.com/onewritescode/medimate"
                   />
                   <Project
-                    image={zemenLandingPage}
+                    ytLink="https://youtube.com/embed/96cxXVIj2Tw"
                     title="Zemen - A Regime detector"
                     description="Built a regime detection platform using Next.js, Prisma, and TypeScript to analyze global economics, sectors, and stocks, delivering actionable insights for investors and traders. built in april 2026."
                     category="FROM ZERVEHACK HACKATHON"
