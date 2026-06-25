@@ -14,6 +14,7 @@ const postgressql: string = "/assets/images/postgressql.png";
 const AWS: string = "/assets/images/amazon-aws.png";
 const prisma: string = "/assets/images/prisma.png";
 const docker: string = "/assets/images/docker.png";
+const godot: string = "/assets/images/godot.png";
 
 interface TechComponentProps {
   image?: string;
@@ -25,7 +26,7 @@ interface TechComponentProps {
 }
 
 function TechComponent(props: TechComponentProps): React.ReactElement {
-  const { animationDelay = 0, cycleDuration = 15 } = props;
+  const { animationDelay = 0, cycleDuration = 16 } = props;
   const [manualFlip, setManualFlip] = useState(false);
   const flipTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -177,9 +178,7 @@ function TechStack(): React.ReactElement {
     <div className="w-full pt-8">
       <div className="w-full">
         <div className="">
-          <p className="Bonheur text-4xl md:text-6xl tet-center">
-            Tech Stack
-          </p>
+          <p className="Bonheur text-4xl md:text-6xl tet-center">Tech Stack</p>
           <BlacknWhiteFilter>
             <div className="flex  gap-2 md:gap-x-6 md:gap-y-0 flex-wrap sourGummy">
               <TechComponent
@@ -272,6 +271,12 @@ function TechStack(): React.ReactElement {
                 image={docker}
                 label="Docker"
                 animationDelay={delay(14)}
+                cycleDuration={CYCLE}
+              />
+              <TechComponent
+                image={godot}
+                label="GoDot"
+                animationDelay={delay(15)}
                 cycleDuration={CYCLE}
               />
             </div>

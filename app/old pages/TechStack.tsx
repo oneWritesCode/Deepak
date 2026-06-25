@@ -13,6 +13,7 @@ const postgressql: string = "/assets/images/postgressql.png";
 const AWS: string = "/assets/images/amazon-aws.png";
 const prisma: string = "/assets/images/prisma.png";
 const docker: string = "/assets/images/docker.png";
+const godot: string = "/assets/images/godot.png";
 
 interface TechComponentProps {
   image?: string;
@@ -24,20 +25,22 @@ interface TechComponentProps {
 }
 
 function TechComponent(props: TechComponentProps): React.ReactElement {
-  const { animationDelay = 0, cycleDuration = 15 } = props;
+  const { animationDelay = 0, cycleDuration = 16 } = props;
   const [manualFlip, setManualFlip] = useState(false);
   const flipTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const animationName = `spin_${String(animationDelay).replace(".", "_")}`;
 
-  const SPIN_DURATION  = 1;
+  const SPIN_DURATION = 1;
   const PAUSE_DURATION = 1.5;
 
-  const total        = cycleDuration;
+  const total = cycleDuration;
   const spinStartPct = (animationDelay / total) * 100;
-  const spin1EndPct  = ((animationDelay + SPIN_DURATION) / total) * 100;
-  const pauseEndPct  = ((animationDelay + SPIN_DURATION + PAUSE_DURATION) / total) * 100;
-  const spin2EndPct  = ((animationDelay + SPIN_DURATION * 2 + PAUSE_DURATION) / total) * 100;
+  const spin1EndPct = ((animationDelay + SPIN_DURATION) / total) * 100;
+  const pauseEndPct =
+    ((animationDelay + SPIN_DURATION + PAUSE_DURATION) / total) * 100;
+  const spin2EndPct =
+    ((animationDelay + SPIN_DURATION * 2 + PAUSE_DURATION) / total) * 100;
 
   const keyframes = `
     @keyframes ${animationName} {
@@ -57,7 +60,7 @@ function TechComponent(props: TechComponentProps): React.ReactElement {
     }
   `;
 
-  const MANUAL_TOTAL = (SPIN_DURATION + PAUSE_DURATION + SPIN_DURATION); // 3.5s
+  const MANUAL_TOTAL = SPIN_DURATION + PAUSE_DURATION + SPIN_DURATION; // 3.5s
 
   // on hover/click: override with manual_flip, then hand back to auto after it finishes
   const triggerFlip = () => {
@@ -121,7 +124,10 @@ function TechComponent(props: TechComponentProps): React.ReactElement {
               />
             </div>
             {/* Back */}
-            <div className={`${faceBase} px-3 bg-black/95`} style={backFaceStyle}>
+            <div
+              className={`${faceBase} px-3 bg-black/95`}
+              style={backFaceStyle}
+            >
               <span className="text-white text-[10px] lg:text-xs font-semibold tracking-wider text-center leading-tight">
                 {props.label ?? ""}
               </span>
@@ -139,11 +145,19 @@ function TechComponent(props: TechComponentProps): React.ReactElement {
         >
           <div style={cardStyle} className="h-full w-full">
             {/* Front */}
-            <div className={`${faceBase} px-3`} style={{ whiteSpace: "nowrap" }}>
-              <p className={props.classes} style={{ whiteSpace: "nowrap" }}>{props.text}</p>
+            <div
+              className={`${faceBase} px-3`}
+              style={{ whiteSpace: "nowrap" }}
+            >
+              <p className={props.classes} style={{ whiteSpace: "nowrap" }}>
+                {props.text}
+              </p>
             </div>
             {/* Back */}
-            <div className={`${faceBase} px-3 bg-black/95`} style={{ transform: "rotateY(180deg)", whiteSpace: "nowrap" }}>
+            <div
+              className={`${faceBase} px-3 bg-black/95`}
+              style={{ transform: "rotateY(180deg)", whiteSpace: "nowrap" }}
+            >
               <span className="text-white text-[10px] lg:text-xs font-semibold tracking-wider leading-tight">
                 {props.label ?? props.text ?? ""}
               </span>
@@ -155,10 +169,10 @@ function TechComponent(props: TechComponentProps): React.ReactElement {
   );
 }
 
-const SPIN_DURATION  = 1;
+const SPIN_DURATION = 1;
 const PAUSE_DURATION = 1.5;
-const IDLE_BETWEEN   = 0.4;
-const TOTAL_CARDS    = 15;
+const IDLE_BETWEEN = 0.4;
+const TOTAL_CARDS = 15;
 const CYCLE = TOTAL_CARDS * (SPIN_DURATION * 2 + PAUSE_DURATION + IDLE_BETWEEN);
 
 function TechStack(): React.ReactElement {
@@ -169,27 +183,109 @@ function TechStack(): React.ReactElement {
     <div className="w-full top-0 z-40 flex items-center justify-center bg-black">
       <div className="w-full flex items-center justify-center z-40">
         <div className="p-1 flex flex-col items-center capitalize">
-
-          <p className="Bonheur text-5xl text-center mt-4 mb-4">My Tech Stack</p>
+          <p className="Bonheur text-5xl text-center mt-4 mb-4">
+            My Tech Stack
+          </p>
 
           <div className="flex items-center justify-center gap-2 flex-wrap w-[80%] px-4 sourGummy">
-            <TechComponent image={reactjs}     label="React"        animationDelay={delay(0)}  cycleDuration={CYCLE} />
-            <TechComponent image={tailwindcss} label="Tailwind CSS" animationDelay={delay(1)}  cycleDuration={CYCLE} />
-            <TechComponent image={typescript}  label="TypeScript"   animationDelay={delay(2)}  cycleDuration={CYCLE} />
-            <TechComponent image={nextjs}      label="Next.js"      animationDelay={delay(3)}  cycleDuration={CYCLE} />
-            <TechComponent image={expressjs}   label="Express.js"   animationDelay={delay(4)}  cycleDuration={CYCLE} />
-            <TechComponent image={AWS}         label="AWS"          animationDelay={delay(5)}  cycleDuration={CYCLE} />
-            <TechComponent image={mongodb}     label="MongoDB"      animationDelay={delay(6)}  cycleDuration={CYCLE} />
-            <TechComponent image={nodejs}      label="Node.js"      animationDelay={delay(7)}  cycleDuration={CYCLE} />
-            <TechComponent image={postgressql} label="PostgreSQL"   animationDelay={delay(8)}  cycleDuration={CYCLE} />
-            <TechComponent image={python}      label="Python"       animationDelay={delay(9)}  cycleDuration={CYCLE} />
-            <TechComponent text="GSAP"         label="GSAP"  classes="mogra"  animationDelay={delay(10)} cycleDuration={CYCLE} />
-            <TechComponent text="motion"       label="Motion"       animationDelay={delay(11)} cycleDuration={CYCLE} />
-            <TechComponent image={figma}       label="Figma"        animationDelay={delay(12)} cycleDuration={CYCLE} />
-            <TechComponent image={prisma}      label="Prisma"       animationDelay={delay(13)} cycleDuration={CYCLE} />
-            <TechComponent image={docker}      label="Docker"       animationDelay={delay(14)} cycleDuration={CYCLE} />
+            <TechComponent
+              image={reactjs}
+              label="React"
+              animationDelay={delay(0)}
+              cycleDuration={CYCLE}
+            />
+            <TechComponent
+              image={tailwindcss}
+              label="Tailwind CSS"
+              animationDelay={delay(1)}
+              cycleDuration={CYCLE}
+            />
+            <TechComponent
+              image={typescript}
+              label="TypeScript"
+              animationDelay={delay(2)}
+              cycleDuration={CYCLE}
+            />
+            <TechComponent
+              image={nextjs}
+              label="Next.js"
+              animationDelay={delay(3)}
+              cycleDuration={CYCLE}
+            />
+            <TechComponent
+              image={expressjs}
+              label="Express.js"
+              animationDelay={delay(4)}
+              cycleDuration={CYCLE}
+            />
+            <TechComponent
+              image={AWS}
+              label="AWS"
+              animationDelay={delay(5)}
+              cycleDuration={CYCLE}
+            />
+            <TechComponent
+              image={mongodb}
+              label="MongoDB"
+              animationDelay={delay(6)}
+              cycleDuration={CYCLE}
+            />
+            <TechComponent
+              image={nodejs}
+              label="Node.js"
+              animationDelay={delay(7)}
+              cycleDuration={CYCLE}
+            />
+            <TechComponent
+              image={postgressql}
+              label="PostgreSQL"
+              animationDelay={delay(8)}
+              cycleDuration={CYCLE}
+            />
+            <TechComponent
+              image={python}
+              label="Python"
+              animationDelay={delay(9)}
+              cycleDuration={CYCLE}
+            />
+            <TechComponent
+              text="GSAP"
+              label="GSAP"
+              classes="mogra"
+              animationDelay={delay(10)}
+              cycleDuration={CYCLE}
+            />
+            <TechComponent
+              text="motion"
+              label="Motion"
+              animationDelay={delay(11)}
+              cycleDuration={CYCLE}
+            />
+            <TechComponent
+              image={figma}
+              label="Figma"
+              animationDelay={delay(12)}
+              cycleDuration={CYCLE}
+            />
+            <TechComponent
+              image={prisma}
+              label="Prisma"
+              animationDelay={delay(13)}
+              cycleDuration={CYCLE}
+            />
+            <TechComponent
+              image={docker}
+              label="Docker"
+              animationDelay={delay(14)}
+              cycleDuration={CYCLE}
+            />
+            <TechComponent
+              image={godot}
+              label="GoDot"
+              animationDelay={delay(15)}
+              cycleDuration={CYCLE}
+            />
           </div>
-
         </div>
       </div>
     </div>
