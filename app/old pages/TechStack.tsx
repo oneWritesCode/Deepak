@@ -172,7 +172,7 @@ function TechComponent(props: TechComponentProps): React.ReactElement {
 const SPIN_DURATION = 1;
 const PAUSE_DURATION = 1.5;
 const IDLE_BETWEEN = 0.4;
-const TOTAL_CARDS = 15;
+const TOTAL_CARDS = 16; // change the number when addign a new component
 const CYCLE = TOTAL_CARDS * (SPIN_DURATION * 2 + PAUSE_DURATION + IDLE_BETWEEN);
 
 function TechStack(): React.ReactElement {
