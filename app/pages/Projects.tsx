@@ -1,8 +1,6 @@
 import React from "react";
 import Project from "../components/ProjectComponent";
 
-const medimate: string = "/assets/images/medimate.png";
-const zemenLandingPage: string = "/assets/images/zemenLandingPage.png";
 const GrandTheftAuto: string = "/assets/video/Grand-Theft-Auto.mp4";
 const Ecommerce: string = "/assets/video/E-Commerce.mp4";
 const Skilltracker: string = "/assets/video/skilltracker.mp4";
@@ -21,6 +19,83 @@ function Projects(): React.ReactElement {
             <p className="Bonheur text-6xl md:text-7xl relative sm:top-0 text-center mb-10 sm:mb-20 ">
               My projects
             </p>
+
+            <div className="w-full flex justify-center items-center flex-wrap">
+              <ul className="italic text-gray-100 font-bold min-h-[20vh] sm:min-h-[30vh] mb-12 sm:mb-24 items-center flex flex-col w-full">
+                <p className="sourGummy text-lg sm:text-2xl mb-6 sm:mb-10">
+                  Code & Caffiene
+                </p>
+                <div className="pl-0 sm:pl-6 text-gray-200 flex gap-2 w-full flex-wrap justify-center">
+                  <Project
+                    // image={foxy}
+                    ytLink="https://www.youtube.com/embed/DQSueb0xeak?si=KhEDZIxEUlAeNZGy"
+                    title="foxy"
+                    description="Foxy is a 2D pixel-art platformer built in Godot 4 featuring custom enemy AI, hazard-based level design, physics puzzles, animated UI, and browser deployment. I developed every aspect—from GDScript gameplay and scene architecture to asset processing, pixel-art integration, and performance optimization—gaining hands-on experience in complete game development.built in may 2026."
+                    category="game"
+                    tags={["Godot", "gdscript", "pixel-art", "itch.io"]}
+                    live="https://d33pak.itch.io/foxy"
+                    github="https://github.com/onewritescode/foxy"
+                  />
+                  <Project
+                    video={Skilltracker}
+                    title="A note taking app"
+                    description="Developed a habit-aware journaling platform with secure Google login, persistent cloud storage."
+                    category="Personal Project"
+                    tags={[
+                      "Next.js",
+                      "prisma ORM",
+                      "typescript",
+                      "tiptap",
+                      "PWA",
+                    ]}
+                    live="https://skilltracker-ni7h.vercel.app/"
+                  />
+                  <Project
+                    video={ChatApp}
+                    title="real time Chat-App"
+                    description="building a real-time chat application in MERN stack and socket.io. Secure Login & Signup, Files, pictures & Video Transfer with all CRUD operations. built in september 2025."
+                    category="Personal Project"
+                    tags={[
+                      "Socket.io",
+                      "mongoDB",
+                      "Express.js",
+                      "react",
+                      "node.js",
+                      "tailwindcss",
+                    ]}
+                    github="https://github.com/oneWritesCode/chat-app"
+                    live="https://chat-app-five-jet-76.vercel.app"
+                  />
+                  <Project
+                    image={teditor}
+                    title="T-Editor"
+                    description="A rich text editor built with React and Tiptap. It allows you to write, edit, and format text, paste images directly, and manage content easily. Designed for smooth and intuitive writing experiences."
+                    category="Personal Project"
+                    tags={["react", "tiptap", "tailwindcss"]}
+                    github="https://github.com/oneWritesCode/T-Editor"
+                    live="https://teditor-livid.vercel.app/"
+                  />
+                  <Project
+                    video={Ecommerce}
+                    title="E-Commerce website"
+                    description="A full-stack e-commerce platform with MERN stack featuring product listings, cart, checkout,edit and admin dashboard. using all CRUD operations Built in July 2025."
+                    category="Personal Project"
+                    tags={["MongoDB", "Express.js", "React.js", "Node.js"]}
+                    github="https://github.com/oneWritesCode/ecommerce"
+                    // live="https://ecommerce-demo.vercel.app/"
+                  />
+                  <Project
+                    video={TypeZ}
+                    title="TypeZ - Typing Game"
+                    description="A typing game website for peoples who want to improve their typing speed and accuracy. build in may 2025"
+                    category="Personal Project"
+                    tags={["React", "framer motion"]}
+                    github="https://github.com/oneWritesCode/TypeZ"
+                    live="https://type-z-liart.vercel.app/"
+                  />
+                </div>
+              </ul>
+            </div>
 
             <div className="w-full flex justify-center items-center flex-wrap">
               <ul className="italic text-gray-100 font-bold min-h-[20vh] sm:min-h-[30vh] mb-12 sm:mb-24 items-center flex flex-col w-full">
@@ -118,72 +193,6 @@ function Projects(): React.ReactElement {
               </ul>
             </div>
 
-            <div className="w-full flex justify-center items-center flex-wrap">
-              <ul className="italic text-gray-100 font-bold min-h-[20vh] sm:min-h-[30vh] mb-12 sm:mb-24 items-center flex flex-col w-full">
-                <p className="sourGummy text-lg sm:text-2xl mb-6 sm:mb-10">
-                  Code & Caffiene
-                </p>
-                <div className="pl-0 sm:pl-6 text-gray-200 flex gap-2 w-full flex-wrap justify-center">
-                  <Project
-                    video={Skilltracker}
-                    title="A note taking app"
-                    description="Developed a habit-aware journaling platform with secure Google login, persistent cloud storage."
-                    category="Personal Project"
-                    tags={[
-                      "Next.js",
-                      "prisma ORM",
-                      "typescript",
-                      "tiptap",
-                      "PWA",
-                    ]}
-                    live="https://skilltracker-ni7h.vercel.app/"
-                  />
-                  <Project
-                    video={ChatApp}
-                    title="real time Chat-App"
-                    description="building a real-time chat application in MERN stack and socket.io. Secure Login & Signup, Files, pictures & Video Transfer with all CRUD operations. built in september 2025."
-                    category="Personal Project"
-                    tags={[
-                      "Socket.io",
-                      "mongoDB",
-                      "Express.js",
-                      "react",
-                      "node.js",
-                      "tailwindcss",
-                    ]}
-                    github="https://github.com/oneWritesCode/chat-app"
-                    live="https://chat-app-five-jet-76.vercel.app"
-                  />
-                  <Project
-                    image={teditor}
-                    title="T-Editor"
-                    description="A rich text editor built with React and Tiptap. It allows you to write, edit, and format text, paste images directly, and manage content easily. Designed for smooth and intuitive writing experiences."
-                    category="Personal Project"
-                    tags={["react", "tiptap", "tailwindcss"]}
-                    github="https://github.com/oneWritesCode/T-Editor"
-                    live="https://teditor-livid.vercel.app/"
-                  />
-                  <Project
-                    video={Ecommerce}
-                    title="E-Commerce website"
-                    description="A full-stack e-commerce platform with MERN stack featuring product listings, cart, checkout,edit and admin dashboard. using all CRUD operations Built in July 2025."
-                    category="Personal Project"
-                    tags={["MongoDB", "Express.js", "React.js", "Node.js"]}
-                    github="https://github.com/oneWritesCode/ecommerce"
-                    // live="https://ecommerce-demo.vercel.app/"
-                  />
-                  <Project
-                    video={TypeZ}
-                    title="TypeZ - Typing Game"
-                    description="A typing game website for peoples who want to improve their typing speed and accuracy. build in may 2025"
-                    category="Personal Project"
-                    tags={["React", "framer motion"]}
-                    github="https://github.com/oneWritesCode/TypeZ"
-                    live="https://type-z-liart.vercel.app/"
-                  />
-                </div>
-              </ul>
-            </div>
 
             {/* related to ui/ux  */}
             <div className="w-full flex justify-center items-center flex-wrap sm:mb-0">

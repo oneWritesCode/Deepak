@@ -57,10 +57,7 @@ function LandingPage(): React.ReactElement {
               by some . just curious about things and doing whatever my brain's
               saying. building and breaking things to satisfy my soul. Exploring
               tech for fun and trying to showcase some cool stuffs i created.
-              <h1 className="opacity-0 text-[1px]">
-                {" "}
-                deepak kumar singh
-              </h1>
+              <h1 className="opacity-0 text-[1px]"> deepak kumar singh</h1>
             </p>
           </div>
 

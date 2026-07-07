@@ -179,8 +179,8 @@ function TechStack(): React.ReactElement {
       <div className="w-full">
         <div className="">
           <p className="Bonheur text-4xl md:text-6xl tet-center">Tech Stack</p>
-          <BlacknWhiteFilter>
-            <div className="flex  gap-2 md:gap-x-6 md:gap-y-0 flex-wrap sourGummy">
+          {/* <BlacknWhiteFilter> */}
+            <div className="flex  gap-2 md:gap-x-4 md:gap-y-0 flex-wrap sourGummy">
               <TechComponent
                 image={reactjs}
                 label="React"
@@ -280,7 +280,7 @@ function TechStack(): React.ReactElement {
                 cycleDuration={CYCLE}
               />
             </div>
-          </BlacknWhiteFilter>
+          {/* </BlacknWhiteFilter> */}
         </div>
       </div>
     </div>

@@ -214,7 +214,7 @@ export default function GitHubContributions() {
       {!data && !error && <Skeleton />}
 
       {data && (
-        <div className="w-full overflow-x-auto">
+        <div className="w-full overflow-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <div style={{ display: "inline-block", minWidth: "max-content" }}>
             {/* Month labels row */}
             <div

@@ -211,20 +211,12 @@ function LandingPage(): React.ReactElement {
           <LatestProjectSection />
           <Footer />
         </div>
-
-        {/* <div className="absolute top-0 w-full min-h-screen z-0">
-          <div className="absolute md:left-200 left-15 bottom-5 md:bottom-15">
-            <img
-              src="/assets/images/SwordScar.png"
-              alt="me"
-              className="rounded-full border-4 border-transparent opacity-20"
-            />
-          </div>
-        </div> */}
       </div>
-      <div className="w-full overflow-hidden fixed top-0 right-0 z-0 md:scale-100 scale-250 opacity-50">
+      <div className="w-full h-screenoverflow-hidden fixed top-0 right-0 z-0 md:scale-100 scale-250 bg-whte">
+       <div className="opacity-60">
+         <Lines />
         <Lines />
-        <Lines />
+       </div>
       </div>
     </>
   );

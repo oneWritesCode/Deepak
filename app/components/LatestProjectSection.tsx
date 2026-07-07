@@ -1,6 +1,7 @@
 import BlogComponent from "./BlogComponent";
 import Project from "./ProjectComponent";
 const medimate: string = "/assets/images/medimate.png";
+const foxy: string = "/assets/images/foxy_1.png";
 const webScrapper: string = "/assets/images/webScrapper.png";
 
 export default function LatestProjectSection() {
@@ -11,6 +12,20 @@ export default function LatestProjectSection() {
 
         <div className="relative gap-7 flex-wrap">
           <div className="w-full flex flex-wrap text-gray-200 gap-2">
+            <Project
+              image={foxy}
+              title="foxy"
+              description="Foxy is a 2D pixel-art platformer built in Godot 4 featuring custom enemy AI, hazard-based level design, physics puzzles, animated UI, and browser deployment. I developed every aspect—from GDScript gameplay and scene architecture to asset processing, pixel-art integration, and performance optimization—gaining hands-on experience in complete game development.built in may 2026."
+              category="game"
+              tags={[
+                "Godot",
+                "gdscript",
+                "pixel-art",
+                "itch.io"
+              ]}
+              live="https://d33pak.itch.io/foxy"
+              github="https://github.com/onewritescode/foxy"
+            />
             <Project
               image={medimate}
               title="medimate - Your Healthcare Assistant"
