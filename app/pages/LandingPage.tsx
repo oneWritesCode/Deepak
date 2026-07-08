@@ -105,7 +105,7 @@ function LandingPage(): React.ReactElement {
 
               <div className="flex mt-4 md:mt-6">
                 <a
-                  href="https://twitter.com/triordeep"
+                  href="https://x.com/triordeep"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="rounded-lg font-bold p-3 cursor-pointer transition-all duration-300 hover:scale-105"
