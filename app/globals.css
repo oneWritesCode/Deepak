@@ -1,4 +1,4 @@
-/* @custom-variant dark (&:where(.dark, .dark *)); */
+@custom-variant dark (&:where(.dark, .dark *));
 @import "tailwindcss";
 
 :root {
@@ -43,14 +43,14 @@
 
 @font-face {
   font-family: 'BonheurRoyal-regular';
-  src: url('@/public/assets/fonts/Bonheur_Royale/BonheurRoyale-Regular.ttf') format('truetype');
+  src: url('/assets/fonts/Bonheur_Royale/BonheurRoyale-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'mogra-Regular';
-  src: url('@/public/assets/fonts/Mogra/Mogra-Regular.ttf') format('truetype');
+  src: url('/assets/fonts/Mogra/Mogra-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -58,7 +58,7 @@
 
 @font-face {
   font-family: 'sour_gummy';
-  src: url('@/public/assets/fonts/Sour_Gummy/SourGummy-Italic-VariableFont_wdth\,wght.ttf') format('truetype');
+  src: url('/assets/fonts/Sour_Gummy/SourGummy-Italic-VariableFont_wdth,wght.ttf') format('truetype');
   /* font-weight: normal; */
   font-style: normal;
 }

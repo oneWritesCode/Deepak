@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Poppins, Anton  } from "next/font/google";
 import "./globals.css";
 import LoadingScreen from "./components/LoadingScreen";
+import { ThemeProvider } from "./context/ThemeContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -11,6 +12,18 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  variable: "--font-poppins",
+  weight: ["400", "500", "600"],
+});
+
+const anton = Anton({
+  subsets: ["latin"],
+  variable: "--font-anton",
+  weight: "400", // Anton only ships one weight
 });
 
 export const metadata: Metadata = {
@@ -47,10 +60,12 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
+        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${anton.variable} antialiased bg-black`}
       >
-         <LoadingScreen minDisplayMs={2000} />
-        {children}
+        <ThemeProvider>
+          <LoadingScreen minDisplayMs={2000} />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
