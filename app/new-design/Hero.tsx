@@ -15,6 +15,10 @@ import Linkedin from "./icons/Linkedin";
 import Itch from "./icons/Itch";
 import SocialGithub from "./icons/Github";
 import Medium from "./icons/Medium";
+import Arrows1 from "./icons/Arrows1";
+import Arrows2 from "./icons/Arrows2";
+import Arrows3 from "./icons/Arrows3";
+import Arrows4 from "./icons/Arrows4";
 const RING_TEXT =
   "figma + next.js + typescript + express + AWS + postgress + motion + prisma + docker + typescript + js + css +  godot + python +";
 
@@ -164,11 +168,10 @@ export default function Hero() {
 
           {/* ---- Left side useful icon rail (outside content box) ---- */}
           <div className="w-full h-full flex flex-col items-start justify-start py-5">
-            <div className="flex items-center justify-center flex-col gap-4">
+            <div className="flex items-center justify-center flex-col gap-2">
               <LightModeToggle />
               <button>
-                {/* <img src="/assets/svg/download.svg" className="w-5 h-5 text-black" /> */}
-                <Download className="w-4 h-4 text-black/60 dark:text-white/60" />
+                <Download className="w-4 h-4 text-black/80 dark:text-white/80 font-bold" />
               </button>
             </div>
           </div>
@@ -222,7 +225,7 @@ function NavCornerBlock({
 }) {
   const svgMap = {
     "top-left": {
-      src: "/assets/svg/arrows 1.svg",
+      arrow: <Arrows1 className="text-black/60 dark:text-white/60" />,
       width: 274,
       height: 125,
       labelX: 0,
@@ -233,7 +236,7 @@ function NavCornerBlock({
       textSide: "right",
     },
     "top-right": {
-      src: "/assets/svg/arrows 2.svg",
+      arrow: <Arrows2 className="text-black/60 dark:text-white/60" />,
       width: 308,
       height: 149,
       labelX: 304,
@@ -244,7 +247,7 @@ function NavCornerBlock({
       textSide: "left",
     },
     "bottom-left": {
-      src: "/assets/svg/arrows 3.svg",
+      arrow: <Arrows3 className="text-black/60 dark:text-white/60" />,
       width: 169,
       height: 117,
       labelX: 2,
@@ -255,7 +258,7 @@ function NavCornerBlock({
       textSide: "right",
     },
     "bottom-right": {
-      src: "/assets/svg/arrows 4.svg",
+      arrow: <Arrows4 className="text-black/60 dark:text-white/60" />,
       width: 433,
       height: 109,
       labelX: 428,
@@ -280,12 +283,7 @@ function NavCornerBlock({
       className={`absolute ${positionClasses}`}
       style={{ width: svgMap.width, height: svgMap.height }}
     >
-      <img
-        src={svgMap.src}
-        alt=""
-        // Adjust the opacity here to manage how faint/bold the arrows are
-        className="absolute inset-0 w-full h-full pointer-events-none opacity-90"
-      />
+      {svgMap.arrow}
 
       {/* Label */}
       <div
