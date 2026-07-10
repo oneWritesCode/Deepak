@@ -1,8 +1,8 @@
 import BlogComponent from "./BlogComponent";
 import Project from "./ProjectComponent";
-const medimate: string = "/assets/images/medimate.png";
-const foxy: string = "/assets/images/foxy_1.png";
-const webScrapper: string = "/assets/images/webScrapper.png";
+const medimate: string = "/assets/images/projects/medimate.png";
+const foxy: string = "/assets/images/projects/foxy_1.png";
+const webScrapper: string = "/assets/images//webScrapper.png";
 
 export default function LatestProjectSection() {
   return (

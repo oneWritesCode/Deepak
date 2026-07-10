@@ -8,7 +8,7 @@ const TypeZ: string = "/assets/video/TypeZ.mp4";
 const thoughtPolice: string = "/assets/video/Thought-Police.mp4";
 const Godgpt: string = "/assets/video/Godgpt.mp4";
 const ChatApp: string = "/assets/video/Chat-app.mp4";
-const teditor: string = "/assets/images/T-editor.png";
+const teditor: string = "/assets/images/projects/T-editor.png";
 
 function Projects(): React.ReactElement {
   return (
