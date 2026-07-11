@@ -1,6 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import { useId, useState } from "react";
+import SlideOverPanel from "./SlideOverPanel";
+import ProjectsPanelContent from "./ProjectsPanelContent";
+import BlogsPanelContent from "./BlogsPanelContent";
 import RoughBorderBox from "./RoughBorderBox";
 import LightModeToggle from "./LightModeToggle";
 import Twitterx from "./icons/Twitterx";
@@ -19,8 +23,11 @@ import Arrows1 from "./icons/Arrows1";
 import Arrows2 from "./icons/Arrows2";
 import Arrows3 from "./icons/Arrows3";
 import Arrows4 from "./icons/Arrows4";
+import CursorFX from "./CursorFX";
+import MagneticGroup from "./MagneticGroup";
+
 const RING_TEXT =
-  "figma + next.js + typescript + express + AWS + postgress + motion + prisma + docker + typescript + js + css +  godot + python +";
+  "figma + next.js + typescript + express + AWS + postgress + motion + prisma + docker + typescript + linux + css +  godot + python + ";
 
 const PHOTOS = [
   {
@@ -86,17 +93,44 @@ const NAV_ITEMS: {
   },
 ];
 
-// TODO: swap Pen→Figma and GitBranch→Github via @iconify/react for true brand marks.
-const APP_ICONS = [
-  { iconSource: "/assets/svg/Figma.svg" },
-  { iconSource: "/assets/svg/Github.svg" },
-  { iconSource: "/assets/svg/Godot.svg" },
-  { iconSource: "/assets/svg/Linux.svg" },
-  { iconSource: "/assets/svg/Postman.svg" },
-  { iconSource: "/assets/svg/Terminal.svg" },
+const SOCIAL_ICONS = [
+  {
+    icon: <Twitterx className="w-4 h-4 text-black dark:text-white" />,
+    link: "https://x.com/triordeep",
+  },
+  {
+    icon: <SocialGithub className="w-4 h-4 text-black dark:text-white" />,
+    link: "https://github.com/onewritescode",
+  },
+  {
+    icon: <Linkedin className="w-4 h-4 text-black dark:text-white/60" />,
+    link: "https://www.linkedin.com/in/deepak-singh-27a17a321/",
+  },
+  {
+    icon: <Medium className="w-4 h-4 text-black dark:text-white/60" />,
+    link: "https://medium.com/@triordeep",
+  },
+  {
+    icon: <Itch className="w-4 h-4 text-black dark:text-white" />,
+    link: "https://d33pak.itch.io",
+  },
 ];
 
 export default function Hero() {
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  const active = NAV_ITEMS.find((item) => item.label === activeSection);
+
+  const CORNER_TO_DIRECTION: Record<
+    NavCorner,
+    "top" | "bottom" | "left" | "right"
+  > = {
+    "top-left": "left",
+    "top-right": "top",
+    "bottom-left": "bottom",
+    "bottom-right": "right",
+  };
+
   return (
     <section
       className="
@@ -107,6 +141,7 @@ export default function Hero() {
         transition-colors duration-300
       "
     >
+      <CursorFX />
       {/* ============ DESKTOP / TABLET LAYOUT (lg and up) ============ */}
       <div className="relative hidden h-screen w-full lg:block">
         {/* ---- Inner content box (the bordered rectangle from the design) ---- */}
@@ -114,59 +149,20 @@ export default function Hero() {
           <div className="absolute min-w-7xl h-[800px]">
             {/* ---- Ring + photo cluster (centered in content box) ---- */}
             <div className="absolute left-1/2 top-1/2 aspect-square w-[600px] -translate-x-1/2 -translate-y-1/2 uppercase">
-              <svg
-                viewBox="0 0 700 700"
-                className="absolute inset-0 h-full w-full"
-              >
-                <defs>
-                  <path
-                    id="ring-path"
-                    d="M 350,20 A 330,330 0 1 1 349.9,20 Z"
-                    fill="none"
-                  />
-                </defs>
-                <text
-                  className="fill-black/90 font-poppins text-[19.3px] tracking-[0.3em] dark:fill-white/90"
-                  style={{ fontFamily: "var(--font-poppins)" }}
-                >
-                  <textPath href="#ring-path" startOffset="0%">
-                    {RING_TEXT}
-                  </textPath>
-                </text>
-              </svg>
-
-              {/* Photo cluster sits inside the ring, in its own relative box */}
-              <div className="absolute left-1/2 top-1/2 h-[62%] w-[46%] -translate-x-1/2 -translate-y-1/2">
-                {PHOTOS.map((photo, i) => (
-                  <div
-                    key={i}
-                    className="absolute overflow-hidden rounded-full shadow-2xl ring-1 ring-black/5 dark:shadow-[0_10px_40px_rgba(0,0,0,0.8)] dark:ring-white/10"
-                    style={{
-                      top: photo.top,
-                      left: photo.left,
-                      width: photo.size,
-                      height: photo.size,
-                    }}
-                  >
-                    <Image
-                      src={photo.src}
-                      alt={photo.alt}
-                      fill
-                      sizes={`${photo.size}px`}
-                      className="object-cover shadows-xl"
-                    />
-                  </div>
-                ))}
-              </div>
+              <RingContent />
             </div>
 
             {/* ---- Nav corner blocks (positioned at corners of content box) ---- */}
             {NAV_ITEMS.map((item) => (
-              <NavCornerBlock key={item.label} {...item} />
+              <NavCornerBlock
+                key={item.label}
+                {...item}
+                onClick={() => setActiveSection(item.label)}
+              />
             ))}
           </div>
 
-          {/* ---- Left side useful icon rail (outside content box) ---- */}
+          {/* ---- Left side light mode ---- */}
           <div className="w-full h-full flex flex-col items-start justify-start py-5">
             <div className="flex items-center justify-center flex-col gap-2">
               <LightModeToggle />
@@ -176,7 +172,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* ---- Right side icon rail (outside content box) ---- */}
+          {/* ---- Right side icons ---- */}
           <div className="w-full h-full flex flex-col items-end justify-center gap-5">
             <Figma className="w-7 h-7 text-black dark:text-white/60" />
             <Github className="w-7 h-7 text-black dark:text-white/60" />
@@ -186,7 +182,7 @@ export default function Hero() {
             <Postman className="w-7 h-7 text-black dark:text-white/60" />
           </div>
 
-          {/* ---- Social icons footer (outside content box, bottom-left) ---- */}
+          {/* ---- Social icons footer ---- */}
           <div className="absolute w-1/2 left-10 self-end">
             <div
               className="w-full text-[12px] uppercase tracking-[0.2em] text-black/80 dark:text-white/80 border-b border-black/60 dark:border-white/60 text-right"
@@ -195,21 +191,95 @@ export default function Hero() {
               <h6>BUILT BY DEEPAK &lt;3</h6>
             </div>
             <div className="flex gap-4 py-2 ">
-              <a
-                href=" "
-                className="hover:text-black dark:hover:text-white transition-colors flex items-center justify-center gap-4"
-              >
-                <Twitterx className="w-4 h-4 text-black dark:text-white" />
-                <SocialGithub className="w-4 h-4 text-black dark:text-white" />
-                <Linkedin className="w-4 h-4 text-black dark:text-white/60" />
-                <Medium className="w-4 h-4 text-black dark:text-white" />
-                <Itch className="w-4 h-4 text-black dark:text-white" />
-              </a>
+              {SOCIAL_ICONS.map((Icon, i) => (
+                <a
+                  href={Icon.link}
+                  key={i}
+                  className="group flex items-center justify-center gap-4"
+                >
+                  <span className="group-hover:-translate-y-1 group-hover:scale-120 transition-all duration-400">
+                    {Icon.icon}
+                  </span>
+                </a>
+              ))}
             </div>
           </div>
         </div>
       </div>
+
+      {active && (
+        <SlideOverPanel
+          open={!!active}
+          onClose={() => setActiveSection(null)}
+          corner={active.corner}
+        >
+          {active.label === "PROJECTS" ? (
+            <ProjectsPanelContent />
+          ) : active.label === "BLOGS" ? (
+            <BlogsPanelContent />
+          ) : (
+            active.paragraph
+          )}
+        </SlideOverPanel>
+      )}
     </section>
+  );
+}
+
+function RingContent() {
+  const ringPathId = useId();
+  return (
+    <>
+      <svg
+        viewBox="0 0 700 700"
+        className="absolute inset-0 h-full w-full animate-spin overflow-visible"
+        style={{ animationDuration: "100s" }}
+      >
+        <defs>
+          <path
+            id={ringPathId}
+            d="M 350,20 A 330,330 0 1 1 349.9,20 Z"
+            fill="none"
+          />
+        </defs>
+
+        <MagneticGroup>
+          <text
+            className="fill-black/90 font-poppins text-[19px] tracking-[0.3em] dark:fill-white/90"
+            style={{ fontFamily: "var(--font-poppins)" }}
+          >
+            <textPath href={`#${ringPathId}`} startOffset="0%">
+              {RING_TEXT}
+            </textPath>
+          </text>
+        </MagneticGroup>
+      </svg>
+
+      {/* Photo cluster sits inside the ring, in its own relative box */}
+      <div className="absolute left-1/2 top-1/2 h-[62%] w-[46%] -translate-x-1/2 -translate-y-1/2">
+        {PHOTOS.map((photo, i) => (
+          <div
+            key={i}
+            className="group absolute rounded-full transition-all duration-300 ease-out shadow-2xl dark:shadow-[0_4px_20px_rgba(0,0,0,0.8)] hover:shadow-none hover:scale-[0.98] cursor-pointer"
+            style={{
+              top: photo.top,
+              left: photo.left,
+              width: photo.size,
+              height: photo.size,
+            }}
+          >
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              fill
+              sizes={`${photo.size}px`}
+              className="object-cover rounded-full"
+            />
+            <div className="pointer-events-none absolute inset-0 rounded-full transition-shadow duration-300 ease-out group-hover:shadow-[inset_0_4px_10px_rgba(0,0,0,0.5)] dark:group-hover:shadow-[inset_0_4px_10px_rgba(0,0,0,0.6)]" />
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 
@@ -218,10 +288,12 @@ function NavCornerBlock({
   label,
   corner,
   paragraph,
+  onClick,
 }: {
   label: string;
   corner: NavCorner;
   paragraph: string;
+  onClick: () => void;
 }) {
   const svgMap = {
     "top-left": {
@@ -297,7 +369,10 @@ function NavCornerBlock({
           marginRight: svgMap.labelAlign === "left" ? "16px" : "0",
         }}
       >
-        <button className="group relative flex items-center justify-center transition-transform hover:scale-105 active:scale-95">
+        <button
+          onClick={onClick}
+          className="group relative flex items-center justify-center transition-all hover:scale-110 hover:font-bold active:scale-95 duration-400 ease-in- hover:shadow-[0_1px_10px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_1px_10px_rgba(255,255,255,0.1)]"
+        >
           <RoughBorderBox className="px-3 flex items-center justify-center">
             <span
               className="relative z-10 text-[16px] uppercase text-black dark:text-white font-extralight"
