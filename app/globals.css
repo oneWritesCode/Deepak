@@ -5,11 +5,10 @@
   --background: #f5f5f5;
   --foreground: #171717;
 }
-/* 
-.dark {
-  --background: #161616;
-  --foreground: #ededed;
-} */
+
+* {
+  cursor: none !important;
+}
 
 @theme inline {
   --color-background: var(--background);
@@ -25,14 +24,44 @@
   }
 }
 
+/* Add to globals.css — anywhere after your @import "tailwindcss" line */
+
+.dark ::selection {
+  background-color: #161616;
+  color: #f5f5f5;
+}
+
+::selection {
+  background-color: #f5f5f5;
+  color: black;
+}
+
+/* Firefox still needs the prefixed version on some versions */
+.dark ::-moz-selection {
+  background-color: #161616;
+  color: #f5f5f5;
+}
+
+::-moz-selection {
+  background-color: #f5f5f5;
+  color: #161616;
+}
+
+/* hiding scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
 }
+
 ::view-transition-old(root) {
   z-index: 1;
 }
+
 ::view-transition-new(root) {
   z-index: 2147483646;
 }
