@@ -1,14 +1,13 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ChevronUp } from "lucide-react";
 
 /**
  * Replaces the native cursor with a rotated chevron that follows the
  * mouse. Mount once, near the root layout — it's `fixed`, so a single
  * instance covers the whole viewport.
  */
-export default function CursorFX() {
+export default function CursorFX({ color }: { color?: string }) {
   const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -34,7 +33,9 @@ export default function CursorFX() {
       className="pointer-events-none fixed z-[9999] -translate-x-1/2 -translate-y-1/2 rotate-[-45deg] text-[#1a1a1a] dark:text-[#f5f5f5]"
     >
       {/* <ChevronUp size={22} strokeWidth={2} /> */}
-      <div className="w-3 aspect-square bg-[#1a1a1a] dark:bg-[#f5f5f5] shadow-2xl rounded-full"></div>
+      <div
+        className={` w-3 aspect-square shadow-2xl rounded-full ${color ? color : "bg-[#1a1a1a] dark:bg-[#f5f5f5]"}`}
+      ></div>
     </div>
   );
 }

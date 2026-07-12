@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Poppins, Anton  } from "next/font/google";
+import { Geist, Geist_Mono, Poppins, Anton } from "next/font/google";
 import "./globals.css";
 import LoadingScreen from "./components/LoadingScreen";
 import { ThemeProvider } from "./context/ThemeContext";
+import CursorFX from "./new-design/CursorFX";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -64,6 +65,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <LoadingScreen minDisplayMs={2000} />
+          <CursorFX color="bg-white"/>
           {children}
         </ThemeProvider>
       </body>
