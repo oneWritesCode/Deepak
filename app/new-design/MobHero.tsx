@@ -26,7 +26,7 @@ const NAV_ITEMS = [
       "A collection of shipped work — web apps, tools, and experiments built with Next.js, TypeScript, and Prisma. Each one solves a real problem, not just a portfolio exercise.",
   },
   {
-    label: "HOME",
+    label: "ABOUT ME",
     paragraph:
       "Full-stack developer building fast, scalable products with clean architecture and thoughtful interfaces. I care about how software feels to use, not just how it performs.",
   },

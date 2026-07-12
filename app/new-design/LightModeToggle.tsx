@@ -11,7 +11,7 @@ export default function ThemeToggle() {
     <button
       onClick={toggleTheme}
       aria-label="Toggle theme"
-      className="relative h-7 w-7 shrink-0 flex items-center justify-center"
+      className="relative h-7 w-10 shrink-0 flex items-center justify-center hover:scale-110 hover:rotate-20 transition-transform duration-300 ease-in-out"
     >
       {/* Sun — visible in light mode */}
       <Sun

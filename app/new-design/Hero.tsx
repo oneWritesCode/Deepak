@@ -74,7 +74,7 @@ const NAV_ITEMS: {
       "A collection of shipped work — web apps, tools, and experiments built with Next.js, TypeScript, and Prisma. Each one solves a real problem, not just a portfolio exercise.",
   },
   {
-    label: "HOME",
+    label: "ABOUT ME",
     corner: "top-right",
     paragraph:
       "Full-stack developer building fast, scalable products with clean architecture and thoughtful interfaces. I care about how software feels to use, not just how it performs.",
@@ -167,7 +167,7 @@ export default function Hero() {
             <div className="flex items-center justify-center flex-col gap-2">
               <LightModeToggle />
               <button>
-                <Download className="w-4 h-4 text-black/80 dark:text-white/80 font-bold" />
+                <Download className="w-7 h-4 text-black/80 dark:text-white/80 font-bold hover:scale-110 transition-transform duration-300 ease-in-out" />
               </button>
             </div>
           </div>

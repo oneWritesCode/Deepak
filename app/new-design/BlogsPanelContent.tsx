@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import BlogCircleGrid from "./BlogSGridSection";
+import BlogSGridSection from "./BlogSGridSection";
 import BlogShowcase from "./BlogShowcase";
 import { BLOGS } from "./blogsData";
 import { ChevronLeft } from "lucide-react";
@@ -29,5 +29,5 @@ export default function BlogsPanelContent() {
     );
   }
 
-  return <BlogCircleGrid blogs={BLOGS} onSelect={handleSelect} />;
+  return <BlogSGridSection blogs={BLOGS} onSelect={handleSelect} />;
 }

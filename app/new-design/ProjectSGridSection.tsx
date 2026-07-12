@@ -61,7 +61,7 @@ export default function ProjectSGridSection({
 
                       {/* Animated Button */}
                       <button className="mt-auto text-[10px] uppercase tracking-] transition-all duration-500 flex items-center gap-2">
-                        Explore
+                        expand
                         <ArrowRight
                           size={12}
                           className="transition-transform duration-500 group-hover:translate-x-4"
