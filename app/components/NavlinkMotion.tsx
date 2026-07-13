@@ -14,7 +14,10 @@ function NavlinkMotion(props: NavlinkMotionProps): React.ReactElement {
         href={`${props.link ? `/${props.link}` : `/`}`}
         className="cursor-pointer inline"
       >
-        <button className="cursor-pointer px-3 py-1 rounded-xl shadow-xl shadow-neutral-600/30 bg-neutral-900 text-sm md:text-medium font-medium capitalize sourGummy">
+        <button
+          data-cursor="Click"
+          className="cursor-pointer px-3 py-1 rounded-xl shadow-xl shadow-neutral-600/30 bg-neutral-900 text-sm md:text-medium font-medium capitalize sourGummy"
+        >
           {props.name}
         </button>
       </NavLink>

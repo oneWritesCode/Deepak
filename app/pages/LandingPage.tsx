@@ -26,7 +26,7 @@ function LandingPage(): React.ReactElement {
 
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseEnter = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleMouseEnter = (e: React.MouseEvent<HTMLbuttonElement>) => {
     const container = containerRef.current;
     if (!container) return;
 
@@ -94,6 +94,7 @@ function LandingPage(): React.ReactElement {
                     className="cursor-pointer inline z-10"
                   >
                     <button
+                      data-cursor="Click"
                       className="cursor-pointer px-3 py-1 decoration-dotted text-sm md:text-medium font-medium capitalize"
                       onMouseEnter={handleMouseEnter}
                     >
@@ -213,10 +214,10 @@ function LandingPage(): React.ReactElement {
         </div>
       </div>
       <div className="w-full h-screenoverflow-hidden fixed top-0 right-0 z-0 md:scale-100 scale-250 bg-whte">
-       <div className="opacity-60">
-         <Lines />
-        <Lines />
-       </div>
+        <div className="opacity-60">
+          <Lines />
+          <Lines />
+        </div>
       </div>
     </>
   );
