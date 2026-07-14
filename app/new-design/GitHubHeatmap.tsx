@@ -1,6 +1,5 @@
 "use client";
-
-import { useEffect, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useState } from "react";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type Level =
@@ -40,11 +39,6 @@ const MONTH_LABELS = [
 ];
 const DAY_LABELS = ["", "Mon", "", "Wed", "", "Fri", ""];
 
-// Shared offset constant — this is what was previously hardcoded as two
-// independent "24"s in two different places, which had already drifted
-// out of sync with the actual day-label column width + gap (16 + 4 = 20).
-// One named constant now, so month labels and the legend can never
-// silently drift out of alignment with the grid again.
 const GRID_LEFT_OFFSET = 20;
 
 // ── Tooltip ───────────────────────────────────────────────────────────────────
@@ -75,25 +69,57 @@ function Tooltip({ day, x, y }: { day: ContributionDay; x: number; y: number }) 
   );
 }
 
-// ── Skeleton loader — mirrors the real layout's structure exactly (same
-// row heights, same gaps, same left offset) so there's no visible layout
-// shift once real data replaces it. ───────────────────────────────────────
+// ── Cell grid — split out and memoized ──────────────────────────────────────
+// This is the actual fix: this is the 371-node subtree. It only takes
+// `weeks` (data) and two callbacks as props. As long as those callbacks
+// are stable references, React.memo means this subtree is now IMMUNE to
+// the tooltip state changing in the parent — which is what was previously
+// forcing a full re-render (recreate 371 divs + 371 closures) on every
+// single mouseenter as you dragged the cursor across the grid.
+const ContributionGrid = memo(function ContributionGrid({
+  weeks,
+  onCellHover,
+  onCellLeave,
+}: {
+  weeks: Week[];
+  onCellHover: (day: ContributionDay, x: number, y: number) => void;
+  onCellLeave: () => void;
+}) {
+  return (
+    <div style={{ display: "flex", gap: 3 }}>
+      {weeks.map((week, wi) => (
+        <div key={wi} style={{ display: "flex", flexDirection: "column", gap: 3 }}>
+          {week.contributionDays.map((day) => (
+            <div
+              key={day.date}
+              className={`w-[10px] h-[10px] rounded-[2px] cursor-default transition-transform duration-100 hover:scale-150 ${LEVEL_CLASS[day.contributionLevel] ?? LEVEL_CLASS.NONE}`}
+              onMouseEnter={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                onCellHover(day, rect.left + rect.width / 2, rect.top);
+              }}
+              onMouseLeave={onCellLeave}
+            />
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+});
+
+// ── Skeleton loader ──────────────────────────────────────────────────────────
 function Skeleton() {
   return (
     <div className="w-full overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       <div style={{ display: "inline-block", minWidth: "max-content" }}>
-        {/* Month-label row placeholder — same height as real one, empty */}
         <div style={{ height: 12, marginBottom: 3, marginLeft: GRID_LEFT_OFFSET }} />
 
         <div style={{ display: "flex", gap: 4 }}>
-          {/* Day-label column skeleton — same gap as the real cell grid */}
           <div className="flex flex-col w-4 gap-[3px]">
             {DAY_LABELS.map((_, i) => (
               <div key={i} className="h-2.5" />
             ))}
           </div>
 
-          {/* Cell grid skeleton */}
           <div className="flex gap-[3px]">
             {Array.from({ length: 53 }).map((_, w) => (
               <div key={w} className="flex flex-col gap-[3px]">
@@ -109,7 +135,6 @@ function Skeleton() {
           </div>
         </div>
 
-        {/* Legend row placeholder — same height, empty */}
         <div style={{ height: 12, marginTop: 8, marginLeft: GRID_LEFT_OFFSET }} />
       </div>
     </div>
@@ -117,7 +142,7 @@ function Skeleton() {
 }
 
 // ── Main component ────────────────────────────────────────────────────────────
-export default function GitHubHeatmap() {
+function GitHubHeatmap() {
   const [data, setData] = useState<CalendarData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [tooltip, setTooltip] = useState<{ day: ContributionDay; x: number; y: number } | null>(null);
@@ -132,25 +157,36 @@ export default function GitHubHeatmap() {
       .catch(() => setError("Failed to load contributions"));
   }, []);
 
-  const monthPositions: { label: string; col: number }[] = [];
-  if (data) {
+  // Stable callback references — this is what actually lets ContributionGrid's
+  // React.memo work. setTooltip itself is already stable (React guarantees
+  // setState identity never changes), so an empty dep array is correct here.
+  const handleCellHover = useCallback((day: ContributionDay, x: number, y: number) => {
+    setTooltip({ day, x, y });
+  }, []);
+
+  const handleCellLeave = useCallback(() => {
+    setTooltip(null);
+  }, []);
+
+  // FIX: was recomputed on every render (including every tooltip-driven
+  // re-render of this parent). Now only recalculates when `data` changes.
+  const monthPositions = useMemo(() => {
+    const positions: { label: string; col: number }[] = [];
+    if (!data) return positions;
     let lastMonth = -1;
     data.weeks.forEach((week, wi) => {
       const firstDay = week.contributionDays[0];
       if (!firstDay) return;
       const month = new Date(firstDay.date + "T00:00:00").getMonth();
       if (month !== lastMonth) {
-        monthPositions.push({ label: MONTH_LABELS[month], col: wi });
+        positions.push({ label: MONTH_LABELS[month], col: wi });
         lastMonth = month;
       }
     });
-  }
+    return positions;
+  }, [data]);
 
   return (
-    // FIX: was `style={{ display: "inline-block" }} className="w-full inlin"` —
-    // inline-block was fighting w-full, and "inlin" was a typo matching no
-    // real class. Plain block (the div default) + w-full is what this
-    // container actually needs.
     <div className="w-full">
       {/* Header */}
       <div className="flex items-center justify-between mb-2">
@@ -161,20 +197,6 @@ export default function GitHubHeatmap() {
           GitHub Contributions
         </span>
 
-        {/* {data && (
-          <span
-            className="flex items-center gap-1.5 text-[8px] uppercase tracking-widest text-black/80 dark:text-white/80"
-            style={{ fontFamily: "var(--font-poppins)" }}
-          >
-            Total
-            <span className="bg-black dark:bg-white text-white dark:text-black px-1.5 py-0.5 rounded text-[8px] font-bold">
-              {data.totalContributions.toLocaleString()}
-            </span>
-          </span>
-        )} */}
-
-        {/* Skeleton badge — reserves the same header height while loading,
-            so the header row doesn't resize once the real badge appears */}
         {!data && !error && (
           <span className="h-[16px] w-[70px] rounded bg-black/6 dark:bg-white/6 animate-pulse" />
         )}
@@ -191,8 +213,7 @@ export default function GitHubHeatmap() {
       {data && (
         <div className="w-full overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <div style={{ display: "inline-block", minWidth: "max-content" }}>
-            {/* Month labels — FIX: marginLeft corrected from a hardcoded,
-                out-of-sync 24 to the real offset (16px column + 4px gap) */}
+            {/* Month labels */}
             <div style={{ display: "flex", gap: 3, marginLeft: GRID_LEFT_OFFSET, marginBottom: 3 }}>
               {data.weeks.map((_, wi) => {
                 const hit = monthPositions.find((m) => m.col === wi);
@@ -212,11 +233,7 @@ export default function GitHubHeatmap() {
             </div>
 
             <div style={{ display: "flex", gap: 4 }}>
-              {/* Day-of-week labels — FIX: added gap-[3px] to match the
-                  cell grid's row spacing (previously had none, causing the
-                  labels to drift out of alignment with their rows by the
-                  bottom of the column) and fixed "align-center" (not a
-                  real Tailwind class) to "items-center" */}
+              {/* Day-of-week labels */}
               <div className="flex flex-col w-4 gap-[3px]">
                 {DAY_LABELS.map((label, i) => (
                   <div
@@ -229,26 +246,15 @@ export default function GitHubHeatmap() {
                 ))}
               </div>
 
-              <div style={{ display: "flex", gap: 3 }}>
-                {data.weeks.map((week, wi) => (
-                  <div key={wi} style={{ display: "flex", flexDirection: "column", gap: 3 }}>
-                    {week.contributionDays.map((day) => (
-                      <div
-                        key={day.date}
-                        className={`w-[10px] h-[10px] rounded-[2px] cursor-default transition-transform duration-100 hover:scale-150 ${LEVEL_CLASS[day.contributionLevel] ?? LEVEL_CLASS.NONE}`}
-                        onMouseEnter={(e) => {
-                          const rect = e.currentTarget.getBoundingClientRect();
-                          setTooltip({ day, x: rect.left + rect.width / 2, y: rect.top });
-                        }}
-                        onMouseLeave={() => setTooltip(null)}
-                      />
-                    ))}
-                  </div>
-                ))}
-              </div>
+              {/* The 371-cell grid — now memoized and isolated from tooltip state */}
+              <ContributionGrid
+                weeks={data.weeks}
+                onCellHover={handleCellHover}
+                onCellLeave={handleCellLeave}
+              />
             </div>
 
-            {/* Legend — FIX: same marginLeft correction as the month row */}
+            {/* Legend */}
             <div className="flex items-center justify-between mt-2" style={{ marginLeft: GRID_LEFT_OFFSET }}>
               <span className="text-[8px] text-black/60 dark:text-white/60" style={{ fontFamily: "var(--font-poppins)" }}>
                 Learn. Build. Share.
@@ -273,3 +279,8 @@ export default function GitHubHeatmap() {
     </div>
   );
 }
+
+// Memoized default export — GitHubHeatmap takes no props, so this just
+// guards against re-rendering if a future parent update ever passes it
+// down through something re-rendering for unrelated reasons.
+export default memo(GitHubHeatmap);

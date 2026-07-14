@@ -1,9 +1,8 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useId, useState } from "react";
+import { memo, useEffect, useId, useState } from "react";
 import Image from "next/image";
-import RoughBorderBox from "./RoughBorderBox";
 import Github from "./icons/Github";
 import Linkedin from "./icons/Linkedin";
 import Twitterx from "./icons/Twitterx";
@@ -76,12 +75,12 @@ const TECH_STACK: Record<string, string[]> = {
 };
 
 // ---- Component ----
-export default function About() {
+function About() {
   const ringPathId = useId();
 
   return (
     <div
-      className="w-full h-[75vh] flex flex-row gap-6 items-start px-4 py-4"
+      className="w-full h-[75vh] flex flex-row gap-6 items-start px-4 py-6"
       style={{ fontFamily: "var(--font-poppins)" }}
     >
       {/* ═══════════════ LEFT COLUMN ═══════════════ */}
@@ -90,7 +89,13 @@ export default function About() {
         <div className="relative w-full aspect-square flex items-center justify-center ">
           <svg
             viewBox="0 0 200 200"
-            className="absolute inset-0 w-[100%] scale-120 aspect-square rotate-180 -spin pointer-events-none z-100"
+            // FIX x3:
+            //  - scale-120 isn't a real Tailwind step -> scale-[1.2]
+            //  - "-spin" isn't a class at all (needs the "animate-" prefix),
+            //    so this ring has never actually been spinning -> animate-spin
+            //  - z-100 exceeds Tailwind's default scale (max z-50) and was
+            //    silently doing nothing -> z-[100]
+            className="absolute inset-0 w-[100%] scale-[1.2] aspect-square rotate-180 animate-spin pointer-events-none z-[100]"
             style={{ animationDuration: "40s" }}
           >
             <defs>
@@ -164,11 +169,16 @@ export default function About() {
           <p>
             <Roles />
           </p>
-          <p className="mt-2 text-[12px] leading-relaxed text-black/70 dark:text-white/70 max-w-[500px]">
-            I build fast, scalable, and thoughtful digital products with clean
-            architecture and intuitive interfaces. I care about how software
-            feels to use, not just how it performs.
-          </p>
+          <div className="mt-2 text-[12px] capitalize leading-relaxed text-black/70 dark:text-white/70 max-w-[500px]">
+            <p>
+               <span className="text-black dark:text-white">deepak</span> is the type of developer who won't stop until something
+              feels right. he obsess over the tiny details, chase clean
+              aesthetics, and genuinely enjoy building cool stuff. he's <span className="text-black dark:text-white">curious</span>,
+              always <span className="text-black dark:text-white">experimenting</span>, and lowkey turning every project into
+              something way more ambitious than it needs to be.
+            </p>
+            <p className="mt-1 text-right">~ChatGPT</p>
+          </div>
         </div>
 
         {/* GitHub Contributions heatmap — live data */}
@@ -212,6 +222,12 @@ export default function About() {
   );
 }
 
+// About takes no props — memoizing costs nothing and guards against a
+// future parent re-render (e.g. something wrapping the whole page in
+// context) forcing Roles' interval and Philosophies' typing animation to
+// remount and restart mid-cycle.
+export default memo(About);
+
 // ─── Icon helpers ───────────────────────────────────────────────────────────
 
 function SocialIconBox({ name }: { name: string }) {
@@ -240,21 +256,29 @@ function SocialIconBox({ name }: { name: string }) {
 
 // animated components ________________________________________________________
 
-function Philosophies() {
+const philosophies = [
+  '"As long as I am alive, there are infinite chances."',
+  '"Stay curious. Stay uncomfortable."',
+  '"everything wants you, when you want nothing."',
+  '"we can\'t learn without Pain."',
+  '"don\'t suffer imagined troubles."',
+  '"everything is a win when the goal is to experience."',
+];
+
+// Memoized: Philosophies takes no props, so this makes it immune to About
+// re-rendering for any reason unrelated to it — its 45ms interval-driven
+// re-renders were already scoped to itself before this change (setState
+// only re-renders the component that owns the state), but this closes the
+// door on it restarting mid-typing if About above it ever re-renders.
+const Philosophies = memo(function Philosophies() {
   const [quoteIndex, setQuoteIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
-  const philosophies = [
-    '"As long as I am alive, there are infinite chances."',
-    '"Stay curious. Stay uncomfortable."',
-    '"Build things that outlive your motivation."',
-    '"Perfection is the enemy of shipping."',
-    '"Every bug teaches something the documentation doesn\'t."',
-  ];
 
   useEffect(() => {
     const currentQuote = philosophies[quoteIndex];
-
     let charIndex = 0;
+
+    let pauseTimeout: ReturnType<typeof setTimeout> | undefined;
 
     const typing = setInterval(() => {
       setDisplayedText(currentQuote.slice(0, charIndex + 1));
@@ -262,16 +286,17 @@ function Philosophies() {
 
       if (charIndex === currentQuote.length) {
         clearInterval(typing);
-
-        // Wait 4 seconds before changing to the next quote
-        setTimeout(() => {
+        pauseTimeout = setTimeout(() => {
           setDisplayedText("");
           setQuoteIndex((prev) => (prev + 1) % philosophies.length);
-        }, 4000);
+        }, 5000);
       }
     }, 45);
 
-    return () => clearInterval(typing);
+    return () => {
+      clearInterval(typing);
+      if (pauseTimeout) clearTimeout(pauseTimeout);
+    };
   }, [quoteIndex]);
 
   return (
@@ -285,27 +310,30 @@ function Philosophies() {
 
       <blockquote className="border-l-2 border-black/20 pl-4 italic text-[14px] leading-relaxed text-black/70 dark:border-white/20 dark:text-white/70">
         {displayedText}
-        <span className="animate-pulse">|</span>
+        <span className="animate-pulse"> |</span>
       </blockquote>
     </div>
   );
-}
+});
 
-function Roles() {
+const MyRoles = [
+  "Full-Stack Developer",
+  "gamedev paglu",
+  "design engineer",
+  "shitposter",
+  "Open Source Contributor",
+];
+
+const ROTATE_INTERVAL_MS = 3800;
+
+// Same reasoning as Philosophies — same isolation guard, no behavior change.
+const Roles = memo(function Roles() {
   const [index, setIndex] = useState(0);
-  const MyRoles = [
-    "Full-Stack Developer",
-    "gamedev paglu",
-    "design engineer",
-    "shitposter",
-    "Open Source Contributor",
-  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((i) => (i + 1) % MyRoles.length);
-    }, 3000);
-
+    }, ROTATE_INTERVAL_MS);
     return () => clearInterval(interval);
   }, []);
 
@@ -319,15 +347,11 @@ function Roles() {
           animate="animate"
           exit="exit"
           variants={{
-            animate: {
-              transition: {
-                staggerChildren: 0.04,
-              },
-            },
+            animate: { transition: { staggerChildren: 0.03 } },
             exit: {
               transition: {
-                delayChildren: 1,
-                staggerChildren: 0.03,
+                delayChildren: 0.1,
+                staggerChildren: 0.02,
                 staggerDirection: -1,
               },
             },
@@ -338,25 +362,16 @@ function Roles() {
               key={i}
               className="inline-block whitespace-pre uppercase text-[14px] tracking-[0.10em] text-black/55 dark:text-white/55"
               variants={{
-                initial: {
-                  y: "100%",
-                  opacity: 0,
-                },
+                initial: { y: "100%", opacity: 0 },
                 animate: {
                   y: "0%",
                   opacity: 1,
-                  transition: {
-                    duration: 0.7,
-                    ease: [0.22, 1, 0.36, 1],
-                  },
+                  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
                 },
                 exit: {
                   y: "-100%",
                   opacity: 0,
-                  transition: {
-                    duration: 0.5,
-                    ease: [0.22, 1, 0.36, 1],
-                  },
+                  transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
                 },
               }}
             >
@@ -367,4 +382,16 @@ function Roles() {
       </AnimatePresence>
     </div>
   );
-}
+});
+
+/**
+ * Worst-case math, for "Open Source Contributor" (24 chars) — the
+ * reason the numbers above were chosen:
+ *
+ * Exit:     delayChildren 0.1s + staggerChildren (0.02 × 24 = 0.48s)
+ *           + last child's 0.4s duration           ≈ 0.98s
+ * Entrance: staggerChildren (0.03 × 24 = 0.72s)
+ *           + last child's 0.6s duration            ≈ 1.32s
+ * Total:    ≈ 2.3s worst case, against a 3.8s interval —
+ *           roughly 1.5s of margin, not ~0 like before.
+ */
