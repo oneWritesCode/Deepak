@@ -50,6 +50,7 @@ export default function SlideOverPanel({
       {open && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-6">
           <motion.div
+            data-cursor="exit"
             className="absolute inset-0 bg-black/40 backdrop-blur-xs"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

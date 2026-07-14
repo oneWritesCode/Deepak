@@ -25,11 +25,11 @@ const containerVariants = {
 
 const itemVariants = {
   initial: { y: "-100%", opacity: 0 },
-  animate: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } },
+  animate: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" as const } },
   exit: {
     y: "100%",
     opacity: 0,
-    transition: { duration: 1, ease: "easeIn" },
+    transition: { duration: 1, ease: "easeIn" as const },
   },
 };
 
@@ -146,7 +146,7 @@ export default function BlogShowcase({
             <span className="overflow-hidden">
               <motion.h1
                 variants={itemVariants}
-                className="text-6xl font-black leading-none tracking-tight sm:text-7xl uppercase bg-[#f5f5f5] Dark:bg-[#161616] z-10"
+                className="text-6xl font-black leading-none tracking-tight sm:text-7xl uppercase bg-[#f5f5f5] dark:bg-[#161616] z-10"
                 style={{ fontFamily: "var(--font-anton)" }}
               >
                 {blog.title}
@@ -228,7 +228,7 @@ export default function BlogShowcase({
       <motion.div
         className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-black/60 dark:text-white/60 pointer-events-none select-none"
         animate={{ y: [0, 6, 0] }}
-        transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+        transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" as const }}
       >
         <span
           className="text-[9px] uppercase tracking-[0.2em]"

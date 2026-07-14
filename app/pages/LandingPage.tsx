@@ -26,7 +26,7 @@ function LandingPage(): React.ReactElement {
 
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseEnter = (e: React.MouseEvent<HTMLbuttonElement>) => {
+  const handleMouseEnter = (e: React.MouseEvent<HTMLButtonElement>) => {
     const container = containerRef.current;
     if (!container) return;
 

@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useId, useState } from "react";
 import SlideOverPanel from "./SlideOverPanel";
-import ProjectsPanelContent from "./ProjectsPanelContent";
-import BlogsPanelContent from "./BlogsPanelContent";
+import PanelContent from "./PanelContent";
+import About from "./About";
 import RoughBorderBox from "./RoughBorderBox";
 import LightModeToggle from "./LightModeToggle";
 import Twitterx from "./icons/Twitterx";
@@ -25,6 +25,7 @@ import Arrows3 from "./icons/Arrows3";
 import Arrows4 from "./icons/Arrows4";
 import CursorFX from "./CursorFX";
 import MagneticGroup from "./MagneticGroup";
+import Experience from "./Experience/Experience";
 
 const RING_TEXT =
   "figma + next.js + typescript + express + AWS + postgress + motion + prisma + docker + typescript + linux + css +  godot + python + ";
@@ -74,7 +75,7 @@ const NAV_ITEMS: {
       "A collection of shipped work — web apps, tools, and experiments built with Next.js, TypeScript, and Prisma. Each one solves a real problem, not just a portfolio exercise.",
   },
   {
-    label: "ABOUT ME",
+    label: "ABOUT",
     corner: "top-right",
     paragraph:
       "Full-stack developer building fast, scalable products with clean architecture and thoughtful interfaces. I care about how software feels to use, not just how it performs.",
@@ -97,22 +98,27 @@ const SOCIAL_ICONS = [
   {
     icon: <Twitterx className="w-4 h-4 text-black dark:text-white" />,
     link: "https://x.com/triordeep",
+    name: "twitter / x",
   },
   {
     icon: <SocialGithub className="w-4 h-4 text-black dark:text-white" />,
     link: "https://github.com/onewritescode",
+    name: "github",
   },
   {
     icon: <Linkedin className="w-4 h-4 text-black dark:text-white/60" />,
     link: "https://www.linkedin.com/in/deepak-singh-27a17a321/",
+    name: "linkedin",
   },
   {
     icon: <Medium className="w-4 h-4 text-black dark:text-white/60" />,
     link: "https://medium.com/@triordeep",
+    name: "medium",
   },
   {
     icon: <Itch className="w-4 h-4 text-black dark:text-white" />,
     link: "https://d33pak.itch.io",
+    name: "itch.io",
   },
 ];
 
@@ -166,7 +172,7 @@ export default function Hero() {
           <div className="w-full h-full flex flex-col items-start justify-start py-5">
             <div className="flex items-center justify-center flex-col gap-2">
               <LightModeToggle />
-              <button>
+              <button data-cursor="download cv">
                 <Download className="w-7 h-4 text-black/80 dark:text-white/80 font-bold hover:scale-110 transition-transform duration-300 ease-in-out" />
               </button>
             </div>
@@ -195,6 +201,7 @@ export default function Hero() {
                 <a
                   href={Icon.link}
                   key={i}
+                  data-cursor={Icon.name}
                   className="group flex items-center justify-center gap-4"
                 >
                   <span className="group-hover:-translate-y-1 group-hover:scale-120 transition-all duration-400">
@@ -213,10 +220,12 @@ export default function Hero() {
           onClose={() => setActiveSection(null)}
           corner={active.corner}
         >
-          {active.label === "PROJECTS" ? (
-            <ProjectsPanelContent />
-          ) : active.label === "BLOGS" ? (
-            <BlogsPanelContent />
+          {active.label === "PROJECTS" || active.label === "BLOGS" ? (
+            <PanelContent label={active.label} />
+          ) : active.label === "ABOUT" ? (
+            <About />
+          ) :active.label === "EXPERIENCE" ? (
+            <Experience />
           ) : (
             active.paragraph
           )}
@@ -260,7 +269,7 @@ function RingContent() {
         {PHOTOS.map((photo, i) => (
           <div
             key={i}
-            className="group absolute rounded-full transition-all duration-300 ease-out shadow-2xl dark:shadow-[0_4px_20px_rgba(0,0,0,0.8)] hover:shadow-none hover:scale-[0.98] cursor-pointer"
+            className="group absolute rounded-full transition-all duration-300 ease-out shadow-2xl dark:shadow-[0_4px_20px_rgba(0,0,0,0.8)] hover:shadow-none hover:scale-[0.98]"
             style={{
               top: photo.top,
               left: photo.left,
@@ -370,6 +379,7 @@ function NavCornerBlock({
         }}
       >
         <button
+          data-cursor="Click"
           onClick={onClick}
           className="group relative flex items-center justify-center transition-all hover:scale-110 hover:font-bold active:scale-95 duration-400 ease-in- hover:shadow-[0_1px_10px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_1px_10px_rgba(255,255,255,0.1)]"
         >
