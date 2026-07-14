@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { EXPERIENCES } from "./experienceData";
 import Image from "next/image";
-import Arrows5 from "../icons/arrow5";
+import Arrows5 from "../icons/Arrow5";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -126,7 +126,7 @@ export default function Experience() {
 
       <div className="w-3/10 self-stretch flex items-end justify-end">
         {/* Decorative connecting line */}
-        <div className="absolute hidden -top-15 -left-35 scale-60 lg:block text-black/20 dark:text-white/20 pointer-events-none z-0">
+        <div className="absolute hidden -top-15 -left-35 scale-60 lg:block text-black/20 dark:text-white/80 pointer-events-none z-0">
           <Arrows5 />
         </div>
         <div className="relative group w-full aspect-square rounded-full overflow-hidden bg-[#f5f5f5] dark:shadow-[0_4px_20px_rgba(0,0,0,0.8)] shadow-[0_2px_20px_rgba(0,0,0,0.2)] hover:shadow-none">

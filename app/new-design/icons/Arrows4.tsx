@@ -1,8 +1,8 @@
 export default function Arrows4({ className = "" }: { className?: string }) {
   return (
     <svg
-      width="433"
-      height="107"
+      width="300"
+      height="109"
       viewBox="0 0 433 107"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -38,7 +38,7 @@ export const EXPERIENCES: ExperienceData[] = [
   {
     id: "fullstack-freelance",
     role: "Full-Stack Developer",
-    type: "Freelance",
+    type: "Freelancer",
     organization: "The ZeroOne Labs",
     startedfrom: "2024, dec",
     workedtil: "2025, april",
