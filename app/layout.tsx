@@ -4,6 +4,8 @@ import "./globals.css";
 import LoadingScreen from "./components/LoadingScreen";
 import { ThemeProvider } from "./context/ThemeContext";
 import CursorFX from "./new-design/CursorFX";
+import SmoothScroll from "./components/SmoothScroll";
+import ReactScanDevTool from "./components/ReactScanDevTools";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -64,9 +66,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${anton.variable} antialiased bg-black`}
       >
         <ThemeProvider>
-          <LoadingScreen minDisplayMs={2000} />
-          <CursorFX color="bg-white border-black/60" />
-          {children}
+          {/* <SmoothScroll> */}
+            <LoadingScreen minDisplayMs={2000} />
+            <CursorFX color="bg-white border-black/60" />
+            <ReactScanDevTool />
+            {children}
+          {/* </SmoothScroll> */}
         </ThemeProvider>
       </body>
     </html>
