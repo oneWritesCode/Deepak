@@ -75,55 +75,13 @@ const TECH_STACK: Record<string, string[]> = {
   ],
 };
 
-// const EXPERIENCE = [
-//   {
-//     role: "Full-Stack Developer",
-//     org: "Personal Projects & Freelance",
-//     period: "2024 – Present",
-//     desc: "Building modern web apps and tools with focus on performance and UX.",
-//   },
-//   {
-//     role: "Hackathon Participant",
-//     org: "Google Gen AI Exchange",
-//     period: "2024",
-//     desc: "Built AI-powered solutions and collaborated with amazing minds.",
-//   },
-//   {
-//     role: "Open Source Contributor",
-//     org: "Various Projects",
-//     period: "2023 – Present",
-//     desc: "Contributing to open source and helping the dev community.",
-//   },
-// ];
-
-// const INTERESTS = [
-//   { label: "AI/ML", icon: <AiIcon /> },
-//   { label: "UI/UX", icon: <UiIcon /> },
-//   { label: "Cybersecurity", icon: <CyberIcon /> },
-//   { label: "Game Dev", icon: <GameIcon /> },
-// ];
-
-// const STATS = [
-//   { value: "20+", label: "PROJECTS" },
-//   { value: "10+", label: "TECHNOLOGIES" },
-//   { value: "2+", label: "YEARS LEARNING" },
-//   { value: "∞", label: "CURIOSITY" },
-// ];
-
-// const FOCUS_TAGS = [
-//   "Building in Public",
-//   "System Design",
-//   "Clean Code",
-//   "AI & Tools",
-// ];
-
 // ---- Component ----
 export default function About() {
   const ringPathId = useId();
 
   return (
     <div
-      className="w-full h-[70vh] flex flex-row gap-6 items-start px-4 py-6"
+      className="w-full h-[75vh] flex flex-row gap-6 items-start px-4 py-4"
       style={{ fontFamily: "var(--font-poppins)" }}
     >
       {/* ═══════════════ LEFT COLUMN ═══════════════ */}
@@ -132,8 +90,8 @@ export default function About() {
         <div className="relative w-full aspect-square flex items-center justify-center ">
           <svg
             viewBox="0 0 200 200"
-            className="absolute inset-0 w-[100%] scale-120 aspect-square animate-spin pointer-events-none"
-            style={{ animationDuration: "20s" }}
+            className="absolute inset-0 w-[100%] scale-120 aspect-square rotate-180 -spin pointer-events-none z-100"
+            style={{ animationDuration: "40s" }}
           >
             <defs>
               <path
@@ -143,29 +101,24 @@ export default function About() {
               />
             </defs>
             <text
-              style={{ fontFamily: "var(--font-poppins)", fontSize: "9px" }}
-              className="fill-black/80 dark:fill-white/50 tracking-[0.22em] uppercase"
+              style={{ fontFamily: "var(--font-poppins)", fontSize: "10px" }}
+              className="font-lighter dark:fill-white/70 tracking-[0.22em] uppercase"
             >
               <textPath href={`#${ringPathId}`} startOffset="0%">
                 {RING_TEXT}
               </textPath>
             </text>
           </svg>
-          <div className="w-full h-full aspect-square rounded-full overflow-hidden shadow-lg dark:shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
+          <div className="absolute group w-full h-full aspect-square rounded-full overflow-hidden transition-all duration-300 ease-out shadow-xl dark:shadow-[0_4px_10px_rgba(0,0,0,0.8)] hover:shadow-none hover:scale-[0.98] z-10">
             <Image
               src="/assets/new/photo-1.png"
               alt="Deepak Singh"
               fill
               className="object-cover rounded-full"
             />
+            <div className="pointer-events-none absolute inset-0 rounded-full transition-shadow duration-300 ease-out group-hover:shadow-[inset_0_4px_10px_rgba(0,0,0,0.5)] dark:group-hover:shadow-[inset_0_4px_10px_rgba(0,0,0,0.6)]" />
           </div>
         </div>
-
-        {/* Availability badge */}
-        {/* <span className="flex items-center gap-1.5 border border-black/20 dark:border-white/20 rounded-full px-3 py-1 text-[9px] uppercase tracking-widest text-black/70 dark:text-white/70">
-          <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-          Available for opportunities
-        </span> */}
 
         {/* Socials */}
         <div className="w-full flex flex-col gap-0.5 mt-4">
@@ -193,21 +146,6 @@ export default function About() {
             </a>
           ))}
         </div>
-
-        {/* CTA box */}
-        {/* <div className="w-full mt-auto border border-black/10 dark:border-white/10 rounded-xl p-3">
-          <p className="text-[10px] font-medium leading-snug mb-2 text-black dark:text-white">
-            Let&apos;s build something amazing together.
-          </p>
-          <a
-            href="mailto:deepak.dev@gmail.com"
-            data-cursor="email"
-          >
-            <RoughBorderBox className="px-3 py-1.5 text-[9px] uppercase tracking-widest flex items-center justify-center gap-1 text-black dark:text-white">
-              GET IN TOUCH ↗
-            </RoughBorderBox>
-          </a>
-        </div> */}
       </div>
 
       {/* ═══════════════ CENTER COLUMN ═══════════════ */}
@@ -221,7 +159,7 @@ export default function About() {
             className="text-7xl font-bold uppercase text-black dark:text-white"
             style={{ fontFamily: "var(--font-anton)" }}
           >
-            Deepak Singh
+            Deepak kr. Singh
           </h1>
           <p>
             <Roles />
@@ -266,104 +204,10 @@ export default function About() {
             ))}
           </div>
         </div>
-
-        {/* Current Focus */}
-        {/* <div className="flex items-start gap-4 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3">
-          <div className="w-5 h-5 rounded-full border border-black/20 dark:border-white/20 flex items-center justify-center shrink-0 mt-0.5">
-            <div className="w-1.5 h-1.5 rounded-full bg-black dark:bg-white" />
-          </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-[8px] uppercase tracking-widest text-black/35 dark:text-white/35 mb-0.5">Current Focus</p>
-            <p className="text-[10px] text-black/70 dark:text-white/70 leading-snug">
-              Exploring AI Integrations, improving my system design skills, and building products that solve real-world problems.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-1 shrink-0 max-w-[180px] justify-end">
-            {FOCUS_TAGS.map((tag) => (
-              <span
-                key={tag}
-                className="text-[8px] px-2 py-0.5 border border-black/15 dark:border-white/15 rounded-full text-black/55 dark:text-white/55 whitespace-nowrap"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div> */}
+        <div className="mt-2 mb-10">
+          <Philosophies />
+        </div>
       </div>
-
-      {/* ═══════════════ RIGHT COLUMN ═══════════════ */}
-      {/* <div className="w-[210px] shrink-0 flex flex-col gap-4">
-
-        Quote
-        <div className="border border-black/10 dark:border-white/10 rounded-xl p-4">
-          <span
-            className="text-3xl leading-none text-black/25 dark:text-white/25"
-            style={{ fontFamily: "Georgia, serif" }}
-          >
-            "
-          </span>
-          <p className="text-[10px] leading-relaxed text-black/70 dark:text-white/70 -mt-1">
-            Code is like humor. When you have to explain it, it&apos;s bad.
-          </p>
-          <p className="mt-2 text-[9px] text-black/40 dark:text-white/40">– Cory House</p>
-        </div>
-
-        Experience Highlights
-      <div className="border border-black/10 dark:border-white/10 rounded-xl p-4 flex flex-col gap-3">
-          <h3 className="text-[9px] uppercase tracking-widest font-semibold text-black/70 dark:text-white/70">
-            Experience Highlights
-          </h3>
-          {EXPERIENCE.map((exp) => (
-            <div key={exp.role} className="flex gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-black dark:bg-white mt-1 shrink-0" />
-              <div>
-                <p className="text-[10px] font-semibold leading-snug text-black dark:text-white">{exp.role}</p>
-                <p className="text-[9px] text-black/50 dark:text-white/50 leading-snug">{exp.org}</p>
-                <p className="text-[8px] text-black/35 dark:text-white/35">{exp.period}</p>
-                <p className="text-[9px] text-black/60 dark:text-white/60 mt-0.5 leading-snug">{exp.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div> 
-
-         What I'm Interested In
-        <div className="border border-black/10 dark:border-white/10 rounded-xl p-4">
-          <h3 className="text-[9px] uppercase tracking-widest font-semibold text-black/70 dark:text-white/70 mb-3">
-            What I&apos;m Interested In
-          </h3>
-          <div className="grid grid-cols-2 gap-2">
-            {INTERESTS.map(({ label, icon }) => (
-              <div
-                key={label}
-                className="flex flex-col items-center justify-center border border-black/10 dark:border-white/10 rounded-lg py-2.5 gap-1.5"
-              >
-                <span className="text-black/60 dark:text-white/60">{icon}</span>
-                <span className="text-[8px] text-black/55 dark:text-white/55 text-center">{label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        Stats
-        <div className="grid grid-cols-2 gap-2">
-          {STATS.map((stat) => (
-            <div
-              key={stat.label}
-              className="flex flex-col items-center justify-center border border-black/10 dark:border-white/10 rounded-xl py-3 gap-0.5"
-            >
-              <span
-                className="text-xl font-black text-black dark:text-white"
-                style={{ fontFamily: "var(--font-anton)" }}
-              >
-                {stat.value}
-              </span>
-              <span className="text-[7px] uppercase tracking-widest text-black/40 dark:text-white/40 text-center px-1 leading-tight">
-                {stat.label}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div> */}
     </div>
   );
 }
@@ -394,16 +238,68 @@ function SocialIconBox({ name }: { name: string }) {
   );
 }
 
-const MyRoles = [
-  "Full-Stack Developer",
-  "gamedev paglu",
-  "design engineer",
-  "shitposter",
-  "Open Source Contributor",
-];
+// animated components ________________________________________________________
+
+function Philosophies() {
+  const [quoteIndex, setQuoteIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const philosophies = [
+    '"As long as I am alive, there are infinite chances."',
+    '"Stay curious. Stay uncomfortable."',
+    '"Build things that outlive your motivation."',
+    '"Perfection is the enemy of shipping."',
+    '"Every bug teaches something the documentation doesn\'t."',
+  ];
+
+  useEffect(() => {
+    const currentQuote = philosophies[quoteIndex];
+
+    let charIndex = 0;
+
+    const typing = setInterval(() => {
+      setDisplayedText(currentQuote.slice(0, charIndex + 1));
+      charIndex++;
+
+      if (charIndex === currentQuote.length) {
+        clearInterval(typing);
+
+        // Wait 4 seconds before changing to the next quote
+        setTimeout(() => {
+          setDisplayedText("");
+          setQuoteIndex((prev) => (prev + 1) % philosophies.length);
+        }, 4000);
+      }
+    }, 45);
+
+    return () => clearInterval(typing);
+  }, [quoteIndex]);
+
+  return (
+    <div>
+      <p
+        className="mb-3 text-[14px] uppercase tracking-[0.12em] text-black/70 dark:text-white/70"
+        style={{ fontFamily: "var(--font-anton)" }}
+      >
+        Philosophies i live by
+      </p>
+
+      <blockquote className="border-l-2 border-black/20 pl-4 italic text-[14px] leading-relaxed text-black/70 dark:border-white/20 dark:text-white/70">
+        {displayedText}
+        <span className="animate-pulse">|</span>
+      </blockquote>
+    </div>
+  );
+}
 
 function Roles() {
   const [index, setIndex] = useState(0);
+  const MyRoles = [
+    "Full-Stack Developer",
+    "gamedev paglu",
+    "design engineer",
+    "shitposter",
+    "Open Source Contributor",
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -414,7 +310,7 @@ function Roles() {
   }, []);
 
   return (
-    <div className="relative h-[20px] overflow-hidden">
+    <div className="relative h-[20px]">
       <AnimatePresence mode="wait">
         <motion.div
           key={index}
@@ -425,12 +321,13 @@ function Roles() {
           variants={{
             animate: {
               transition: {
-                staggerChildren: 0.03,
+                staggerChildren: 0.04,
               },
             },
             exit: {
               transition: {
-                staggerChildren: 0.02,
+                delayChildren: 1,
+                staggerChildren: 0.03,
                 staggerDirection: -1,
               },
             },
@@ -439,7 +336,7 @@ function Roles() {
           {MyRoles[index].split("").map((char, i) => (
             <motion.span
               key={i}
-              className="inline-block whitespace-pre uppercase text-[14px] tracking-[0.10em] text-black/55 dark:text-white/55 z-100"
+              className="inline-block whitespace-pre uppercase text-[14px] tracking-[0.10em] text-black/55 dark:text-white/55"
               variants={{
                 initial: {
                   y: "100%",
@@ -449,7 +346,7 @@ function Roles() {
                   y: "0%",
                   opacity: 1,
                   transition: {
-                    duration: 0.45,
+                    duration: 0.7,
                     ease: [0.22, 1, 0.36, 1],
                   },
                 },
@@ -457,8 +354,8 @@ function Roles() {
                   y: "-100%",
                   opacity: 0,
                   transition: {
-                    duration: 1,
-                    ease: [0.4, 1, 0.36, 1],
+                    duration: 0.5,
+                    ease: [0.22, 1, 0.36, 1],
                   },
                 },
               }}
@@ -471,76 +368,3 @@ function Roles() {
     </div>
   );
 }
-
-// function AiIcon() {
-//   return (
-//     <svg
-//       width="16"
-//       height="16"
-//       viewBox="0 0 24 24"
-//       fill="none"
-//       stroke="currentColor"
-//       strokeWidth="1.5"
-//       strokeLinecap="round"
-//       strokeLinejoin="round"
-//     >
-//       <path d="M12 2a4 4 0 0 1 4 4v1h1a3 3 0 0 1 0 6h-1v1a4 4 0 0 1-8 0v-1H7a3 3 0 0 1 0-6h1V6a4 4 0 0 1 4-4Z" />
-//       <circle cx="12" cy="12" r="1" />
-//     </svg>
-//   );
-// }
-
-// function UiIcon() {
-//   return (
-//     <svg
-//       width="16"
-//       height="16"
-//       viewBox="0 0 24 24"
-//       fill="none"
-//       stroke="currentColor"
-//       strokeWidth="1.5"
-//       strokeLinecap="round"
-//       strokeLinejoin="round"
-//     >
-//       <rect x="3" y="3" width="18" height="18" rx="2" />
-//       <path d="M3 9h18M9 21V9" />
-//     </svg>
-//   );
-// }
-
-// function CyberIcon() {
-//   return (
-//     <svg
-//       width="16"
-//       height="16"
-//       viewBox="0 0 24 24"
-//       fill="none"
-//       stroke="currentColor"
-//       strokeWidth="1.5"
-//       strokeLinecap="round"
-//       strokeLinejoin="round"
-//     >
-//       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
-//     </svg>
-//   );
-// }
-
-// function GameIcon() {
-//   return (
-//     <svg
-//       width="16"
-//       height="16"
-//       viewBox="0 0 24 24"
-//       fill="none"
-//       stroke="currentColor"
-//       strokeWidth="1.5"
-//       strokeLinecap="round"
-//       strokeLinejoin="round"
-//     >
-//       <rect x="2" y="6" width="20" height="12" rx="4" />
-//       <path d="M8 12h4M10 10v4" />
-//       <circle cx="16" cy="11" r="0.5" fill="currentColor" />
-//       <circle cx="18" cy="13" r="0.5" fill="currentColor" />
-//     </svg>
-//   );
-// }
