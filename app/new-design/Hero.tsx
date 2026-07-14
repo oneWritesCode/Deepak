@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useId, useState } from "react";
+import { useId, useLayoutEffect, useRef, useState } from "react";
 import SlideOverPanel from "./SlideOverPanel";
 import PanelContent from "./PanelContent";
 import About from "./About";
@@ -26,6 +26,7 @@ import Arrows4 from "./icons/Arrows4";
 import CursorFX from "./CursorFX";
 import MagneticGroup from "./MagneticGroup";
 import Experience from "./Experience/Experience";
+import VsCode from "./icons/VsCode";
 
 const RING_TEXT =
   "figma + next.js + typescript + express + AWS + postgress + motion + prisma + docker + typescript + linux + css +  godot + python + ";
@@ -41,22 +42,22 @@ const PHOTOS = [
   {
     src: "/assets/new/photo-2.png",
     alt: "Portrait 2",
-    top: "25%",
+    top: "23%",
     left: "8%",
     size: 100,
   },
   {
     src: "/assets/new/photo-3.png",
     alt: "Portrait 3",
-    top: "35%",
+    top: "33%",
     left: "47%",
     size: 110,
   },
   {
     src: "/assets/new/photo-4.png",
     alt: "Portrait 4",
-    top: "60%",
-    left: "0%",
+    top: "53%",
+    left: "-7%",
     size: 175,
   },
 ];
@@ -122,8 +123,65 @@ const SOCIAL_ICONS = [
   },
 ];
 
+// ── Responsive fit-scale ─────────────────────────────────────────────────────
+// The ring + nav-corner cluster below is authored in absolute pixels
+// (`min-w-7xl h-[800px]`, plus every NavCornerBlock offset like
+// `left-[200px]`, `right-[250px] bottom-[80px]`, etc.), all relative to
+// each other — that's what actually produces the layout. None of those
+// values are touched here.
+//
+// What was missing is a link between that fixed 1280×800 design and the
+// *actual* available space, which differs across browsers/windows purely
+// from browser chrome eating viewport height/width (exactly what the two
+// screenshots show — same code, different usable viewport, so the fixed
+// stage either got clipped by `overflow-hidden` or sat off-balance).
+//
+// This measures the available space around the cluster and applies a
+// single `transform: scale()` to the whole box as one rigid unit, so
+// every pixel offset inside it stays in its original coordinate space
+// and just gets scaled + re-centered together — same technique used for
+// pixel-perfect design-to-code scaling.
+const STAGE_DESIGN_WIDTH = 1280; // matches min-w-7xl
+const STAGE_DESIGN_HEIGHT = 800; // matches h-[800px]
+const STAGE_EDGE_PADDING = 48; // keeps corner paragraphs off the viewport edge
+
+function useFitScale(designWidth: number, designHeight: number) {
+  const stageRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+
+  useLayoutEffect(() => {
+    const stageEl = stageRef.current;
+    const container = stageEl?.parentElement;
+    if (!stageEl || !container) return;
+
+    const recalc = () => {
+      const { width, height } = container.getBoundingClientRect();
+      const availableWidth = Math.max(width - STAGE_EDGE_PADDING, 0);
+      const availableHeight = Math.max(height - STAGE_EDGE_PADDING, 0);
+      const next = Math.min(
+        1, // only ever shrink to fit — never scale up past the real design
+        availableWidth / designWidth,
+        availableHeight / designHeight,
+      );
+      setScale(Number.isFinite(next) && next > 0 ? next : 1);
+    };
+
+    recalc();
+
+    const observer = new ResizeObserver(recalc);
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [designWidth, designHeight]);
+
+  return { stageRef, scale };
+}
+
 export default function Hero() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const { stageRef, scale } = useFitScale(
+    STAGE_DESIGN_WIDTH,
+    STAGE_DESIGN_HEIGHT,
+  );
 
   const active = NAV_ITEMS.find((item) => item.label === activeSection);
 
@@ -151,10 +209,17 @@ export default function Hero() {
       {/* ============ DESKTOP / TABLET LAYOUT (lg and up) ============ */}
       <div className="relative hidden h-screen w-full lg:block">
         {/* ---- Inner content box (the bordered rectangle from the design) ---- */}
-        <div className="absolute w-full h-screen flex items-center justify-center px-10 py-5">
-          <div className="absolute min-w-7xl h-[800px]">
+        <div className="absolute w-full h-screen flex items-center justify-center lg:px-4 xl:px-10 py-5">
+          <div
+            ref={stageRef}
+            className="absolute w-[100vw] h-[80%] "
+            style={{
+              transform: `scale(${scale})`,
+              transformOrigin: "center center",
+            }}
+          >
             {/* ---- Ring + photo cluster (centered in content box) ---- */}
-            <div className="absolute left-1/2 top-1/2 aspect-square w-[600px] -translate-x-1/2 -translate-y-1/2 uppercase">
+            <div className="absolute left-1/2 top-1/2 aspect-square md:w-[500px] xl:w-[550px] 2xl:w-[600px] -translate-x-1/2 -translate-y-1/2 uppercase">
               <RingContent />
             </div>
 
@@ -179,13 +244,14 @@ export default function Hero() {
           </div>
 
           {/* ---- Right side icons ---- */}
-          <div className="w-full h-full flex flex-col items-end justify-center gap-5">
-            <Figma className="w-7 h-7 text-black dark:text-white/60" />
-            <Github className="w-7 h-7 text-black dark:text-white/60" />
-            <Godot className="w-7 h-7 text-black dark:text-white/60" />
-            <Linux className="w-7 h-7 text-black dark:text-white/60" />
-            <Terminal className="w-7 h-7 text-black dark:text-white/60" />
-            <Postman className="w-7 h-7 text-black dark:text-white/60" />
+          <div className="w-full h-full flex flex-col items-end justify-center gap-1">
+            <Godot className="lg:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
+            <Figma className="lg:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
+            <VsCode className="lg:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
+            <Github className="lg:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
+            <Linux className="lg:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
+            <Terminal className="lg:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
+            <Postman className="lg:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
           </div>
 
           {/* ---- Social icons footer ---- */}
@@ -224,7 +290,7 @@ export default function Hero() {
             <PanelContent label={active.label} />
           ) : active.label === "ABOUT" ? (
             <About />
-          ) :active.label === "EXPERIENCE" ? (
+          ) : active.label === "EXPERIENCE" ? (
             <Experience />
           ) : (
             active.paragraph
@@ -265,11 +331,11 @@ function RingContent() {
       </svg>
 
       {/* Photo cluster sits inside the ring, in its own relative box */}
-      <div className="absolute left-1/2 top-1/2 h-[62%] w-[46%] -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute left-1/2 top-1/2 h-[70%] w-[46%] -translate-x-1/2 -translate-y-1/2">
         {PHOTOS.map((photo, i) => (
           <div
             key={i}
-            className="group absolute rounded-full transition-all duration-300 ease-out shadow-2xl dark:shadow-[0_4px_20px_rgba(0,0,0,0.8)] hover:shadow-none hover:scale-[0.98]"
+            className="group absolute rounded-full transition-all duration-300 ease-out shadow-2xl dark:shadow-[0_4px_20px_rgba(0,0,0,0.8)] hover:shadow-none hover:scale-[0.98] md:scale-90 xl:scale-95 2xl:scale-100"
             style={{
               top: photo.top,
               left: photo.left,
@@ -340,7 +406,7 @@ function NavCornerBlock({
     },
     "bottom-right": {
       arrow: <Arrows4 className="text-black/60 dark:text-white/60" />,
-      width: 433,
+      width: 300,
       height: 109,
       labelX: 428,
       labelY: 99,
@@ -353,10 +419,14 @@ function NavCornerBlock({
 
   /* Positions are now relative to the content box (not the full viewport) */
   const positionClasses = {
-    "top-left": "left-[200px] top-[80px]",
-    "top-right": "right-[200px] top-[40px]",
-    "bottom-left": "left-[350px] bottom-[100px]",
-    "bottom-right": "right-[100px] bottom-[60px]",
+    "top-left":
+      "md:scale-90 xl:scale-100 md:left-[200px]  lg:left-[220px] xl:left-[250px] 2xl:left-[300px] top-[80px]",
+    "top-right":
+      "md:scale-90 xl:scale-100 md:right-[200px] lg:right-[220px] xl:right-[250px] 2xl:right-[350px] top-[40px]",
+    "bottom-left":
+      "md:scale-90 xl:scale-100 md:left-[300px]  lg:left-[300px] xl:left-[350px] 2xl:left-[450px] bottom-[100px]",
+    "bottom-right":
+      "md:scale-90 xl:scale-100 md:right-[150px] lg:right-[220px] xl:right-[280px] 2xl:right-[350px] bottom-[80px]",
   }[corner];
 
   return (

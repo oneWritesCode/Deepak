@@ -21,15 +21,15 @@ function LandingPage(): React.ReactElement {
         </div>{" "}
       </div>{" "}
       {/* sword scar */}
-      <div className="absolute w-full min-h-screen flex md:items-end md:justify-start items-start justify-center overflow-hidden">
+      {/* <div className="absolute w-full min-h-screen flex md:items-end md:justify-start items-start justify-center overflow-hidden">
         <div className="absolute md:left-200 left-15 bottom-5 md:-bottom-5">
           <img
             src="/assets/images/SwordScar.png"
-            alt="me"
+            alt="meeeee"
             className="rounded-full border-4 border-transparent opacity-20"
           />
         </div>
-      </div>
+      </div> */}
       {/* content */}
       <div className="w-full h-screen flex items-center justify-center bg-black">
         <div className="flex flex-col items-center justify-center">
