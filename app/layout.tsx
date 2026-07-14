@@ -65,7 +65,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <LoadingScreen minDisplayMs={2000} />
-          <CursorFX color="bg-white"/>
+          <CursorFX color="bg-white border-black/60" />
           {children}
         </ThemeProvider>
       </body>

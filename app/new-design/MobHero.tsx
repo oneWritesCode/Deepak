@@ -1,7 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { Code2, Container, Terminal, PenTool, GitBranch, Pen } from "lucide-react";
+import {
+  Code2,
+  Container,
+  Terminal,
+  PenTool,
+  GitBranch,
+  Pen,
+} from "lucide-react";
 
 /**
  * Tech-stack string displayed as plain text on mobile (ring is desktop-only).
@@ -13,10 +20,34 @@ const RING_TEXT =
  * Center photo cluster — same data as Hero.tsx, scaled down for mobile.
  */
 const PHOTOS = [
-  { src: "/assets/new/photo-1.png", alt: "Portrait 1", top: "0%", left: "38%", size: 108 },
-  { src: "/assets/new/photo-2.png", alt: "Portrait 2", top: "25%", left: "8%", size: 100 },
-  { src: "/assets/new/photo-3.png", alt: "Portrait 3", top: "35%", left: "47%", size: 110 },
-  { src: "/assets/new/photo-4.png", alt: "Portrait 4", top: "60%", left: "0%", size: 175 },
+  {
+    src: "/assets/new/photo-1.png",
+    alt: "Portrait 1",
+    top: "0%",
+    left: "38%",
+    size: 108,
+  },
+  {
+    src: "/assets/new/photo-2.png",
+    alt: "Portrait 2",
+    top: "25%",
+    left: "8%",
+    size: 100,
+  },
+  {
+    src: "/assets/new/photo-3.png",
+    alt: "Portrait 3",
+    top: "35%",
+    left: "47%",
+    size: 110,
+  },
+  {
+    src: "/assets/new/photo-4.png",
+    alt: "Portrait 4",
+    top: "60%",
+    left: "0%",
+    size: 175,
+  },
 ];
 
 const NAV_ITEMS = [
@@ -121,7 +152,11 @@ export default function MobHero() {
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-6 text-black/50 dark:text-white/50">
               {SOCIAL_ICONS.map((Icon, i) => (
-                <button key={i} className="hover:text-black dark:hover:text-white transition-colors">
+                <button
+                  data-cursor="Click"
+                  key={i}
+                  className="hover:text-black dark:hover:text-white transition-colors"
+                >
                   <Icon size={18} strokeWidth={1.5} />
                 </button>
               ))}
