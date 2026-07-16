@@ -21,7 +21,7 @@ function BlogSGridSection({
   }, [blogs]);
 
   return (
-    <div className="w-full h-[75vh] p-6 md:p-12 lg:px-10 lg:py-0">
+    <div className="w-full h-[75vh]">
       <div className="w-full max-w-[1400px] mx-auto flex flex-col gap-6">
         {grouped.map(({ category, items }) => (
           <div key={category} className="flex flex-col gap-4">

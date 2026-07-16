@@ -34,6 +34,7 @@ const RING_TEXT =
 const PHOTOS = [
   {
     src: "/assets/new/photo-1.png",
+    label: "ABOUT",
     alt: "Portrait 1",
     top: "0%",
     left: "38%",
@@ -41,6 +42,7 @@ const PHOTOS = [
   },
   {
     src: "/assets/new/photo-2.png",
+    label: "PROJECTS",
     alt: "Portrait 2",
     top: "23%",
     left: "8%",
@@ -48,13 +50,15 @@ const PHOTOS = [
   },
   {
     src: "/assets/new/photo-3.png",
+    label: "BLOGS",
     alt: "Portrait 3",
     top: "33%",
-    left: "47%",
+    left: "49%",
     size: 110,
   },
   {
     src: "/assets/new/photo-4.png",
+    label: "EXPERIENCE",
     alt: "Portrait 4",
     top: "53%",
     left: "-7%",
@@ -182,6 +186,7 @@ export default function Hero() {
     STAGE_DESIGN_WIDTH,
     STAGE_DESIGN_HEIGHT,
   );
+  const ringPathId = useId();
 
   const active = NAV_ITEMS.find((item) => item.label === activeSection);
 
@@ -203,24 +208,59 @@ export default function Hero() {
         bg-[#f5f5f5] dark:bg-[#161616]
         text-black dark:text-white
         transition-colors duration-300
+        hidden lg:block
       "
     >
       <CursorFX />
       {/* ============ DESKTOP / TABLET LAYOUT (lg and up) ============ */}
-      <div className="relative hidden h-screen w-full lg:block">
+      <div className="relative h-screen w-full">
         {/* ---- Inner content box (the bordered rectangle from the design) ---- */}
-        <div className="absolute w-full h-screen flex items-center justify-center lg:px-4 xl:px-10 py-5">
+        <div className="absolute w-full h-screen flex items-center justify-center md:px-4 xl:px-10 py-5">
           <div
             ref={stageRef}
-            className="absolute w-[100vw] h-[80%] "
+            className="absolute w-[90vw] max-w-[2200px] h-[80%]"
             style={{
               transform: `scale(${scale})`,
               transformOrigin: "center center",
             }}
           >
             {/* ---- Ring + photo cluster (centered in content box) ---- */}
-            <div className="absolute left-1/2 top-1/2 aspect-square md:w-[500px] xl:w-[550px] 2xl:w-[600px] -translate-x-1/2 -translate-y-1/2 uppercase">
-              <RingContent />
+            <div className="absolute left-1/2 top-1/2 aspect-square md:w-[500px] lg:w-[550px] xl:w-[600px] 2xl:w-[600px] -translate-x-1/2 -translate-y-1/2 uppercase">
+              <svg
+                viewBox="0 0 700 700"
+                className="absolute inset-0 h-full w-full animate-spin overflow-visible"
+                style={{ animationDuration: "100s" }}
+              >
+                <defs>
+                  <path
+                    id={ringPathId}
+                    d="M 350,20 A 330,330 0 1 1 349.9,20 Z"
+                    fill="none"
+                  />
+                </defs>
+
+                <MagneticGroup>
+                  <text
+                    className="fill-black/90 text-[19px] tracking-[0.3em] dark:fill-white/90"
+                    style={{ fontFamily: "var(--font-poppins)" }}
+                  >
+                    <textPath href={`#${ringPathId}`} startOffset="0%">
+                      {RING_TEXT}
+                    </textPath>
+                  </text>
+                </MagneticGroup>
+              </svg>
+
+              {/* Photo cluster sits inside the ring, in its own relative box */}
+              <div className="absolute left-1/2 top-1/2 h-[70%] w-[46%] -translate-x-1/2 -translate-y-1/2">
+                {PHOTOS.map((photo, i) => (
+                  <RingContent
+                    photo={photo}
+                    key={i}
+                    onClick={() => setActiveSection(photo.label)}
+                  />
+                ))}
+              </div>
             </div>
 
             {/* ---- Nav corner blocks (positioned at corners of content box) ---- */}
@@ -245,13 +285,13 @@ export default function Hero() {
 
           {/* ---- Right side icons ---- */}
           <div className="w-full h-full flex flex-col items-end justify-center gap-1">
-            <Godot className="lg:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
-            <Figma className="lg:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
-            <VsCode className="lg:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
-            <Github className="lg:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
-            <Linux className="lg:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
-            <Terminal className="lg:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
-            <Postman className="lg:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
+            <Godot className="md:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
+            <Figma className="md:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
+            <VsCode className="md:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
+            <Github className="md:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
+            <Linux className="md:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
+            <Terminal className="md:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
+            <Postman className="md:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
           </div>
 
           {/* ---- Social icons footer ---- */}
@@ -301,60 +341,31 @@ export default function Hero() {
   );
 }
 
-function RingContent() {
-  const ringPathId = useId();
+function RingContent({ photo, onClick }: { photo: any; onClick: () => void }) {
+  // const ringPathId = useId();
   return (
-    <>
-      <svg
-        viewBox="0 0 700 700"
-        className="absolute inset-0 h-full w-full animate-spin overflow-visible"
-        style={{ animationDuration: "100s" }}
-      >
-        <defs>
-          <path
-            id={ringPathId}
-            d="M 350,20 A 330,330 0 1 1 349.9,20 Z"
-            fill="none"
-          />
-        </defs>
-
-        <MagneticGroup>
-          <text
-            className="fill-black/90 font-poppins text-[19px] tracking-[0.3em] dark:fill-white/90"
-            style={{ fontFamily: "var(--font-poppins)" }}
-          >
-            <textPath href={`#${ringPathId}`} startOffset="0%">
-              {RING_TEXT}
-            </textPath>
-          </text>
-        </MagneticGroup>
-      </svg>
-
-      {/* Photo cluster sits inside the ring, in its own relative box */}
-      <div className="absolute left-1/2 top-1/2 h-[70%] w-[46%] -translate-x-1/2 -translate-y-1/2">
-        {PHOTOS.map((photo, i) => (
-          <div
-            key={i}
-            className="group absolute rounded-full transition-all duration-300 ease-out shadow-2xl dark:shadow-[0_4px_20px_rgba(0,0,0,0.8)] hover:shadow-none hover:scale-[0.98] md:scale-90 xl:scale-95 2xl:scale-100"
-            style={{
-              top: photo.top,
-              left: photo.left,
-              width: photo.size,
-              height: photo.size,
-            }}
-          >
-            <Image
-              src={photo.src}
-              alt={photo.alt}
-              fill
-              sizes={`${photo.size}px`}
-              className="object-cover rounded-full"
-            />
-            <div className="pointer-events-none absolute inset-0 rounded-full transition-shadow duration-300 ease-out group-hover:shadow-[inset_0_4px_10px_rgba(0,0,0,0.5)] dark:group-hover:shadow-[inset_0_4px_10px_rgba(0,0,0,0.6)]" />
-          </div>
-        ))}
-      </div>
-    </>
+    <button
+        key={photo.label}
+        type="button"
+        data-cursor={photo.label}
+        onClick={onClick}
+      className="group absolute rounded-full transition-all duration-300 ease-out shadow-2xl dark:shadow-[0_4px_20px_rgba(0,0,0,0.8)] hover:shadow-none hover:scale-[0.98] md:scale-90 lg:scale-100 xl:scale-110"
+      style={{
+        top: photo.top,
+        left: photo.left,
+        width: photo.size,
+        height: photo.size,
+      }}
+    >
+      <Image
+        src={photo.src}
+        alt={photo.alt}
+        fill
+        sizes={`${photo.size}px`}
+        className="object-cover rounded-full"
+      />
+      <div className="pointer-events-none absolute inset-0 rounded-full transition-shadow duration-300 ease-out group-hover:shadow-[inset_0_4px_10px_rgba(0,0,0,0.5)] dark:group-hover:shadow-[inset_0_4px_10px_rgba(0,0,0,0.6)]" />
+    </button>
   );
 }
 
@@ -420,13 +431,13 @@ function NavCornerBlock({
   /* Positions are now relative to the content box (not the full viewport) */
   const positionClasses = {
     "top-left":
-      "md:scale-90 xl:scale-100 md:left-[200px]  lg:left-[220px] xl:left-[250px] 2xl:left-[300px] top-[80px]",
+      "md:scale-95 xl:scale-100 md:left-[80px] lg:left-[10rem] xl:left-[180px] 2xl:left-[250px] md:-top-[40px] lg:top-[10px] xl:top-[80px]",
     "top-right":
-      "md:scale-90 xl:scale-100 md:right-[200px] lg:right-[220px] xl:right-[250px] 2xl:right-[350px] top-[40px]",
+      "md:scale-95 xl:scale-100 md:right-[40px] lg:right-[80px] xl:right-[160px] 2xl:right-[250px] md:-top-[60px] lg:top-[20px] xl:top-[40px]",
     "bottom-left":
-      "md:scale-90 xl:scale-100 md:left-[300px]  lg:left-[300px] xl:left-[350px] 2xl:left-[450px] bottom-[100px]",
+      "md:scale-95 xl:scale-100 md:left-[150px]  lg:left-[220px] xl:left-[250px] 2xl:left-[350px] md:bottom-[0px] lg:bottom-[40px] xl:bottom-[100px]",
     "bottom-right":
-      "md:scale-90 xl:scale-100 md:right-[150px] lg:right-[220px] xl:right-[280px] 2xl:right-[350px] bottom-[80px]",
+      "md:scale-95 xl:scale-100 md:right-[40px] lg:right-[120px] xl:right-[150px] 2xl:right-[250px] md:bottom-[0px] lg:bottom-[10px] xl:bottom-[80px]",
   }[corner];
 
   return (
@@ -451,16 +462,16 @@ function NavCornerBlock({
         <button
           data-cursor="Click"
           onClick={onClick}
-          className="group relative flex items-center justify-center transition-all hover:scale-110 hover:font-bold active:scale-95 duration-400 ease-in- hover:shadow-[0_1px_10px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_1px_10px_rgba(255,255,255,0.1)]"
+          className="group relative flex items-center justify-center transition-all hover:scale-110 hover:font-bold active:scale-95 duration-400 ease-in- hover:shadow-[0_1px_10px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_1px_10px_rgba(255,255,255,0.1)] border-2 border-black/15 dark:border-white/80 px-3 py-0.15"
         >
-          <RoughBorderBox className="px-3 flex items-center justify-center">
-            <span
-              className="relative z-10 text-[16px] uppercase text-black dark:text-white font-extralight"
-              style={{ fontFamily: "var(--font-poppins)" }}
-            >
-              {label}
-            </span>
-          </RoughBorderBox>
+          {/* <RoughBorderBox className="px-3 flex items-center justify-center"> */}
+          <span
+            className="relative z-10 text-[16px] uppercase text-black dark:text-white font-extralight"
+            style={{ fontFamily: "var(--font-poppins)" }}
+          >
+            {label}
+          </span>
+          {/* </RoughBorderBox> */}
         </button>
       </div>
 

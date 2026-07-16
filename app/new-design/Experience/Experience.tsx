@@ -27,9 +27,6 @@ export default function Experience() {
       {/* ---- Left Column: Text & Timeline ---- */}
       <div className="flex-1 md:w-[60%] shrink-0 self-stretch flex flex-col relative md:pr-12">
         {/* Right border line */}
-        {/* <div className="hidden md:block absolute top-[30px] right-0 w-px bottom-8 bg-black/20 dark:bg-white/20"></div> */}
-
-        {/* ── Header ── */}
         <div className="flex items-start justify-between w-full">
           <div className="flex flex-col w-full relative">
             <div className="flex items-center w-full">
@@ -50,7 +47,6 @@ export default function Experience() {
             </p>
           </div>
         </div>
-        {/* <div className="w-full flex "> */}
         {/* ── Timeline ── */}
         <div className="relative mt-2 h-full self-stretch">
           {/* Vertical line */}
@@ -120,16 +116,14 @@ export default function Experience() {
             ))}
           </div>
         </div>
-        {/* Image Circle */}
-        {/* </div> */}
       </div>
 
       <div className="w-3/10 self-stretch flex items-end justify-end">
         {/* Decorative connecting line */}
-        <div className="absolute hidden -top-15 -left-35 scale-60 lg:block text-black/20 dark:text-white/80 pointer-events-none z-0">
+        <div className="absolute -top-[7%] -left-[20rem] lg:-left-[13rem] scale-70  text-black dark:text-white/80 pointer-events-none z-0 hidden lg:block">
           <Arrows5 />
         </div>
-        <div className="relative group w-full aspect-square rounded-full overflow-hidden bg-[#f5f5f5] dark:shadow-[0_4px_20px_rgba(0,0,0,0.8)] shadow-[0_2px_20px_rgba(0,0,0,0.2)] hover:shadow-none">
+        <div className="relative group w-full aspect-square rounded-full overflow-hidden bg-[#f5f5f5] dark:shadow-[0_4px_20px_rgba(0,0,0,0.8)] shadow-[0_2px_20px_rgba(0,0,0,0.2)] hover:shadow-none hidden lg:block">
           <motion.div className="">
             <Image src="/assets/new/photo-4.png" alt="Experience" fill />
           </motion.div>

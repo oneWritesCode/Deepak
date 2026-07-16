@@ -113,9 +113,9 @@ export default function BlogShowcase({
         </div>
         {/* ---- Image + arc badge ---- */}
         <div className="relative w-full aspect-square">
-          <div className="relative mx-auto aspect-square w-full max-w-[400px] flex items-center justify-center overflow-hidden">
+          <div className="relative mx-auto aspect-square w-full min-w-[300px] max-w-[400px] flex items-center justify-center">
             <div className="group absolute inset-[10%] scale-110 overflow-hidden rounded-full bg-[#f5f5f5] dark:shadow-[0_4px_20px_rgba(0,0,0,0.8)] shadow-[0_2px_20px_rgba(0,0,0,0.8)] hover:shadow-none">
-              {/* <AnimatePresence mode="wait"> */}
+              <AnimatePresence>
               <motion.div key={blog.id} className="relative h-full w-full">
                 <Image
                   src="/assets/new/photo-3.png"
@@ -125,7 +125,7 @@ export default function BlogShowcase({
                   sizes="420px"
                 />
               </motion.div>
-              {/* </AnimatePresence> */}
+              </AnimatePresence>
               <div className="pointer-events-none absolute inset-0 rounded-full transition-shadow duration-300 ease-out group-hover:shadow-[inset_0_4px_10px_rgba(0,0,0,0.5)] dark:group-hover:shadow-[inset_0_4px_10px_rgba(0,0,0,0.6)]" />
             </div>
           </div>

@@ -118,7 +118,7 @@ export default function ProjectShowcase({
         </div>
         {/* ---- Image + arc badge ---- */}
         <div className="relative w-full aspect-square">
-          <div className="relative mx-auto aspect-square w-full max-w-[400px] flex items-center justify-center overflow-hidden">
+          <div className="relative mx-auto aspect-square w-full min-w-[300px] max-w-[400px] flex items-center justify-center">
             <AnimatePresence>
               <motion.svg
                 key={project.id}
