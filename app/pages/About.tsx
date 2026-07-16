@@ -302,11 +302,11 @@ const Philosophies = memo(function Philosophies() {
 });
 
 const MyRoles = [
-  "Full-Stack Developer",
+  "Full-Stack Engineer",
   "gamedev paglu",
   "design engineer",
   "shitposter",
-  "Open Source Contributor",
+  "indie Hacker",
 ];
 
 const ROTATE_INTERVAL_MS = 3800;
