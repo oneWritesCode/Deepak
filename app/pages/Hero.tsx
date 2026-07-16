@@ -1,0 +1,477 @@
+"use client";
+
+import Image from "next/image";
+import { useId, useLayoutEffect, useRef, useState } from "react";
+import SlideOverPanel from "../components/SlideOverPanel";
+import PanelContent from "../components/PanelContent";
+import About from "./About";
+import RoughBorderBox from "../components/RoughBorderBox";
+import LightModeToggle from "../components/LightModeToggle";
+import Twitterx from "./icons/Twitterx";
+import Download from "./icons/Download";
+import Figma from "./icons/Figma";
+import Postman from "./icons/Postman";
+import Terminal from "./icons/Terminal";
+import Linux from "./icons/Linux";
+import Godot from "./icons/Godot";
+import Github from "./icons/Github";
+import Linkedin from "./icons/Linkedin";
+import Itch from "./icons/Itch";
+import SocialGithub from "./icons/Github";
+import Medium from "./icons/Medium";
+import Arrows1 from "./icons/Arrows1";
+import Arrows2 from "./icons/Arrows2";
+import Arrows3 from "./icons/Arrows3";
+import Arrows4 from "./icons/Arrows4";
+import CursorFX from "../components/CursorFX";
+import MagneticGroup from "../components/MagneticGroup";
+import Experience from "./Experience/Experience";
+import VsCode from "./icons/VsCode";
+
+const RING_TEXT =
+  "figma + next.js + typescript + express + AWS + postgress + motion + prisma + docker + typescript + linux + css +  godot + python + ";
+
+const PHOTOS = [
+  {
+    src: "/assets/new/photo-1.png",
+    label: "ABOUT",
+    alt: "Portrait 1",
+    top: "0%",
+    left: "38%",
+    size: 108,
+  },
+  {
+    src: "/assets/new/photo-2.png",
+    label: "PROJECTS",
+    alt: "Portrait 2",
+    top: "23%",
+    left: "8%",
+    size: 100,
+  },
+  {
+    src: "/assets/new/photo-3.png",
+    label: "BLOGS",
+    alt: "Portrait 3",
+    top: "33%",
+    left: "49%",
+    size: 110,
+  },
+  {
+    src: "/assets/new/photo-4.png",
+    label: "EXPERIENCE",
+    alt: "Portrait 4",
+    top: "53%",
+    left: "-7%",
+    size: 175,
+  },
+];
+
+type NavCorner = "top-left" | "top-right" | "bottom-left" | "bottom-right";
+
+const NAV_ITEMS: {
+  label: string;
+  corner: NavCorner;
+  paragraph: string;
+}[] = [
+  {
+    label: "PROJECTS",
+    corner: "top-left",
+    paragraph:
+      "A collection of shipped work — web apps, tools, and experiments built with Next.js, TypeScript, and Prisma. Each one solves a real problem, not just a portfolio exercise.",
+  },
+  {
+    label: "ABOUT",
+    corner: "top-right",
+    paragraph:
+      "Full-stack developer building fast, scalable products with clean architecture and thoughtful interfaces. I care about how software feels to use, not just how it performs.",
+  },
+  {
+    label: "EXPERIENCE",
+    corner: "bottom-left",
+    paragraph:
+      "Years spent across frontend and backend, from Godot game prototypes to production APIs. I've learned that good code and good design are the same discipline, applied twice.",
+  },
+  {
+    label: "BLOGS",
+    corner: "bottom-right",
+    paragraph:
+      "Notes on building things properly — debugging war stories, architecture decisions, and lessons from projects that didn't go as planned. Written for developers who read past the headline.",
+  },
+];
+
+const SOCIAL_ICONS = [
+  {
+    icon: <Twitterx className="w-4 h-4 text-black dark:text-white" />,
+    link: "https://x.com/triordeep",
+    name: "twitter / x",
+  },
+  {
+    icon: <SocialGithub className="w-4 h-4 text-black dark:text-white" />,
+    link: "https://github.com/onewritescode",
+    name: "github",
+  },
+  {
+    icon: <Linkedin className="w-4 h-4 text-black dark:text-white/60" />,
+    link: "https://www.linkedin.com/in/deepak-singh-27a17a321/",
+    name: "linkedin",
+  },
+  {
+    icon: <Medium className="w-4 h-4 text-black dark:text-white/60" />,
+    link: "https://medium.com/@triordeep",
+    name: "medium",
+  },
+  {
+    icon: <Itch className="w-4 h-4 text-black dark:text-white" />,
+    link: "https://d33pak.itch.io",
+    name: "itch.io",
+  },
+];
+
+// ── Responsive fit-scale ─────────────────────────────────────────────────────
+const STAGE_DESIGN_WIDTH = 1280; 
+const STAGE_DESIGN_HEIGHT = 800;
+const STAGE_EDGE_PADDING = 48;
+
+function useFitScale(designWidth: number, designHeight: number) {
+  const stageRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+
+  useLayoutEffect(() => {
+    const stageEl = stageRef.current;
+    const container = stageEl?.parentElement;
+    if (!stageEl || !container) return;
+
+    const recalc = () => {
+      const { width, height } = container.getBoundingClientRect();
+      const availableWidth = Math.max(width - STAGE_EDGE_PADDING, 0);
+      const availableHeight = Math.max(height - STAGE_EDGE_PADDING, 0);
+      const next = Math.min(
+        1, // only ever shrink to fit — never scale up past the real design
+        availableWidth / designWidth,
+        availableHeight / designHeight,
+      );
+      setScale(Number.isFinite(next) && next > 0 ? next : 1);
+    };
+
+    recalc();
+
+    const observer = new ResizeObserver(recalc);
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [designWidth, designHeight]);
+
+  return { stageRef, scale };
+}
+
+export default function Hero() {
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+  const { stageRef, scale } = useFitScale(
+    STAGE_DESIGN_WIDTH,
+    STAGE_DESIGN_HEIGHT,
+  );
+  const ringPathId = useId();
+
+  const active = NAV_ITEMS.find((item) => item.label === activeSection);
+
+  const CORNER_TO_DIRECTION: Record<
+    NavCorner,
+    "top" | "bottom" | "left" | "right"
+  > = {
+    "top-left": "left",
+    "top-right": "top",
+    "bottom-left": "bottom",
+    "bottom-right": "right",
+  };
+
+  return (
+    <section
+      className="
+        relative w-full h-screen overflow-hidden
+        border border-black/10 dark:border-white/10
+        bg-[#f5f5f5] dark:bg-[#161616]
+        text-black dark:text-white
+        transition-colors duration-300
+        hidden lg:block
+      "
+    >
+      <CursorFX />
+      {/* ============ DESKTOP / TABLET LAYOUT (lg and up) ============ */}
+      <div className="relative h-screen w-full">
+        {/* ---- Inner content box (the bordered rectangle from the design) ---- */}
+        <div className="absolute w-full h-screen flex items-center justify-center md:px-4 xl:px-10 py-5">
+          <div
+            ref={stageRef}
+            className="absolute w-[90vw] max-w-[2200px] h-[80%]"
+            style={{
+              transform: `scale(${scale})`,
+              transformOrigin: "center center",
+            }}
+          >
+            {/* ---- Ring + photo cluster (centered in content box) ---- */}
+            <div className="absolute left-1/2 top-1/2 aspect-square md:w-[500px] lg:w-[550px] xl:w-[600px] 2xl:w-[600px] -translate-x-1/2 -translate-y-1/2 uppercase">
+              <svg
+                viewBox="0 0 700 700"
+                className="absolute inset-0 h-full w-full animate-spin overflow-visible"
+                style={{ animationDuration: "100s" }}
+              >
+                <defs>
+                  <path
+                    id={ringPathId}
+                    d="M 350,20 A 330,330 0 1 1 349.9,20 Z"
+                    fill="none"
+                  />
+                </defs>
+
+                <MagneticGroup>
+                  <text
+                    className="fill-black/90 text-[19px] tracking-[0.3em] dark:fill-white/90"
+                    style={{ fontFamily: "var(--font-poppins)" }}
+                  >
+                    <textPath href={`#${ringPathId}`} startOffset="0%">
+                      {RING_TEXT}
+                    </textPath>
+                  </text>
+                </MagneticGroup>
+              </svg>
+
+              {/* Photo cluster sits inside the ring, in its own relative box */}
+              <div className="absolute left-1/2 top-1/2 h-[70%] w-[46%] -translate-x-1/2 -translate-y-1/2">
+                {PHOTOS.map((photo, i) => (
+                  <RingContent
+                    photo={photo}
+                    key={i}
+                    onClick={() => setActiveSection(photo.label)}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* ---- Nav corner blocks (positioned at corners of content box) ---- */}
+            {NAV_ITEMS.map((item) => (
+              <NavCornerBlock
+                key={item.label}
+                {...item}
+                onClick={() => setActiveSection(item.label)}
+              />
+            ))}
+          </div>
+
+          {/* ---- Left side light mode ---- */}
+          <div className="w-full h-full flex flex-col items-start justify-start py-5">
+            <div className="flex items-center justify-center flex-col gap-2">
+              <LightModeToggle />
+            </div>
+          </div>
+
+          {/* ---- Right side icons ---- */}
+          <div className="w-full h-full flex flex-col items-end justify-center gap-1">
+            <Godot className="md:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
+            <Figma className="md:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
+            <VsCode className="md:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
+            <Github className="md:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
+            <Linux className="md:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
+            <Terminal className="md:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
+            <Postman className="md:w-6 xl:w-7 aspect-square text-black dark:text-white/60" />
+          </div>
+
+          {/* ---- Social icons footer ---- */}
+          <div className="absolute w-1/2 left-10 self-end">
+            <div
+              className="w-full text-[12px] uppercase tracking-[0.2em] text-black/80 dark:text-white/80 border-b border-black/60 dark:border-white/60 text-right"
+              style={{ fontFamily: "var(--font-poppins)" }}
+            >
+              <h6>BUILT BY DEEPAK &lt;3</h6>
+            </div>
+            <div className="flex gap-4 py-2 ">
+              {SOCIAL_ICONS.map((Icon, i) => (
+                <a
+                  href={Icon.link}
+                  key={i}
+                  data-cursor={Icon.name}
+                  className="group flex items-center justify-center gap-4"
+                >
+                  <span className="group-hover:-translate-y-1 group-hover:scale-120 transition-all duration-400">
+                    {Icon.icon}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {active && (
+        <SlideOverPanel
+          open={!!active}
+          onClose={() => setActiveSection(null)}
+          corner={active.corner}
+        >
+          {active.label === "PROJECTS" || active.label === "BLOGS" ? (
+            <PanelContent label={active.label} />
+          ) : active.label === "ABOUT" ? (
+            <About />
+          ) : active.label === "EXPERIENCE" ? (
+            <Experience />
+          ) : (
+            active.paragraph
+          )}
+        </SlideOverPanel>
+      )}
+    </section>
+  );
+}
+
+function RingContent({ photo, onClick }: { photo: any; onClick: () => void }) {
+  return (
+    <button
+        key={photo.label}
+        type="button"
+        data-cursor={photo.label}
+        onClick={onClick}
+      className="group absolute rounded-full transition-all duration-300 ease-out shadow-2xl dark:shadow-[0_4px_20px_rgba(0,0,0,0.8)] hover:shadow-none hover:scale-[0.98] md:scale-90 lg:scale-100 xl:scale-110"
+      style={{
+        top: photo.top,
+        left: photo.left,
+        width: photo.size,
+        height: photo.size,
+      }}
+    >
+      <Image
+        src={photo.src}
+        alt={photo.alt}
+        fill
+        sizes={`${photo.size}px`}
+        className="object-cover rounded-full"
+      />
+      <div className="pointer-events-none absolute inset-0 rounded-full transition-shadow duration-300 ease-out group-hover:shadow-[inset_0_4px_10px_rgba(0,0,0,0.5)] dark:group-hover:shadow-[inset_0_4px_10px_rgba(0,0,0,0.6)]" />
+    </button>
+  );
+}
+
+// navbar blocks --------------------------------------------------------------------------------
+function NavCornerBlock({
+  label,
+  corner,
+  paragraph,
+  onClick,
+}: {
+  label: string;
+  corner: NavCorner;
+  paragraph: string;
+  onClick: () => void;
+}) {
+  const svgMap = {
+    "top-left": {
+      arrow: <Arrows1 className="text-black/60 dark:text-white/60" />,
+      width: 274,
+      height: 125,
+      labelX: 0,
+      labelY: 9,
+      labelAlign: "left",
+      dotX: 270,
+      dotY: 120,
+      textSide: "right",
+    },
+    "top-right": {
+      arrow: <Arrows2 className="text-black/60 dark:text-white/60" />,
+      width: 308,
+      height: 149,
+      labelX: 304,
+      labelY: 9,
+      labelAlign: "right",
+      dotX: 4,
+      dotY: 134,
+      textSide: "left",
+    },
+    "bottom-left": {
+      arrow: <Arrows3 className="text-black/60 dark:text-white/60" />,
+      width: 169,
+      height: 117,
+      labelX: 2,
+      labelY: 107,
+      labelAlign: "left",
+      dotX: 165,
+      dotY: 4,
+      textSide: "right",
+    },
+    "bottom-right": {
+      arrow: <Arrows4 className="text-black/60 dark:text-white/60" />,
+      width: 300,
+      height: 109,
+      labelX: 428,
+      labelY: 99,
+      labelAlign: "right",
+      dotX: 4,
+      dotY: 10,
+      textSide: "left",
+    },
+  }[corner] as any;
+
+  /* Positions are now relative to the content box (not the full viewport) */
+  const positionClasses = {
+    "top-left":
+      "md:scale-95 xl:scale-100 md:left-[80px] lg:left-[10rem] xl:left-[180px] 2xl:left-[250px] md:-top-[40px] lg:top-[10px] xl:top-[80px]",
+    "top-right":
+      "md:scale-95 xl:scale-100 md:right-[40px] lg:right-[80px] xl:right-[160px] 2xl:right-[250px] md:-top-[60px] lg:top-[20px] xl:top-[40px]",
+    "bottom-left":
+      "md:scale-95 xl:scale-100 md:left-[150px]  lg:left-[220px] xl:left-[250px] 2xl:left-[350px] md:bottom-[0px] lg:bottom-[40px] xl:bottom-[100px]",
+    "bottom-right":
+      "md:scale-95 xl:scale-100 md:right-[40px] lg:right-[120px] xl:right-[150px] 2xl:right-[250px] md:bottom-[0px] lg:bottom-[10px] xl:bottom-[80px]",
+  }[corner];
+
+  return (
+    <div
+      className={`absolute ${positionClasses}`}
+      style={{ width: svgMap.width, height: svgMap.height }}
+    >
+      {svgMap.arrow}
+
+      {/* Label */}
+      <div
+        className="absolute"
+        style={{
+          top: svgMap.labelY,
+          transform: "translateY(-50%)",
+          left: svgMap.labelAlign === "right" ? "100%" : "auto",
+          right: svgMap.labelAlign === "left" ? "100%" : "auto",
+          marginLeft: svgMap.labelAlign === "right" ? "16px" : "0",
+          marginRight: svgMap.labelAlign === "left" ? "16px" : "0",
+        }}
+      >
+        <button
+          data-cursor="Click"
+          onClick={onClick}
+          className="group relative flex items-center justify-center transition-all hover:scale-110 hover:font-bold active:scale-95 duration-400 ease-in- hover:shadow-[0_1px_10px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_1px_10px_rgba(255,255,255,0.1)] border-2 border-black/15 dark:border-white/80 px-3 py-0.15"
+        >
+          <span
+            className="relative z-10 text-[16px] uppercase text-black dark:text-white font-extralight"
+            style={{ fontFamily: "var(--font-poppins)" }}
+          >
+            {label}
+          </span>
+        </button>
+      </div>
+
+      {/* Paragraph */}
+      <div
+        className="absolute"
+        style={{
+          top: svgMap.dotY,
+          transform: "translateY(-50%)",
+          left: svgMap.textSide === "left" ? svgMap.dotX + 16 : "auto",
+          right:
+            svgMap.textSide === "right"
+              ? svgMap.width - svgMap.dotX + 16
+              : "auto",
+          width: 280, // Forced uniform paragraph width
+        }}
+      >
+        <p
+          className={`text-[11px] leading-[1.3] tracking-widest font-light text-black dark:text-white ${svgMap.textSide === "left" ? "text-left" : "text-right"}`}
+        >
+          {paragraph}
+        </p>
+      </div>
+    </div>
+  );
+}

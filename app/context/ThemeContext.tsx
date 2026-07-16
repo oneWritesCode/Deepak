@@ -29,7 +29,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       document.documentElement.classList.toggle("dark", next);
     };
 
-    // @ts-ignore - not fully typed in all TS versions yet
     if (!document.startViewTransition || isReducedMotion) {
       applyTheme();
       return;

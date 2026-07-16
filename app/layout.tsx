@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins, Anton } from "next/font/google";
 import "./globals.css";
-import LoadingScreen from "./components/LoadingScreen";
 import { ThemeProvider } from "./context/ThemeContext";
-import CursorFX from "./new-design/CursorFX";
+import CursorFX from "./components/CursorFX";
 import SmoothScroll from "./components/SmoothScroll";
 import ReactScanDevTool from "./components/ReactScanDevTools";
 
@@ -26,13 +25,13 @@ const poppins = Poppins({
 const anton = Anton({
   subsets: ["latin"],
   variable: "--font-anton",
-  weight: "400", // Anton only ships one weight
+  weight: "400",
 });
 
 export const metadata: Metadata = {
   title: "Deepak Kumar Singh | Full Stack Developer | triordeep",
   description:
-    "Portfolio of Deepak Kumar Singh (triordeep) — full stack developer building with Next.js, React, TypeScript, and Node.js.",
+    "Portfolio of Deepak Kumar Singh (triordeep) — full stack developer and indie game developer building with Next.js, React, TypeScript, and Node.js.",
 };
 
 const jsonLd = {
@@ -66,12 +65,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${anton.variable} antialiased bg-black`}
       >
         <ThemeProvider>
-          {/* <SmoothScroll> */}
-            {/* <LoadingScreen minDisplayMs={2000} /> */}
             <CursorFX color="bg-white border border-black/60" />
             {/* <ReactScanDevTool /> */}
             {children}
-          {/* </SmoothScroll> */}
         </ThemeProvider>
       </body>
     </html>
