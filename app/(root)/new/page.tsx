@@ -1,7 +1,8 @@
 "use client";
 import ClickPing from "@/app/new-design/ClickPing";
 import Hero from "@/app/new-design/Hero";
-import MobHero from "@/app/new-design/MobHero";
+import TabHero from "@/app/new-design/TabsDesign/TabHero";
+import NewMob from "@/app/new-design/MobileView/NewMob";
 import React from "react";
 
 function page() {
@@ -10,7 +11,8 @@ function page() {
       <ClickPing ringLineWidth={1} dotSize={1} maxRadius={157}>
         {/*Content div*/}
         <Hero />
-        <MobHero />
+        <TabHero />
+        <NewMob/>
       </ClickPing>
     </div>
   );
