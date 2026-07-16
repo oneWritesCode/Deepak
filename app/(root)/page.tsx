@@ -1,21 +1,24 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import LandingPage from "@/app/pages/LandingPage";
-import MainPage from "@/app/old pages/MainPage";
+import ClickPing from "@/app/new-design/ClickPing";
+import Hero from "@/app/new-design/Hero";
+import TabHero from "@/app/new-design/TabsDesign/TabHero";
+import NewMob from "@/app/new-design/MobileView/NewMob";
+import React from "react";
+import Loading from "@/app/new-design/Loading";
 
-export default function Home() {
-  const location = usePathname();
-
+function page() {
   return (
-    <>
-      <div className="bg-black hidden md:block">
-        <LandingPage key={location} />
-      </div>
-
-      <div className="md:hidden">
-        <MainPage />
-      </div>
-    </>
+    <div>
+      <Loading duration={4000} />
+      <ClickPing ringLineWidth={1} dotSize={1} maxRadius={157}>
+        {/*Content div*/}
+        <Hero />
+        <TabHero />
+        <NewMob />
+      </ClickPing>
+    </div>
   );
 }
+
+export default page;

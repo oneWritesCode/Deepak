@@ -7,6 +7,8 @@ import ThemeToggle from "../LightModeToggle";
 import AboutMob from "./AboutMob";
 import ExperienceMob from "./ExperienceMob";
 import ProjectsMob from "./ProjectsMob";
+import BlogsMob from "./BlogsMob";
+import SmoothScroll from "@/app/components/SmoothScroll";
 
 // ---- Data ----
 
@@ -28,22 +30,22 @@ const SECTIONS: {
     Component: AboutMob,
   },
   {
-    title: "experience",
-    ringText: "Experimentor", // TODO
-    photo: "/assets/new/photo-4.png", // TODO
-    Component: ExperienceMob, // TODO: replace with your real ExperienceMob component once it's built
-  },
-  {
     title: "project",
-    ringText: "Experimentor", // TODO
-    photo: "/assets/new/photo-1.png", // TODO
+    ringText: "Experimentor", 
+    photo: "/assets/new/photo-2.png",
     Component: ProjectsMob,
   },
   {
     title: "blogs",
-    ringText: "Experimentor", // TODO
-    photo: "/assets/new/photo-1.png", // TODO
-    Component: ComingSoon,
+    ringText: "Experimentor",
+    photo: "/assets/new/photo-3.png",
+    Component: BlogsMob,
+  },
+  {
+    title: "experience",
+    ringText: "Experimentor",
+    photo: "/assets/new/photo-4.png",
+    Component: ExperienceMob,
   },
 ];
 
@@ -116,48 +118,49 @@ function NewMob() {
     });
   }, []);
 
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-    touchStartY.current = e.touches[0].clientY;
-  };
+  // const handleTouchStart = (e: React.TouchEvent) => {
+  //   touchStartX.current = e.touches[0].clientX;
+  //   touchStartY.current = e.touches[0].clientY;
+  // };
 
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX.current === null || touchStartY.current === null) return;
-    const dx = e.changedTouches[0].clientX - touchStartX.current;
-    const dy = e.changedTouches[0].clientY - touchStartY.current;
-    touchStartX.current = null;
-    touchStartY.current = null;
+  // const handleTouchEnd = (e: React.TouchEvent) => {
+  //   if (touchStartX.current === null || touchStartY.current === null) return;
+  //   const dx = e.changedTouches[0].clientX - touchStartX.current;
+  //   const dy = e.changedTouches[0].clientY - touchStartY.current;
+  //   touchStartX.current = null;
+  //   touchStartY.current = null;
 
-    // Horizontal intent only — a mostly-vertical drag is just page
-    // scroll and shouldn't touch the active section at all.
-    if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) < Math.abs(dy)) return;
+  //   // Horizontal intent only — a mostly-vertical drag is just page
+  //   // scroll and shouldn't touch the active section at all.
+  //   if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) < Math.abs(dy)) return;
 
-    const now = Date.now();
-    if (now - lastGestureAt.current < GESTURE_COOLDOWN_MS) return;
-    lastGestureAt.current = now;
+  //   const now = Date.now();
+  //   if (now - lastGestureAt.current < GESTURE_COOLDOWN_MS) return;
+  //   lastGestureAt.current = now;
 
-    goToDelta(dx < 0 ? 1 : -1);
-  };
+  //   goToDelta(dx < 0 ? 1 : -1);
+  // };
 
-  // Trackpad horizontal scroll — bonus for desktop testing, touch swipe
-  // above is the primary interaction on an actual phone.
-  const handleWheel = (e: React.WheelEvent) => {
-    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+  // // Trackpad horizontal scroll — bonus for desktop testing, touch swipe
+  // // above is the primary interaction on an actual phone.
+  // const handleWheel = (e: React.WheelEvent) => {
+  //   if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
 
-    const now = Date.now();
-    if (now - lastGestureAt.current < GESTURE_COOLDOWN_MS) return;
-    lastGestureAt.current = now;
+  //   const now = Date.now();
+  //   if (now - lastGestureAt.current < GESTURE_COOLDOWN_MS) return;
+  //   lastGestureAt.current = now;
 
-    goToDelta(e.deltaX > 0 ? 1 : -1);
-  };
+  //   goToDelta(e.deltaX > 0 ? 1 : -1);
+  // };
 
   const activeSection = SECTIONS[activeIndex];
   const ActiveComponent = activeSection.Component;
 
   return (
+    <SmoothScroll>
     <section
       className="
-        relative w-full overflow-hidden
+        relative w-full min-h-screen overflow-hidden
         border border-black/10 dark:border-white/10
         bg-[#f4f4f2] dark:bg-[#161616]
         text-black dark:text-white
@@ -166,20 +169,20 @@ function NewMob() {
       "
     >
       {/* Navbar */}
-      <nav className="w-full flex items-center justify-end px-4 pt-4">
+      <nav className="w-full flex items-center justify-end px-2 xs:px-4 pt-4">
         <div className="flex items-center gap-4">
           <ThemeToggle />
         </div>
       </nav>
 
       <div
-        className="w-full flex flex-col justify-center gap-6 items-start px-4 "
+        className="w-full flex flex-col justify-center gap-6 items-start px-2 xs:px-5"
         style={{ fontFamily: "var(--font-poppins)" }}
       >
         {/* ═══════════════ LEFT COLUMN ═══════════════ */}
         <div className="w-full flex items-center justify-between pl-5 pb-2">
           {/* Profile ring + photo — crossfades with the active section */}
-          <div className="relative w-[30%] aspect-square">
+          <div className="relative min-w-35 w-[30%] aspect-square">
             <AnimatePresence initial={false} mode="wait">
               <motion.div
                 key={activeSection.title}
@@ -252,7 +255,7 @@ function NewMob() {
                           backgroundColor: isActive ? "currentColor" : "transparent",
                         }}
                         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                        className="w-[5px] aspect-square rounded-full border-2 -ml-[5px]"
+                        className="w-[5px] aspect-square rounded-full border-3 -ml-[5px]"
                       />
                     </div>
                   </div>
@@ -269,9 +272,9 @@ function NewMob() {
         <div
           className="relative w-full"
           style={{ touchAction: "pan-y" }}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-          onWheel={handleWheel}
+          // onTouchStart={handleTouchStart}
+          // onTouchEnd={handleTouchEnd}
+          // onWheel={handleWheel}
         >
           <AnimatePresence initial={false} custom={direction} mode="popLayout">
             <motion.div
@@ -290,6 +293,8 @@ function NewMob() {
         </div>
       </div>
     </section>
+    </SmoothScroll>
+
   );
 }
 

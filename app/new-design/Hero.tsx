@@ -277,9 +277,9 @@ export default function Hero() {
           <div className="w-full h-full flex flex-col items-start justify-start py-5">
             <div className="flex items-center justify-center flex-col gap-2">
               <LightModeToggle />
-              <button data-cursor="download cv">
+              {/* <button data-cursor="download cv">
                 <Download className="w-7 h-4 text-black/80 dark:text-white/80 font-bold hover:scale-110 transition-transform duration-300 ease-in-out" />
-              </button>
+              </button> */}
             </div>
           </div>
 

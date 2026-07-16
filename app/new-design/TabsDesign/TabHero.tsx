@@ -148,10 +148,10 @@ export default function TabHero() {
               <button
                 data-cursor="Click"
                 onClick={() => setActiveSection(item.label)}
-                className="group relative flex items-center justify-center rounded transition-all hover:scale-110 hover:font-bold active:scale-95 duration-400 ease-in- hover:shadow-[0_1px_10px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_1px_10px_rgba(255,255,255,0.1)] border-2 border-black/15 dark:border-white/80 px-2 py-0.15"
+                className="group relative flex items-center justify-center rounded transition-all hover:scale-110 hover:font-bold active:scale-95 duration-400 ease-in- hover:shadow-[0_1px_10px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_1px_10px_rgba(255,255,255,0.1)] border-2 border-black/15 dark:border-white/15 px-2 py-0.15"
               >
                 <span
-                  className="relative z-10 text-[16px] uppercase text-black dark:text-white font-extralight"
+                  className="relative z-10 text-[16px] uppercase text-black dark:text-white/70 font-extralight"
                   style={{ fontFamily: "var(--font-poppins)" }}
                 >
                   {item.label}
@@ -198,9 +198,9 @@ export default function TabHero() {
           <div className="w-full h-full flex flex-col items-start justify-start py-5">
             <div className="flex items-center justify-center flex-col gap-2">
               <LightModeToggle />
-              <button data-cursor="download cv">
+              {/* <button data-cursor="download cv">
                 <Download className="w-7 h-4 text-black/80 dark:text-white/80 font-bold hover:scale-110 transition-transform duration-300 ease-in-out" />
-              </button>
+              </button> */}
             </div>
           </div>
 

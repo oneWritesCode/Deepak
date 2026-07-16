@@ -38,12 +38,6 @@ function ProjectSGridSection({
               {items.map((project) => (
                 <div
                   key={project.id}
-                  // FIX: "tracking-]" and "scale-101" were invalid Tailwind
-                  // classes doing nothing; "transition-scale" isn't a real
-                  // utility either (transform transitions go through
-                  // transition-transform/transition-all — the latter was
-                  // already present, so this was dead weight). Consolidated
-                  // into one clear transition declaration.
                   className="group flex flex-col cursor-pointer p-4 rounded-xl border border-black/80 dark:border-white/20 transition-all duration-200 ease-out hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.25)] hover:dark:shadow-[inset_0_2px_6px_rgba(255,255,255,0.15)] hover:scale-[1.01] active:scale-95"
                   onClick={() => onSelect(project.id)}
                 >

@@ -63,7 +63,7 @@ export default function CursorFX({ color }: CursorFXProps) {
       ref={cursorRef}
       style={{ left: -100, top: -100 }}
       className={[
-        "pointer-events-none fixed z-[9999] flex -translate-x-1/2 -translate-y-1/2 items-center justify-center",
+        "pointer-events-none fixed z-[9999] flex -translate-x-1/2 -translate-y-1/2 items-center justify-center hidden sm:block",
         isChevron
           ? "h-6 w-6 rounded-full border border-black/70 bg-transparent dark:border-white/70"
           : isLabel

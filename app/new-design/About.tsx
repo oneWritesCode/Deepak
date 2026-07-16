@@ -80,7 +80,7 @@ function About() {
 
   return (
     <div
-      className="w-full h-[75vh] flex flex-row gap-6 items-start px-4 py-6"
+      className="w-full h-[75vh] flex flex-row gap-6 items-start px-4 py-6 overflow-y-auto overflow-x-hidden"
       style={{ fontFamily: "var(--font-poppins)" }}
     >
       {/* ═══════════════ LEFT COLUMN ═══════════════ */}

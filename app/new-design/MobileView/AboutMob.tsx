@@ -73,7 +73,7 @@ const TECH_STACK: Record<string, string[]> = {
 
 export default function AboutMob() {
   return (
-       <div className="flex-1 min-w-0 flex flex-col gap-4 pl-4">
+       <div className="flex-1 w-full flex flex-col gap-4 pl-4">
           {/* Socials */}
           <div className="w-full flex flex-col gap-0.5">
             <p className="text-[8px] uppercase tracking-[0.2em] text-black/80 dark:text-white/80  ">
@@ -87,17 +87,9 @@ export default function AboutMob() {
                   target={s.icon === "email" ? "_self" : "_blank"}
                   rel="noopener noreferrer"
                   data-cursor={s.cursor}
-                  className="flex items-center gap-2 py-1 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors group"
+                  className="flex items-center gap-2 py-0.5 xs:py-1 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors group"
                 >
                   <SocialIconBox name={s.icon} />
-                  {/* <div className="min-w-0">
-                  <p className="text-[10px] font-medium leading-none">
-                    {s.label}
-                  </p>
-                  <p className="text-[8px] text-black/40 dark:text-white/40 leading-tight truncate">
-                    {s.handle}
-                  </p>
-                </div> */}
                 </a>
               ))}
             </div>
@@ -108,14 +100,14 @@ export default function AboutMob() {
               Hi, I&apos;m
             </p>
             <h1
-              className="text-7xl font-bold uppercase text-black dark:text-white"
+              className="text-4xl xs:text-7xl font-bold uppercase text-black dark:text-white"
               style={{ fontFamily: "var(--font-anton)" }}
             >
               Deepak kr. Singh
             </h1>
-            <p>
+            <div>
               <Roles />
-            </p>
+            </div>
             <div className="mt-2 text-[12px] capitalize leading-relaxed text-black/70 dark:text-white/70 max-w-[500px]">
               <p>
                 <span className="text-black dark:text-white">deepak</span> is
@@ -157,7 +149,7 @@ export default function AboutMob() {
                     {techs.map((tech) => (
                       <span
                         key={tech}
-                        className="text-[12px] px-2 py-0.5 border capitalize border-black/15 dark:border-white/15 rounded-md text-black/70 dark:text-white/70"
+                        className="text-[10px] xs:text-[12px] px-2 py-px xs:py-0.5 border capitalize border-black/15 dark:border-white/15 rounded-md text-black/70 dark:text-white/70"
                       >
                         {tech}
                       </span>
@@ -179,7 +171,7 @@ export default function AboutMob() {
 
 function SocialIconBox({ name }: { name: string }) {
   const cls =
-    "w-5 h-5 flex items-center justify-center shrink-0 text-black dark:text-white";
+    "w-5 h-5 xs:w-5 xs:h-5 mr-1 xs:mr-0 flex items-center justify-center shrink-0 text-black dark:text-white";
   if (name === "github") return <Github className={cls} />;
   if (name === "linkedin") return <Linkedin className={cls} />;
   if (name === "x") return <Twitterx className={cls} />;

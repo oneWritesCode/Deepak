@@ -44,7 +44,7 @@ export default function ExperienceMob() {
         {/* ── Timeline ── */}
         <div className="relative mt-2 h-full self-stretch">
           {/* Vertical line */}
-          <div className="w-px h-full absolute left-[120px] md:left-[140px] top-0 bottom-0 bg-black/15 dark:bg-white/15" />
+          <div className="w-px h-full absolute left-[80px] xs:left-[120px] top-0 bottom-0 bg-black/15 dark:bg-white/15" />
 
           <div className="flex flex-col gap-0">
             {EXPERIENCES.map((exp, i) => (
@@ -57,7 +57,7 @@ export default function ExperienceMob() {
                 className="relative flex items-stretch min-h-[160px]"
               >
                 {/* ── Year column ── */}
-                <div className="w-[120px] md:w-[140px] shrink-0 flex items-start justify-end pt-6 pr-4">
+                <div className="w-[80px] xs:w-[120px] shrink-0 flex items-start justify-end pt-6 pr-4">
                   <div
                     className="h-10 flex flex-col items-center justify-center gap-px text-[11px] self-stretch tracking-wide text-black/50 dark:text-white/50"
                     style={{ fontFamily: "var(--font-poppins)" }}
@@ -82,16 +82,16 @@ export default function ExperienceMob() {
                 </div>
 
                 {/* ── Content ── */}
-                <div className="flex-1 pl-8 pb-8 pt-3 border-b border-black/8 dark:border-white/8 last:border-b-0">
+                <div className="flex-1 pl-4 xs:pl-8 pb-8 pt-3 border-b border-black/8 dark:border-white/8 last:border-b-0">
                   {/* Role + Type */}
-                  <div className="w-16/20 flex items-center justify-between gap-3 flex-wrap">
+                  <div className="w-19/20 flex items-center justify-between gap-3 flex-wrap">
                     <h3
                       className="text-[16px] md:text-[18px] capitalize text-black dark:text-white"
                       style={{ fontFamily: "var(--font-anton)" }}
                     >
                       {exp.role}
                     </h3>
-                    <span className="text-[10px] py-px px-3 rounded-xl border border-black/15 dark:border-white/15">
+                    <span className="text-[10px] py-px px-2 xs:px-3 rounded-xl border border-black/15 dark:border-white/15">
                       {exp.type}
                     </span>
                   </div>
@@ -102,7 +102,7 @@ export default function ExperienceMob() {
                   </p>
 
                   {/* Description */}
-                  <p className="mt-2 text-[12px] leading-relaxed text-black/60 dark:text-white/60 max-w-[500px]">
+                  <p className="mt-2 text-[10px] xs:text-[12px] leading-relaxed text-black/60 dark:text-white/60 max-w-[500px]">
                     {exp.description}
                   </p>
                 </div>
@@ -111,18 +111,6 @@ export default function ExperienceMob() {
           </div>
         </div>
       </div>
-
-      {/* <div className="w-3/10 self-stretch flex items-end justify-end">
-        <div className="absolute -top-[7%] -left-[20rem] lg:-left-[13rem] scale-70  text-black dark:text-white/80 pointer-events-none z-0 hidden lg:block">
-          <Arrows5 />
-        </div>
-        <div className="relative group w-full aspect-square rounded-full overflow-hidden bg-[#f5f5f5] dark:shadow-[0_4px_20px_rgba(0,0,0,0.8)] shadow-[0_2px_20px_rgba(0,0,0,0.2)] hover:shadow-none hidden lg:block">
-          <motion.div className="">
-            <Image src="/assets/new/photo-4.png" alt="Experience" fill />
-          </motion.div>
-          <div className="pointer-events-none absolute inset-0 rounded-full transition-shadow duration-300 ease-out group-hover:shadow-[inset_0_4px_10px_rgba(0,0,0,0.5)] dark:group-hover:shadow-[inset_0_4px_10px_rgba(0,0,0,0.6)]" />
-        </div>
-      </div> */}
     </div>
   );
 }
