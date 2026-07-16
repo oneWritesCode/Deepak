@@ -5,8 +5,8 @@ import LandingPage from "@/app/old pages/LandingPage";
 import TechStack from "@/app/old pages/TechStack";
 import Footer from "@/app/old pages/Footer";
 import Experience from "@/app/old pages/Experience";
-import LatestProjectSection from "@/app/components/LatestProjectSection";
-import GitHubContributions from "../components/githubContributions";
+import LatestProjectSection from "@/app/pages/components/LatestProjectSection";
+import GitHubContributions from "../pages/components/githubContributions";
 
 export default function Home() {
   const location = usePathname();

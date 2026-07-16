@@ -1,5 +1,5 @@
 import React from "react";
-import NavlinkMotion from "../components/NavlinkMotion";
+import NavlinkMotion from "../pages/components/NavlinkMotion";
 
 function LandingPage(): React.ReactElement {
   return (

@@ -1,11 +1,11 @@
 import React, { useState, useRef } from "react";
-import NavLink from "../components/NavLink";
-import TechStack from "@/app/components/TechStack";
-import Footer from "@/app/components/Footer";
-import Experience from "../components/Experience";
-import LatestProjectSection from "../components/LatestProjectSection";
-import Lines from "../components/Lines";
-import GitHubContributions from "../components/githubContributions";
+import NavLink from "./components/NavLink";
+import TechStack from "./components/TechStack";
+import Footer from "./components/Footer";
+import Experience from "./components/Experience";
+import LatestProjectSection from "./components/LatestProjectSection";
+import Lines from "./components/Lines";
+import GitHubContributions from "./components/githubContributions";
 
 interface NavItem {
   label: string;
