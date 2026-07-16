@@ -3,7 +3,7 @@ import { Geist, Geist_Mono, Poppins, Anton } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./context/ThemeContext";
 import CursorFX from "./components/CursorFX";
-import SmoothScroll from "./components/SmoothScroll";
+import { Analytics } from "@vercel/analytics/next";
 import ReactScanDevTool from "./components/ReactScanDevTools";
 
 const geistSans = Geist({
@@ -64,10 +64,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${anton.variable} antialiased bg-black`}
       >
+        <Analytics />
         <ThemeProvider>
-            <CursorFX color="bg-white border border-black/60" />
-            {/* <ReactScanDevTool /> */}
-            {children}
+          <CursorFX color="bg-white border border-black/60" />
+          {/* <ReactScanDevTool /> */}
+          {children}
         </ThemeProvider>
       </body>
     </html>
