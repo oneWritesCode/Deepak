@@ -67,9 +67,9 @@ export default function RootLayout({
       >
         <ThemeProvider>
           {/* <SmoothScroll> */}
-            <LoadingScreen minDisplayMs={2000} />
-            <CursorFX color="bg-white border-black/60" />
-            <ReactScanDevTool />
+            {/* <LoadingScreen minDisplayMs={2000} /> */}
+            <CursorFX color="bg-white border border-black/60" />
+            {/* <ReactScanDevTool /> */}
             {children}
           {/* </SmoothScroll> */}
         </ThemeProvider>

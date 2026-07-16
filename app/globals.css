@@ -6,9 +6,21 @@
   --foreground: #171717;
 }
 
-* {
-  /* border:1px solid black; */
-  cursor: none !important;
+/* * {
+  border:1px solid gray;
+} */
+
+@media (min-width: 800px) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Show normal cursor below 1024px */
+@media (max-width: 800px) {
+  * {
+    cursor: auto !important;
+  }
 }
 
 @theme inline {
@@ -66,10 +78,6 @@
 ::view-transition-new(root) {
   z-index: 2147483646;
 }
-
-/* *{
-  border: 1px solid white;
-} */
 
 @font-face {
   font-family: 'BonheurRoyal-regular';
