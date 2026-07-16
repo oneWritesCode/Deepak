@@ -441,10 +441,10 @@ function NavCornerBlock({
         <button
           data-cursor="Click"
           onClick={onClick}
-          className="group relative flex items-center justify-center transition-all hover:scale-110 hover:font-bold active:scale-95 duration-400 ease-in- hover:shadow-[0_1px_10px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_1px_10px_rgba(255,255,255,0.1)] border-2 border-black/15 dark:border-white/80 px-3 py-0.15"
+          className="group relative flex items-center justify-center transition-all hover:scale-110 hover:font-bold active:scale-95 duration-400 ease-in- hover:shadow-[0_1px_10px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_1px_10px_rgba(255,255,255,0.1)] border-2 border-black/15 dark:border-white/15 px-3 py-0.15"
         >
           <span
-            className="relative z-10 text-[16px] uppercase text-black dark:text-white font-extralight"
+            className="relative z-10 text-[16px] uppercase text-black dark:text-white/80 font-extralight"
             style={{ fontFamily: "var(--font-poppins)" }}
           >
             {label}
