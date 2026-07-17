@@ -58,7 +58,7 @@ export default function SlideOverPanel({
           />
 
           <motion.div
-            className="relative z-10 w-[min(92vw,1300px)] max-h-[vh] overflow-y-auto rounded-4  rounded-4xl border border-black/10 dark:border-white/10 bg-[#f5f5f5] dark:bg-[#1a1a1a] text-black dark:text-white p-8 shadow-2xl"
+            className="relative z-10 w-[min(92vw,1300px)] max-h-[85vh] min-h-0 overflow-y-auto rounded-4 rounded-4xl border border-black/10 dark:border-white/10 bg-[#f5f5f5] dark:bg-[#1a1a1a] text-black dark:text-white p-8 shadow-2xl"
             initial={(() => {
               const { x, y, rotate } = getCornerStart(corner);
               return { x, y, scale: 0.35, rotate, opacity: 0 };
