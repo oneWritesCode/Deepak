@@ -27,6 +27,7 @@ import CursorFX from "../../components/CursorFX";
 import MagneticGroup from "../../components/MagneticGroup";
 import Experience from "../Experience/Experience";
 import VsCode from "../icons/VsCode";
+import Socials from "../MobileView/Socials";
 
 const RING_TEXT =
   "figma + next.js + typescript + express + AWS + postgress + motion + prisma + docker + typescript + linux + css +  godot + python + ";
@@ -175,21 +176,25 @@ export default function TabHero() {
               </defs>
 
               <MagneticGroup>
-              <text
-                className="fill-black/90 text-[19px] tracking-[0.3em] dark:fill-white/90"
-                style={{ fontFamily: "var(--font-poppins)" }}
-              >
-                <textPath href={`#${ringPathId}`} startOffset="0%">
-                  {RING_TEXT}
-                </textPath>
-              </text>
+                <text
+                  className="fill-black/90 text-[19px] tracking-[0.3em] dark:fill-white/90"
+                  style={{ fontFamily: "var(--font-poppins)" }}
+                >
+                  <textPath href={`#${ringPathId}`} startOffset="0%">
+                    {RING_TEXT}
+                  </textPath>
+                </text>
               </MagneticGroup>
             </svg>
 
             {/* Photo cluster sits inside the ring, in its own relative box */}
             <div className="absolute left-1/2 top-1/2 h-[70%] w-[46%] -translate-x-1/2 -translate-y-1/2">
               {PHOTOS.map((photo, i) => (
-                <RingContent photo={photo} key={i} onClick={() => setActiveSection(photo.label)} />
+                <RingContent
+                  photo={photo}
+                  key={i}
+                  onClick={() => setActiveSection(photo.label)}
+                />
               ))}
             </div>
           </div>
@@ -223,8 +228,8 @@ export default function TabHero() {
             >
               <h6>BUILT BY DEEPAK &lt;3</h6>
             </div>
-            <div className="flex gap-4 py-2 ">
-              {SOCIAL_ICONS.map((Icon, i) => (
+            <div className="flex gap-2 py-2 ">
+              {/* {SOCIAL_ICONS.map((Icon, i) => (
                 <a
                   href={Icon.link}
                   key={i}
@@ -235,7 +240,8 @@ export default function TabHero() {
                     {Icon.icon}
                   </span>
                 </a>
-              ))}
+              ))} */}
+              <Socials />
             </div>
           </div>
         </div>
@@ -262,31 +268,30 @@ export default function TabHero() {
   );
 }
 
-function RingContent({ photo, onClick }: { photo:any, onClick: () => void }) {
- 
+function RingContent({ photo, onClick }: { photo: any; onClick: () => void }) {
   return (
-      <button
-        key={photo.label}
-        type="button"
-        data-cursor={photo.label}
-        onClick={onClick}
-        className="group absolute overflow-hidden rounded-full hover:scale-[0.98] scale-110 transition-all duration-300 ease-out shadow-[0_4px_20px_rgba(0,0,0,0.10)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.8)] hover:shadow-none"
-        style={{
-          top: photo.top,
-          left: photo.left,
-          width: photo.size,
-          height: photo.size,
-        }}
-      >
-        <Image
-          src={photo.src}
-          alt={photo.alt}
-          fill
-          sizes={`${photo.size}px`}
-          className="rounded-full object-cover"
-        />
+    <button
+      key={photo.label}
+      type="button"
+      data-cursor={photo.label}
+      onClick={onClick}
+      className="group absolute overflow-hidden rounded-full hover:scale-[0.98] scale-110 transition-all duration-300 ease-out shadow-[0_4px_20px_rgba(0,0,0,0.10)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.8)] hover:shadow-none"
+      style={{
+        top: photo.top,
+        left: photo.left,
+        width: photo.size,
+        height: photo.size,
+      }}
+    >
+      <Image
+        src={photo.src}
+        alt={photo.alt}
+        fill
+        sizes={`${photo.size}px`}
+        className="rounded-full object-cover"
+      />
 
-        <div className="pointer-events-none absolute inset-0 rounded-full transition-shadow duration-300 group-hover:shadow-[inset_0_4px_10px_rgba(0,0,0,0.25)] dark:group-hover:shadow-[inset_0_4px_10px_rgba(0,0,0,0.6)]" />
-      </button>
+      <div className="pointer-events-none absolute inset-0 rounded-full transition-shadow duration-300 group-hover:shadow-[inset_0_4px_10px_rgba(0,0,0,0.25)] dark:group-hover:shadow-[inset_0_4px_10px_rgba(0,0,0,0.6)]" />
+    </button>
   );
 }
