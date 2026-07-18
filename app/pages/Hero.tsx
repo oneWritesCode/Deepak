@@ -27,6 +27,7 @@ import CursorFX from "../components/CursorFX";
 import MagneticGroup from "../components/MagneticGroup";
 import Experience from "./Experience/Experience";
 import VsCode from "./icons/VsCode";
+import Socials from "./MobileView/Socials";
 
 const RING_TEXT =
   "figma + next.js + typescript + express + AWS + postgress + motion + prisma + docker + typescript + linux + css +  godot + python + ";
@@ -99,36 +100,41 @@ const NAV_ITEMS: {
   },
 ];
 
-const SOCIAL_ICONS = [
-  {
-    icon: <Twitterx className="w-4 h-4 text-black dark:text-white" />,
-    link: "https://x.com/triordeep",
-    name: "twitter / x",
-  },
-  {
-    icon: <SocialGithub className="w-4 h-4 text-black dark:text-white" />,
-    link: "https://github.com/onewritescode",
-    name: "github",
-  },
-  {
-    icon: <Linkedin className="w-4 h-4 text-black dark:text-white/60" />,
-    link: "https://www.linkedin.com/in/deepak-singh-27a17a321/",
-    name: "linkedin",
-  },
-  {
-    icon: <Medium className="w-4 h-4 text-black dark:text-white/60" />,
-    link: "https://medium.com/@triordeep",
-    name: "medium",
-  },
-  {
-    icon: <Itch className="w-4 h-4 text-black dark:text-white" />,
-    link: "https://d33pak.itch.io",
-    name: "itch.io",
-  },
-];
+// const SOCIAL_ICONS = [
+//   {
+//     icon: <Twitterx className="w-4 h-4 text-black dark:text-white" />,
+//     link: "https://x.com/triordeep",
+//     name: "twitter / x",
+//   },
+//   {
+//     icon: <Twitterx className="w-4 h-4 text-black dark:text-white" />,
+//     link: "https://x.com/triordeep",
+//     name: "twitter / x",
+//   },
+//   {
+//     icon: <SocialGithub className="w-4 h-4 text-black dark:text-white" />,
+//     link: "https://github.com/onewritescode",
+//     name: "github",
+//   },
+//   {
+//     icon: <Linkedin className="w-4 h-4 text-black dark:text-white/60" />,
+//     link: "https://www.linkedin.com/in/deepak-singh-27a17a321/",
+//     name: "linkedin",
+//   },
+//   {
+//     icon: <Medium className="w-4 h-4 text-black dark:text-white/60" />,
+//     link: "https://medium.com/@triordeep",
+//     name: "medium",
+//   },
+//   {
+//     icon: <Itch className="w-4 h-4 text-black dark:text-white" />,
+//     link: "https://d33pak.itch.io",
+//     name: "itch.io",
+//   },
+// ];
 
 // ── Responsive fit-scale ─────────────────────────────────────────────────────
-const STAGE_DESIGN_WIDTH = 1280; 
+const STAGE_DESIGN_WIDTH = 1280;
 const STAGE_DESIGN_HEIGHT = 800;
 const STAGE_EDGE_PADDING = 48;
 
@@ -282,8 +288,8 @@ export default function Hero() {
             >
               <h6>BUILT BY DEEPAK &lt;3</h6>
             </div>
-            <div className="flex gap-4 py-2 ">
-              {SOCIAL_ICONS.map((Icon, i) => (
+            <div className="flex gap-2 py-2 ">
+              {/* {SOCIAL_ICONS.map((Icon, i) => (
                 <a
                   href={Icon.link}
                   key={i}
@@ -294,7 +300,8 @@ export default function Hero() {
                     {Icon.icon}
                   </span>
                 </a>
-              ))}
+              ))} */}
+              <Socials />
             </div>
           </div>
         </div>
@@ -324,10 +331,10 @@ export default function Hero() {
 function RingContent({ photo, onClick }: { photo: any; onClick: () => void }) {
   return (
     <button
-        key={photo.label}
-        type="button"
-        data-cursor={photo.label}
-        onClick={onClick}
+      key={photo.label}
+      type="button"
+      data-cursor={photo.label}
+      onClick={onClick}
       className="group absolute rounded-full transition-all duration-300 ease-out shadow-2xl dark:shadow-[0_4px_20px_rgba(0,0,0,0.8)] hover:shadow-none hover:scale-[0.98] md:scale-90 lg:scale-100 xl:scale-110"
       style={{
         top: photo.top,
