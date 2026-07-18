@@ -1,14 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useId, useLayoutEffect, useRef, useState } from "react";
+import { useId, useState } from "react";
 import SlideOverPanel from "../../components/SlideOverPanel";
 import PanelContent from "../../components/PanelContent";
 import About from "../About";
-import RoughBorderBox from "../../components/RoughBorderBox";
 import LightModeToggle from "../../components/LightModeToggle";
 import Twitterx from "../icons/Twitterx";
-import Download from "../icons/Download";
 import Figma from "../icons/Figma";
 import Postman from "../icons/Postman";
 import Terminal from "../icons/Terminal";
@@ -19,15 +17,10 @@ import Linkedin from "../icons/Linkedin";
 import Itch from "../icons/Itch";
 import SocialGithub from "../icons/Github";
 import Medium from "../icons/Medium";
-import Arrows1 from "../icons/Arrows1";
-import Arrows2 from "../icons/Arrows2";
-import Arrows3 from "../icons/Arrows3";
-import Arrows4 from "../icons/Arrows4";
-import CursorFX from "../../components/CursorFX";
 import MagneticGroup from "../../components/MagneticGroup";
 import Experience from "../Experience/Experience";
 import VsCode from "../icons/VsCode";
-import Socials from "../MobileView/Socials";
+import Socials from "../../components/Socials";
 
 const RING_TEXT =
   "figma + next.js + typescript + express + AWS + postgress + motion + prisma + docker + typescript + linux + css +  godot + python + ";
@@ -203,9 +196,6 @@ export default function TabHero() {
           <div className="w-full h-full flex flex-col items-start justify-start py-5">
             <div className="flex items-center justify-center flex-col gap-2">
               <LightModeToggle />
-              {/* <button data-cursor="download cv">
-                <Download className="w-7 h-4 text-black/80 dark:text-white/80 font-bold hover:scale-110 transition-transform duration-300 ease-in-out" />
-              </button> */}
             </div>
           </div>
 
@@ -229,18 +219,6 @@ export default function TabHero() {
               <h6>BUILT BY DEEPAK &lt;3</h6>
             </div>
             <div className="flex gap-2 py-2 ">
-              {/* {SOCIAL_ICONS.map((Icon, i) => (
-                <a
-                  href={Icon.link}
-                  key={i}
-                  data-cursor={Icon.name}
-                  className="group flex items-center justify-center gap-4"
-                >
-                  <span className="group-hover:-translate-y-1 group-hover:scale-120 transition-all duration-400">
-                    {Icon.icon}
-                  </span>
-                </a>
-              ))} */}
               <Socials />
             </div>
           </div>

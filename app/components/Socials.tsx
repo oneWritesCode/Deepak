@@ -1,9 +1,9 @@
 import { memo } from "react";
-import SocialGithub from "../icons/Github";
-import TwitterX from "../icons/Twitterx";
-import Linkedin from "../icons/Linkedin";
-import Medium from "../icons/Medium";
-import Itch from "../icons/Itch";
+import SocialGithub from "../pages/icons/Github";
+import TwitterX from "../pages/icons/Twitterx";
+import Linkedin from "../pages/icons/Linkedin";
+import Medium from "../pages/icons/Medium";
+import Itch from "../pages/icons/Itch";
 
 const SOCIALS = [
   {

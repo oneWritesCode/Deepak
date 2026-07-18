@@ -27,7 +27,7 @@ import CursorFX from "../components/CursorFX";
 import MagneticGroup from "../components/MagneticGroup";
 import Experience from "./Experience/Experience";
 import VsCode from "./icons/VsCode";
-import Socials from "./MobileView/Socials";
+import Socials from "../components/Socials";
 
 const RING_TEXT =
   "figma + next.js + typescript + express + AWS + postgress + motion + prisma + docker + typescript + linux + css +  godot + python + ";
