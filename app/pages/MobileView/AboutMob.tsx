@@ -7,9 +7,19 @@ import Linkedin from "../icons/Linkedin";
 import Twitterx from "../icons/Twitterx";
 import Medium from "../icons/Medium";
 import GitHubHeatmap from '../../components/GitHubHeatmap';
+import Itch from "../icons/Itch";
+import Philosophies from "./Philosophies";
+import Roles from "./Roles";
 
 
 const SOCIALS = [
+  {
+    icon: "email",
+    label: "Email",
+    handle: "triordeep@gmail.com",
+    href: "mailto:triordeep@gmail.com",
+    cursor: "email",
+  },
   {
     icon: "github",
     label: "GitHub",
@@ -37,14 +47,14 @@ const SOCIALS = [
     handle: "@triordeep",
     href: "https://medium.com/@triordeep",
     cursor: "medium",
+  }, {
+    icon: "Itch",
+    label: "Itch",
+    handle: "@d33pak",
+    href: "https://d33pak.itch.io",
+    cursor: "itch.io",
   },
-  {
-    icon: "email",
-    label: "Email",
-    handle: "triordeep@gmail.com",
-    href: "mailto:triordeep@gmail.com",
-    cursor: "email",
-  },
+  
 ];
 
 const TECH_STACK: Record<string, string[]> = {
@@ -176,6 +186,7 @@ function SocialIconBox({ name }: { name: string }) {
   if (name === "linkedin") return <Linkedin className={cls} />;
   if (name === "x") return <Twitterx className={cls} />;
   if (name === "medium") return <Medium className={cls} />;
+  if (name === "Itch") return <Itch className={cls} />;
   return (
     <svg
       className={cls}
@@ -191,132 +202,6 @@ function SocialIconBox({ name }: { name: string }) {
     </svg>
   );
 }
-
-// animated components ________________________________________________________
-
-const philosophies = [
-  '"As long as I am alive, there are infinite chances."',
-  '"Stay curious. Stay uncomfortable."',
-  '"everything wants you, when you want nothing."',
-  '"we can\'t learn without Pain."',
-  '"don\'t suffer imagined troubles."',
-  '"everything is a win when the goal is to experience."',
-];
-
-// philosophieeeees
-const Philosophies = memo(function Philosophies() {
-  const [quoteIndex, setQuoteIndex] = useState(0);
-  const [displayedText, setDisplayedText] = useState("");
-
-  useEffect(() => {
-    const currentQuote = philosophies[quoteIndex];
-    let charIndex = 0;
-
-    let pauseTimeout: ReturnType<typeof setTimeout> | undefined;
-
-    const typing = setInterval(() => {
-      setDisplayedText(currentQuote.slice(0, charIndex + 1));
-      charIndex++;
-
-      if (charIndex === currentQuote.length) {
-        clearInterval(typing);
-        pauseTimeout = setTimeout(() => {
-          setDisplayedText("");
-          setQuoteIndex((prev) => (prev + 1) % philosophies.length);
-        }, 5000);
-      }
-    }, 45);
-
-    return () => {
-      clearInterval(typing);
-      if (pauseTimeout) clearTimeout(pauseTimeout);
-    };
-  }, [quoteIndex]);
-
-  return (
-    <div>
-      <p
-        className="mb-3 text-[14px] uppercase tracking-[0.12em] text-black/70 dark:text-white/70"
-        style={{ fontFamily: "var(--font-anton)" }}
-      >
-        Philosophies i live by
-      </p>
-
-      <blockquote className="border-l-2 border-black/20 pl-4 italic text-[14px] leading-relaxed text-black/70 dark:border-white/20 dark:text-white/70">
-        {displayedText}
-        <span className="animate-pulse"> |</span>
-      </blockquote>
-    </div>
-  );
-});
-
-const MyRoles = [
-  "Full-Stack Engineer",
-  "gamedev paglu",
-  "design engineer",
-  "shitposter",
-  "indie Hacker",
-];
-
-const ROTATE_INTERVAL_MS = 3800;
-
-// roles_________________________________________________________
-const Roles = memo(function Roles() {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((i) => (i + 1) % MyRoles.length);
-    }, ROTATE_INTERVAL_MS);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="relative h-[20px]">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={index}
-          className="absolute inset-0 flex"
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          variants={{
-            animate: { transition: { staggerChildren: 0.03 } },
-            exit: {
-              transition: {
-                delayChildren: 0.1,
-                staggerChildren: 0.02,
-                staggerDirection: -1,
-              },
-            },
-          }}
-        >
-          {MyRoles[index].split("").map((char, i) => (
-            <motion.span
-              key={i}
-              className="inline-block whitespace-pre uppercase text-[14px] tracking-[0.10em] text-black/55 dark:text-white/55"
-              variants={{
-                initial: { y: "100%", opacity: 0 },
-                animate: {
-                  y: "0%",
-                  opacity: 1,
-                  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-                },
-                exit: {
-                  y: "-100%",
-                  opacity: 0,
-                  transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
-                },
-              }}
-            >
-              {char === " " ? "\u00A0" : char}
-            </motion.span>
-          ))}
-        </motion.div>
-      </AnimatePresence>
-    </div>
-  );
-});
 
 /**
  * Worst-case math, for "Open Source Contributor" (24 chars) — the
