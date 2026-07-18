@@ -75,7 +75,7 @@ export default memo(Socials);
 
 function SocialIconBox({ name }: { name: string }) {
   const cls =
-    "w-5 h-5 xs:w-5 xs:h-5 mr-1 xs:mr-0 flex items-center justify-center shrink-0 text-black dark:text-white";
+    "w-5 h-5 xs:w-4 xs:h-4 mr-1 xs:mr-0 flex items-center justify-center shrink-0 text-black dark:text-white";
   if (name === "github") return <SocialGithub className={cls} />;
   if (name === "linkedin") return <Linkedin className={cls} />;
   if (name === "x") return <TwitterX className={cls} />;

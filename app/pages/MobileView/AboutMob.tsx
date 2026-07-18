@@ -31,7 +31,7 @@ const TECH_STACK: Record<string, string[]> = {
 
 export default function AboutMob() {
   return (
-       <div className="flex-1 w-full flex flex-col gap-4 pl-4">
+       <div className="flex-1 w-full flex flex-col gap-4 px-2">
           {/* Socials */}
           <div className="w-full flex flex-col gap-0.5">
             <p className="text-[8px] uppercase tracking-[0.2em] text-black/80 dark:text-white/80  ">
