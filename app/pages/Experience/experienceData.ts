@@ -11,18 +11,18 @@ export type ExperienceData = {
 };
 
 export const EXPERIENCES: ExperienceData[] = [
-  {
-    id: "supervisor",
-    role: "supervisor",
-    type: "supervisor",
-    organization: "MEC",
-    startedfrom: "2025, june",
-    workedtil: "current",
-    description:
-      "working and leading the work staff to reach the goal before the deadline with full efficiency and effectiveness",
-    techStack: ["Next.js", "React", "Tailwind CSS"],
-    isPresent: true,
-  },
+  // {
+  //   id: "supervisor",
+  //   role: "supervisor",
+  //   type: "supervisor",
+  //   organization: "MEC",
+  //   startedfrom: "2025, june",
+  //   workedtil: "current",
+  //   description:
+  //     "working and leading the work staff to reach the goal before the deadline with full efficiency and effectiveness",
+  //   techStack: ["Next.js", "React", "Tailwind CSS"],
+  //   isPresent: true,
+  // },
   {
     id: "fullstack-freelance",
     role: "freelancer",
